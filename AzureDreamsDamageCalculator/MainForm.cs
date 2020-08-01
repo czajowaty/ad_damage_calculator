@@ -7,7 +7,7 @@ namespace AzureDreamsDamageCalculator
 {
     public partial class MainForm : Form
     {
-        public static readonly string VERSION = "0.1";
+        public static readonly string VERSION = "0.1.1";
         public static readonly SortedDictionary<string, Weapon> KohWeaponsNames = new SortedDictionary<string, Weapon>()
         {
             { "", Unit.NO_WEAPON },
@@ -104,6 +104,7 @@ namespace AzureDreamsDamageCalculator
         private Familiar familiar = new Familiar();
         private UnitTraits familiarTraits = new UnitTraits();
         private MonsterControl[] monsterControls = new MonsterControl[0];
+        private bool updateMonstersControlBlocked = false;
 
         public MainForm()
         {
@@ -216,6 +217,8 @@ namespace AzureDreamsDamageCalculator
         }
         private void UpdateMonsterControls()
         {
+            if (updateMonstersControlBlocked)
+            { return; }
             Monster[] monstersOnSelectedFloor = MonstersOnSelectedFloor();
             for (int i = 0; i < monstersOnSelectedFloor.Length; ++i)
             { monsterControls[i].Fill(koh, familiar, monstersOnSelectedFloor[i]); }
@@ -262,6 +265,14 @@ namespace AzureDreamsDamageCalculator
             CreateMonsterControls();
             UpdateMonsterControls();
             monsterControlsFlowLayoutPanel.ResumeLayout();
+        }
+        private void levelUpKohFamiliarButton_Click(object sender, EventArgs e)
+        {
+            updateMonstersControlBlocked = true;
+            kohLevelNumericUpDown.Value += 1;
+            familiarLevelNumericUpDown.Value += 1;
+            updateMonstersControlBlocked = false;
+            UpdateMonsterControls();
         }
     }
 }

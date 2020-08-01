@@ -72,6 +72,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.floorNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.levelUpKohFamiliarButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.monsterControlsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.kohGroupBox.SuspendLayout();
@@ -88,6 +90,7 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.floorNumericUpDown)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -597,7 +600,8 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.AutoSize = true;
-            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -605,12 +609,12 @@
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.kohGroupBox, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox2, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox3, 3, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 145F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(810, 145);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(948, 145);
             this.tableLayoutPanel1.TabIndex = 13;
             // 
             // groupBox2
@@ -658,6 +662,31 @@
             this.label9.Size = new System.Drawing.Size(33, 13);
             this.label9.TabIndex = 0;
             this.label9.Text = "Floor:";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.AutoSize = true;
+            this.groupBox3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox3.Controls.Add(this.levelUpKohFamiliarButton);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Location = new System.Drawing.Point(813, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(132, 139);
+            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Operations";
+            // 
+            // levelUpKohFamiliarButton
+            // 
+            this.levelUpKohFamiliarButton.AutoSize = true;
+            this.levelUpKohFamiliarButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.levelUpKohFamiliarButton.Location = new System.Drawing.Point(6, 19);
+            this.levelUpKohFamiliarButton.Name = "levelUpKohFamiliarButton";
+            this.levelUpKohFamiliarButton.Size = new System.Drawing.Size(120, 23);
+            this.levelUpKohFamiliarButton.TabIndex = 0;
+            this.levelUpKohFamiliarButton.Text = "Level up Koh/Familiar";
+            this.levelUpKohFamiliarButton.UseVisualStyleBackColor = true;
+            this.levelUpKohFamiliarButton.Click += new System.EventHandler(this.levelUpKohFamiliarButton_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -711,6 +740,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.floorNumericUpDown)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
@@ -764,6 +795,8 @@
         private System.Windows.Forms.NumericUpDown familiarLevelNumericUpDown;
         private System.Windows.Forms.TextBox familiarSpellLevelTextBox;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button levelUpKohFamiliarButton;
     }
 }
 
