@@ -37,7 +37,7 @@ namespace AzureDreamsDamageCalculator
             public byte damageRoll;
             public int groundModifier;
             public bool criticalHit;
-            public TextBox damageTextBox;
+            public Label damageLabel;
             public CalculateDamageRecipe calculateDamageRecipe;
         }
 
@@ -52,6 +52,7 @@ namespace AzureDreamsDamageCalculator
         {
             this.SuspendLayout();
             int row = DAMAGE_TEXT_BOXES_START_ROW;
+            int index = 0;
             foreach (CalculateDamageRecipe calculateDamageRecipe in CALCULATE_DAMAGE_RECIPES)
             {
                 foreach (bool criticalHit in CRITICAL_HIT_OPTIONS)
@@ -61,27 +62,44 @@ namespace AzureDreamsDamageCalculator
                     {
                         foreach (byte damageRoll in DAMAGE_ROLLS)
                         {
-                            TextBox textBox = new TextBox();
-                            this.mainLayout.Controls.Add(textBox, column, row);
-                            textBox.Dock = DockStyle.Fill;
-                            textBox.ReadOnly = true;
-                            textBox.Margin = new Padding(0);
-                            textBox.Text = column.ToString() + ":" + row.ToString();
-                            textBox.TextAlign = HorizontalAlignment.Center;
+                            Label label = new Label();
+                            this.mainLayout.Controls.Add(label, column, row);
+                            label.BackColor = DamageLabelColor(calculateDamageRecipe, criticalHit, groundModifier, damageRoll);
+                            label.Dock = DockStyle.Fill;
+                            label.Font = new Font(label.Font.FontFamily, 10.0f);
+                            label.Margin = new Padding(0);
+                            label.Text = column.ToString() + ":" + row.ToString();
+                            label.TextAlign = ContentAlignment.MiddleCenter;
                             Descriptor descriptor = new Descriptor();
                             descriptor.damageRoll = damageRoll;
                             descriptor.groundModifier = groundModifier;
                             descriptor.criticalHit = criticalHit;
-                            descriptor.damageTextBox = textBox;
+                            descriptor.damageLabel = label;
                             descriptor.calculateDamageRecipe = calculateDamageRecipe;
                             descriptors.Add(descriptor);
                             ++column;
+                            ++index;
                         }
                     }
                     ++row;
                 }
             }
             this.ResumeLayout();
+        }
+        private Color DamageLabelColor(CalculateDamageRecipe calculateDamageRecipe, bool criticalHit, int groundModifier, byte damageRoll)
+        {
+            if (criticalHit || damageRoll != 1)
+            { return Color.White; }
+            if (groundModifier == 0)
+            { return Color.DeepSkyBlue; }
+            else
+            {
+                bool isMonsterAttack = calculateDamageRecipe == VsKohAttackDamage || calculateDamageRecipe == VsFamiliarAttackDamage;
+                if (groundModifier == 1)
+                { return isMonsterAttack ? Color.Red : Color.LawnGreen; }
+                else
+                { return isMonsterAttack ? Color.LawnGreen : Color.Red; }
+            }
         }
         public void Fill(Unit koh, Familiar familiar, Monster monster)
         {
@@ -93,7 +111,7 @@ namespace AzureDreamsDamageCalculator
             foreach (Descriptor descriptor in descriptors)
             {
                 uint damage = descriptor.calculateDamageRecipe(koh, familiar, monster, descriptor);
-                descriptor.damageTextBox.Text = damage.ToString();
+                descriptor.damageLabel.Text = damage.ToString();
             }
         }
         private static uint KohNormalAttackDamage(Unit koh, Familiar familiar, Monster monster, Descriptor descriptor)

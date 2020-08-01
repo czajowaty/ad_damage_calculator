@@ -62,13 +62,13 @@
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.label32 = new System.Windows.Forms.Label();
             this.hpTextBox = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.mpTextBox = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.genusTextBox = new System.Windows.Forms.TextBox();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.mainGroupBox.SuspendLayout();
             this.mainLayout.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -403,7 +403,7 @@
             this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label17.Location = new System.Drawing.Point(0, 160);
-            this.label17.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.label17.Margin = new System.Windows.Forms.Padding(0);
             this.label17.Name = "label17";
             this.mainLayout.SetRowSpan(this.label17, 2);
             this.label17.Size = new System.Drawing.Size(95, 38);
@@ -616,6 +616,15 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(420, 36);
             this.flowLayoutPanel1.TabIndex = 42;
             // 
+            // pictureBox
+            // 
+            this.pictureBox.BackColor = System.Drawing.Color.Yellow;
+            this.pictureBox.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox.TabIndex = 0;
+            this.pictureBox.TabStop = false;
+            // 
             // label32
             // 
             this.label32.AutoSize = true;
@@ -680,15 +689,6 @@
             this.genusTextBox.ReadOnly = true;
             this.genusTextBox.Size = new System.Drawing.Size(56, 29);
             this.genusTextBox.TabIndex = 6;
-            // 
-            // pictureBox
-            // 
-            this.pictureBox.BackColor = System.Drawing.Color.Yellow;
-            this.pictureBox.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox.TabIndex = 0;
-            this.pictureBox.TabStop = false;
             // 
             // MonsterControl
             // 

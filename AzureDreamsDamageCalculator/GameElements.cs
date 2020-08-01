@@ -1,5 +1,928 @@
 ﻿namespace AzureDreamsDamageCalculator
 {
+    public struct UnitsTraits
+    {
+        public static readonly UnitTraits Koh = new UnitTraits()
+        {
+            baseHp = 0x10,
+            hpGrowth = 0x16,
+            baseMp = 0x64,
+            mpGrowth = 0x00,
+            baseAttack = 0x05,
+            attackGrowth = 0x0D,
+            baseDefense = 0x04,
+            defenseGrowth = 0x0E,
+            baseAgility = 0x04,
+            agilityGrowth = 0x08,
+            baseLuck = 0x20,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x10,
+            expGivenGrowth = 0x10,
+            nativeGenus = Genus.None,
+            liftable = false,
+            pushable = false
+        };
+        public static readonly UnitTraits Hikewne = new UnitTraits()
+        {
+            baseHp = 0x0F,
+            hpGrowth = 0x11,
+            baseMp = 0x78,
+            mpGrowth = 0x04,
+            baseAttack = 0x07,
+            attackGrowth = 0x14,
+            baseDefense = 0x07,
+            defenseGrowth = 0x13,
+            baseAgility = 0x08,
+            agilityGrowth = 0x12,
+            baseLuck = 0x64,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x03,
+            expGivenGrowth = 0x1E,
+            nativeGenus = Genus.None,
+            liftable = false,
+            pushable = false
+        };
+        public static readonly UnitTraits Kewne = new UnitTraits()
+        {
+            baseHp = 0x0C,
+            hpGrowth = 0x12,
+            baseMp = 0x64,
+            mpGrowth = 0x00,
+            baseAttack = 0x06,
+            attackGrowth = 0x14,
+            baseDefense = 0x06,
+            defenseGrowth = 0x0E,
+            baseAgility = 0x05,
+            agilityGrowth = 0x14,
+            baseLuck = 0x50,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x03,
+            expGivenGrowth = 0x10,
+            nativeGenus = Genus.Fire,
+            liftable = true,
+            pushable = true
+        };
+        public static readonly UnitTraits Dragon = new UnitTraits()
+        {
+            baseHp = 0x0F,
+            hpGrowth = 0x12,
+            baseMp = 0x46,
+            mpGrowth = 0x00,
+            baseAttack = 0x09,
+            attackGrowth = 0x11,
+            baseDefense = 0x08,
+            defenseGrowth = 0x13,
+            baseAgility = 0x04,
+            agilityGrowth = 0x14,
+            baseLuck = 0x4B,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x03,
+            expGivenGrowth = 0x16,
+            nativeGenus = Genus.Fire,
+            liftable = false,
+            pushable = false
+        };
+        public static readonly UnitTraits Kid = new UnitTraits()
+        {
+            baseHp = 0x0C,
+            hpGrowth = 0x12,
+            baseMp = 0x3C,
+            mpGrowth = 0x08,
+            baseAttack = 0x07,
+            attackGrowth = 0x14,
+            baseDefense = 0x05,
+            defenseGrowth = 0x13,
+            baseAgility = 0x05,
+            agilityGrowth = 0x14,
+            baseLuck = 0x4B,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x02,
+            expGivenGrowth = 0x13,
+            nativeGenus = Genus.Fire,
+            liftable = true,
+            pushable = true
+        };
+        public static readonly UnitTraits Ifrit = new UnitTraits()
+        {
+            baseHp = 0x09,
+            hpGrowth = 0x13,
+            baseMp = 0x5A,
+            mpGrowth = 0x00,
+            baseAttack = 0x06,
+            attackGrowth = 0x15,
+            baseDefense = 0x06,
+            defenseGrowth = 0x12,
+            baseAgility = 0x06,
+            agilityGrowth = 0x0E,
+            baseLuck = 0x46,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x03,
+            expGivenGrowth = 0x15,
+            nativeGenus = Genus.Fire,
+            liftable = false,
+            pushable = false
+        };
+        public static readonly UnitTraits Flame = new UnitTraits()
+        {
+            baseHp = 0x09,
+            hpGrowth = 0x12,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x05,
+            attackGrowth = 0x19,
+            baseDefense = 0x05,
+            defenseGrowth = 0x11,
+            baseAgility = 0x06,
+            agilityGrowth = 0x14,
+            baseLuck = 0x50,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x02,
+            expGivenGrowth = 0x0F,
+            nativeGenus = Genus.Fire,
+            liftable = false,
+            pushable = true
+        };
+        public static readonly UnitTraits Grineut = new UnitTraits()
+        {
+            baseHp = 0x0A,
+            hpGrowth = 0x14,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x06,
+            attackGrowth = 0x13,
+            baseDefense = 0x06,
+            defenseGrowth = 0x12,
+            baseAgility = 0x06,
+            agilityGrowth = 0x15,
+            baseLuck = 0x46,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x03,
+            expGivenGrowth = 0x12,
+            nativeGenus = Genus.Fire,
+            liftable = false,
+            pushable = false
+        };
+        public static readonly UnitTraits Griffon = new UnitTraits()
+        {
+            baseHp = 0x09,
+            hpGrowth = 0x14,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x06,
+            attackGrowth = 0x13,
+            baseDefense = 0x05,
+            defenseGrowth = 0x12,
+            baseAgility = 0x05,
+            agilityGrowth = 0x19,
+            baseLuck = 0x50,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x02,
+            expGivenGrowth = 0x10,
+            nativeGenus = Genus.Fire,
+            liftable = true,
+            pushable = true
+        };
+        public static readonly UnitTraits Saber = new UnitTraits()
+        {
+            baseHp = 0x0A,
+            hpGrowth = 0x14,
+            baseMp = 0x5A,
+            mpGrowth = 0x00,
+            baseAttack = 0x05,
+            attackGrowth = 0x17,
+            baseDefense = 0x05,
+            defenseGrowth = 0x13,
+            baseAgility = 0x05,
+            agilityGrowth = 0x16,
+            baseLuck = 0x46,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x03,
+            expGivenGrowth = 0x11,
+            nativeGenus = Genus.Water,
+            liftable = false,
+            pushable = false
+        };
+        public static readonly UnitTraits Snowman = new UnitTraits()
+        {
+            baseHp = 0x0A,
+            hpGrowth = 0x14,
+            baseMp = 0x5A,
+            mpGrowth = 0x00,
+            baseAttack = 0x05,
+            attackGrowth = 0x16,
+            baseDefense = 0x05,
+            defenseGrowth = 0x11,
+            baseAgility = 0x04,
+            agilityGrowth = 0x16,
+            baseLuck = 0x4B,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x02,
+            expGivenGrowth = 0x0F,
+            nativeGenus = Genus.Water,
+            liftable = false,
+            pushable = true
+        };
+        public static readonly UnitTraits Ashra = new UnitTraits()
+        {
+            baseHp = 0x09,
+            hpGrowth = 0x11,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x06,
+            attackGrowth = 0x14,
+            baseDefense = 0x05,
+            defenseGrowth = 0x16,
+            baseAgility = 0x05,
+            agilityGrowth = 0x15,
+            baseLuck = 0x46,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x03,
+            expGivenGrowth = 0x0F,
+            nativeGenus = Genus.Water,
+            liftable = false,
+            pushable = false
+        };
+        public static readonly UnitTraits Arachne = new UnitTraits()
+        {
+            baseHp = 0x09,
+            hpGrowth = 0x10,
+            baseMp = 0x46,
+            mpGrowth = 0x00,
+            baseAttack = 0x06,
+            attackGrowth = 0x12,
+            baseDefense = 0x05,
+            defenseGrowth = 0x14,
+            baseAgility = 0x05,
+            agilityGrowth = 0x14,
+            baseLuck = 0x46,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x02,
+            expGivenGrowth = 0x0E,
+            nativeGenus = Genus.Water,
+            liftable = true,
+            pushable = true
+        };
+        public static readonly UnitTraits Battnel = new UnitTraits()
+        {
+            baseHp = 0x0A,
+            hpGrowth = 0x13,
+            baseMp = 0x46,
+            mpGrowth = 0x00,
+            baseAttack = 0x07,
+            attackGrowth = 0x14,
+            baseDefense = 0x06,
+            defenseGrowth = 0x14,
+            baseAgility = 0x05,
+            agilityGrowth = 0x11,
+            baseLuck = 0x46,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x03,
+            expGivenGrowth = 0x12,
+            nativeGenus = Genus.Water,
+            liftable = false,
+            pushable = false
+        };
+        public static readonly UnitTraits Nyuel = new UnitTraits()
+        {
+            baseHp = 0x0A,
+            hpGrowth = 0x0F,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x04,
+            attackGrowth = 0x13,
+            baseDefense = 0x05,
+            defenseGrowth = 0x13,
+            baseAgility = 0x08,
+            agilityGrowth = 0x13,
+            baseLuck = 0x50,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x02,
+            expGivenGrowth = 0x0E,
+            nativeGenus = Genus.Water,
+            liftable = false,
+            pushable = true
+        };
+        public static readonly UnitTraits Death = new UnitTraits()
+        {
+            baseHp = 0x08,
+            hpGrowth = 0x13,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x06,
+            attackGrowth = 0x12,
+            baseDefense = 0x05,
+            defenseGrowth = 0x12,
+            baseAgility = 0x06,
+            agilityGrowth = 0x12,
+            baseLuck = 0x46,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x03,
+            expGivenGrowth = 0x10,
+            nativeGenus = Genus.Wind,
+            liftable = false,
+            pushable = true
+        };
+        public static readonly UnitTraits Clown = new UnitTraits()
+        {
+            baseHp = 0x08,
+            hpGrowth = 0x12,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x06,
+            attackGrowth = 0x11,
+            baseDefense = 0x05,
+            defenseGrowth = 0x12,
+            baseAgility = 0x06,
+            agilityGrowth = 0x12,
+            baseLuck = 0x46,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x02,
+            expGivenGrowth = 0x12,
+            nativeGenus = Genus.Wind,
+            liftable = true,
+            pushable = true
+        };
+        public static readonly UnitTraits Univern = new UnitTraits()
+        {
+            baseHp = 0x0A,
+            hpGrowth = 0x16,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x06,
+            attackGrowth = 0x12,
+            baseDefense = 0x06,
+            defenseGrowth = 0x0F,
+            baseAgility = 0x07,
+            agilityGrowth = 0x12,
+            baseLuck = 0x46,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x03,
+            expGivenGrowth = 0x14,
+            nativeGenus = Genus.Wind,
+            liftable = false,
+            pushable = false
+        };
+        public static readonly UnitTraits Unicorn = new UnitTraits()
+        {
+            baseHp = 0x09,
+            hpGrowth = 0x14,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x05,
+            attackGrowth = 0x11,
+            baseDefense = 0x05,
+            defenseGrowth = 0x12,
+            baseAgility = 0x07,
+            agilityGrowth = 0x0F,
+            baseLuck = 0x46,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x02,
+            expGivenGrowth = 0x0E,
+            nativeGenus = Genus.Wind,
+            liftable = true,
+            pushable = true
+        };
+        public static readonly UnitTraits Metal = new UnitTraits()
+        {
+            baseHp = 0x0A,
+            hpGrowth = 0x11,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x06,
+            attackGrowth = 0x11,
+            baseDefense = 0x08,
+            defenseGrowth = 0x13,
+            baseAgility = 0x04,
+            agilityGrowth = 0x16,
+            baseLuck = 0x46,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x03,
+            expGivenGrowth = 0x12,
+            nativeGenus = Genus.Wind,
+            liftable = false,
+            pushable = false
+        };
+        public static readonly UnitTraits Block = new UnitTraits()
+        {
+            baseHp = 0x0A,
+            hpGrowth = 0x10,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x06,
+            attackGrowth = 0x10,
+            baseDefense = 0x08,
+            defenseGrowth = 0x12,
+            baseAgility = 0x03,
+            agilityGrowth = 0x16,
+            baseLuck = 0x46,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x02,
+            expGivenGrowth = 0x10,
+            nativeGenus = Genus.Wind,
+            liftable = false,
+            pushable = false
+        };
+        public static readonly UnitTraits Pulunpa = new UnitTraits()
+        {
+            baseHp = 0x08,
+            hpGrowth = 0x13,
+            baseMp = 0x28,
+            mpGrowth = 0x00,
+            baseAttack = 0x04,
+            attackGrowth = 0x12,
+            baseDefense = 0x04,
+            defenseGrowth = 0x13,
+            baseAgility = 0x04,
+            agilityGrowth = 0x14,
+            baseLuck = 0x32,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x01,
+            expGivenGrowth = 0x0B,
+            nativeGenus = Genus.Water,
+            liftable = true,
+            pushable = true
+        };
+        public static readonly UnitTraits Troll = new UnitTraits()
+        {
+            baseHp = 0x06,
+            hpGrowth = 0x12,
+            baseMp = 0x3C,
+            mpGrowth = 0x00,
+            baseAttack = 0x04,
+            attackGrowth = 0x12,
+            baseDefense = 0x05,
+            defenseGrowth = 0x12,
+            baseAgility = 0x05,
+            agilityGrowth = 0x12,
+            baseLuck = 0x3C,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x04,
+            expGivenGrowth = 0x0F,
+            nativeGenus = Genus.Fire,
+            liftable = true,
+            pushable = true
+        };
+        public static readonly UnitTraits Noise = new UnitTraits()
+        {
+            baseHp = 0x09,
+            hpGrowth = 0x0F,
+            baseMp = 0x46,
+            mpGrowth = 0x00,
+            baseAttack = 0x06,
+            attackGrowth = 0x13,
+            baseDefense = 0x05,
+            defenseGrowth = 0x14,
+            baseAgility = 0x05,
+            agilityGrowth = 0x10,
+            baseLuck = 0x41,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x03,
+            expGivenGrowth = 0x0C,
+            nativeGenus = Genus.Wind,
+            liftable = false,
+            pushable = true
+        };
+        public static readonly UnitTraits UBoat = new UnitTraits()
+        {
+            baseHp = 0x09,
+            hpGrowth = 0x11,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x06,
+            attackGrowth = 0x12,
+            baseDefense = 0x05,
+            defenseGrowth = 0x14,
+            baseAgility = 0x05,
+            agilityGrowth = 0x16,
+            baseLuck = 0x3C,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x02,
+            expGivenGrowth = 0x0F,
+            nativeGenus = Genus.Water,
+            liftable = true,
+            pushable = true
+        };
+        public static readonly UnitTraits Baloon = new UnitTraits()
+        {
+            baseHp = 0x08,
+            hpGrowth = 0x14,
+            baseMp = 0x46,
+            mpGrowth = 0x00,
+            baseAttack = 0x06,
+            attackGrowth = 0x11,
+            baseDefense = 0x05,
+            defenseGrowth = 0x13,
+            baseAgility = 0x06,
+            agilityGrowth = 0x10,
+            baseLuck = 0x50,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x02,
+            expGivenGrowth = 0x0C,
+            nativeGenus = Genus.Fire,
+            liftable = false,
+            pushable = true
+        };
+        public static readonly UnitTraits Dreamin = new UnitTraits()
+        {
+            baseHp = 0x08,
+            hpGrowth = 0x13,
+            baseMp = 0x46,
+            mpGrowth = 0x00,
+            baseAttack = 0x03,
+            attackGrowth = 0x13,
+            baseDefense = 0x05,
+            defenseGrowth = 0x13,
+            baseAgility = 0x04,
+            agilityGrowth = 0x13,
+            baseLuck = 0x3C,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x02,
+            expGivenGrowth = 0x0A,
+            nativeGenus = Genus.Wind,
+            liftable = true,
+            pushable = true
+        };
+        public static readonly UnitTraits Blume = new UnitTraits()
+        {
+            baseHp = 0x09,
+            hpGrowth = 0x17,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x05,
+            attackGrowth = 0x14,
+            baseDefense = 0x04,
+            defenseGrowth = 0x16,
+            baseAgility = 0x05,
+            agilityGrowth = 0x13,
+            baseLuck = 0x46,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x02,
+            expGivenGrowth = 0x0D,
+            nativeGenus = Genus.Water,
+            liftable = false,
+            pushable = true
+        };
+        public static readonly UnitTraits Volcano = new UnitTraits()
+        {
+            baseHp = 0x09,
+            hpGrowth = 0x15,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x04,
+            attackGrowth = 0x1B,
+            baseDefense = 0x05,
+            defenseGrowth = 0x10,
+            baseAgility = 0x05,
+            agilityGrowth = 0x13,
+            baseLuck = 0x46,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x02,
+            expGivenGrowth = 0x0C,
+            nativeGenus = Genus.Fire,
+            liftable = true,
+            pushable = true
+        };
+        public static readonly UnitTraits Cyclone = new UnitTraits()
+        {
+            baseHp = 0x09,
+            hpGrowth = 0x14,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x05,
+            attackGrowth = 0x17,
+            baseDefense = 0x05,
+            defenseGrowth = 0x11,
+            baseAgility = 0x05,
+            agilityGrowth = 0x14,
+            baseLuck = 0x3C,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x02,
+            expGivenGrowth = 0x11,
+            nativeGenus = Genus.Wind,
+            liftable = false,
+            pushable = true
+        };
+        public static readonly UnitTraits Manoeva = new UnitTraits()
+        {
+            baseHp = 0x0A,
+            hpGrowth = 0x12,
+            baseMp = 0x46,
+            mpGrowth = 0x00,
+            baseAttack = 0x05,
+            attackGrowth = 0x15,
+            baseDefense = 0x06,
+            defenseGrowth = 0x11,
+            baseAgility = 0x05,
+            agilityGrowth = 0x11,
+            baseLuck = 0x3C,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x02,
+            expGivenGrowth = 0x0F,
+            nativeGenus = Genus.Water,
+            liftable = false,
+            pushable = false
+        };
+        public static readonly UnitTraits Barong = new UnitTraits()
+        {
+            baseHp = 0x06,
+            hpGrowth = 0x1C,
+            baseMp = 0x3C,
+            mpGrowth = 0x00,
+            baseAttack = 0x05,
+            attackGrowth = 0x10,
+            baseDefense = 0x04,
+            defenseGrowth = 0x0C,
+            baseAgility = 0x05,
+            agilityGrowth = 0x0E,
+            baseLuck = 0x5A,
+            luckGrowth = 0x02,
+            baseExpGiven = 0x04,
+            expGivenGrowth = 0x0D,
+            nativeGenus = Genus.Fire,
+            liftable = true,
+            pushable = true
+        };
+        public static readonly UnitTraits Picket = new UnitTraits()
+        {
+            baseHp = 0x08,
+            hpGrowth = 0x14,
+            baseMp = 0x41,
+            mpGrowth = 0x00,
+            baseAttack = 0x03,
+            attackGrowth = 0x08,
+            baseDefense = 0x04,
+            defenseGrowth = 0x0E,
+            baseAgility = 0x08,
+            agilityGrowth = 0x0F,
+            baseLuck = 0x55,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x02,
+            expGivenGrowth = 0x0E,
+            nativeGenus = Genus.Wind,
+            liftable = true,
+            pushable = true
+        };
+        public static readonly UnitTraits Kraken = new UnitTraits()
+        {
+            baseHp = 0x08,
+            hpGrowth = 0x16,
+            baseMp = 0x46,
+            mpGrowth = 0x00,
+            baseAttack = 0x06,
+            attackGrowth = 0x13,
+            baseDefense = 0x06,
+            defenseGrowth = 0x12,
+            baseAgility = 0x05,
+            agilityGrowth = 0x10,
+            baseLuck = 0x50,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x01,
+            expGivenGrowth = 0x10,
+            nativeGenus = Genus.Water,
+            liftable = false,
+            pushable = false
+        };
+        public static readonly UnitTraits Weadog = new UnitTraits()
+        {
+            baseHp = 0x09,
+            hpGrowth = 0x14,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x06,
+            attackGrowth = 0x12,
+            baseDefense = 0x05,
+            defenseGrowth = 0x13,
+            baseAgility = 0x05,
+            agilityGrowth = 0x13,
+            baseLuck = 0x46,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x01,
+            expGivenGrowth = 0x0E,
+            nativeGenus = Genus.Fire,
+            liftable = false,
+            pushable = false
+        };
+        public static readonly UnitTraits Stealth = new UnitTraits()
+        {
+            baseHp = 0x08,
+            hpGrowth = 0x13,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x04,
+            attackGrowth = 0x14,
+            baseDefense = 0x05,
+            defenseGrowth = 0x14,
+            baseAgility = 0x04,
+            agilityGrowth = 0x13,
+            baseLuck = 0x3C,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x03,
+            expGivenGrowth = 0x0C,
+            nativeGenus = Genus.Wind,
+            liftable = true,
+            pushable = true
+        };
+        public static readonly UnitTraits Viper = new UnitTraits()
+        {
+            baseHp = 0x09,
+            hpGrowth = 0x13,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x06,
+            attackGrowth = 0x13,
+            baseDefense = 0x05,
+            defenseGrowth = 0x12,
+            baseAgility = 0x06,
+            agilityGrowth = 0x12,
+            baseLuck = 0x46,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x03,
+            expGivenGrowth = 0x0F,
+            nativeGenus = Genus.Water,
+            liftable = true,
+            pushable = true
+        };
+        public static readonly UnitTraits Naplass = new UnitTraits()
+        {
+            baseHp = 0x0B,
+            hpGrowth = 0x14,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x06,
+            attackGrowth = 0x12,
+            baseDefense = 0x06,
+            defenseGrowth = 0x13,
+            baseAgility = 0x05,
+            agilityGrowth = 0x10,
+            baseLuck = 0x3C,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x03,
+            expGivenGrowth = 0x0E,
+            nativeGenus = Genus.Fire,
+            liftable = false,
+            pushable = true
+        };
+        public static readonly UnitTraits Zu = new UnitTraits()
+        {
+            baseHp = 0x0A,
+            hpGrowth = 0x13,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x06,
+            attackGrowth = 0x11,
+            baseDefense = 0x05,
+            defenseGrowth = 0x11,
+            baseAgility = 0x07,
+            agilityGrowth = 0x0F,
+            baseLuck = 0x50,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x02,
+            expGivenGrowth = 0x0C,
+            nativeGenus = Genus.Wind,
+            liftable = true,
+            pushable = true
+        };
+        public static readonly UnitTraits Mandara = new UnitTraits()
+        {
+            baseHp = 0x0B,
+            hpGrowth = 0x0E,
+            baseMp = 0x55,
+            mpGrowth = 0x00,
+            baseAttack = 0x06,
+            attackGrowth = 0x12,
+            baseDefense = 0x06,
+            defenseGrowth = 0x0F,
+            baseAgility = 0x05,
+            agilityGrowth = 0x11,
+            baseLuck = 0x50,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x03,
+            expGivenGrowth = 0x10,
+            nativeGenus = Genus.Water,
+            liftable = false,
+            pushable = true
+        };
+        public static readonly UnitTraits Killer = new UnitTraits()
+        {
+            baseHp = 0x0A,
+            hpGrowth = 0x13,
+            baseMp = 0x3C,
+            mpGrowth = 0x00,
+            baseAttack = 0x08,
+            attackGrowth = 0x12,
+            baseDefense = 0x05,
+            defenseGrowth = 0x13,
+            baseAgility = 0x05,
+            agilityGrowth = 0x13,
+            baseLuck = 0x50,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x03,
+            expGivenGrowth = 0x12,
+            nativeGenus = Genus.Fire,
+            liftable = false,
+            pushable = false
+        };
+        public static readonly UnitTraits Garuda = new UnitTraits()
+        {
+            baseHp = 0x0A,
+            hpGrowth = 0x10,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x05,
+            attackGrowth = 0x13,
+            baseDefense = 0x05,
+            defenseGrowth = 0x15,
+            baseAgility = 0x06,
+            agilityGrowth = 0x12,
+            baseLuck = 0x3C,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x02,
+            expGivenGrowth = 0x0E,
+            nativeGenus = Genus.Wind,
+            liftable = true,
+            pushable = true
+        };
+        public static readonly UnitTraits Glacier = new UnitTraits()
+        {
+            baseHp = 0x0A,
+            hpGrowth = 0x14,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x05,
+            attackGrowth = 0x12,
+            baseDefense = 0x06,
+            defenseGrowth = 0x13,
+            baseAgility = 0x05,
+            agilityGrowth = 0x11,
+            baseLuck = 0x55,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x02,
+            expGivenGrowth = 0x0F,
+            nativeGenus = Genus.Water,
+            liftable = false,
+            pushable = false
+        };
+        public static readonly UnitTraits Tyrant = new UnitTraits()
+        {
+            baseHp = 0x0A,
+            hpGrowth = 0x12,
+            baseMp = 0x46,
+            mpGrowth = 0x00,
+            baseAttack = 0x06,
+            attackGrowth = 0x11,
+            baseDefense = 0x06,
+            defenseGrowth = 0x12,
+            baseAgility = 0x05,
+            agilityGrowth = 0x10,
+            baseLuck = 0x41,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x03,
+            expGivenGrowth = 0x0E,
+            nativeGenus = Genus.Fire,
+            liftable = true,
+            pushable = true
+        };
+        public static readonly UnitTraits Golem = new UnitTraits()
+        {
+            baseHp = 0x0E,
+            hpGrowth = 0x0F,
+            baseMp = 0x46,
+            mpGrowth = 0x00,
+            baseAttack = 0x07,
+            attackGrowth = 0x13,
+            baseDefense = 0x0A,
+            defenseGrowth = 0x10,
+            baseAgility = 0x04,
+            agilityGrowth = 0x14,
+            baseLuck = 0x46,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x03,
+            expGivenGrowth = 0x11,
+            nativeGenus = Genus.Wind,
+            liftable = false,
+            pushable = false
+        };
+        public static readonly UnitTraits Maximum = new UnitTraits()
+        {
+            baseHp = 0x10,
+            hpGrowth = 0x10,
+            baseMp = 0x50,
+            mpGrowth = 0x00,
+            baseAttack = 0x08,
+            attackGrowth = 0x13,
+            baseDefense = 0x09,
+            defenseGrowth = 0x0F,
+            baseAgility = 0x04,
+            agilityGrowth = 0x14,
+            baseLuck = 0x50,
+            luckGrowth = 0x00,
+            baseExpGiven = 0x04,
+            expGivenGrowth = 0x15,
+            nativeGenus = Genus.Fire,
+            liftable = false,
+            pushable = false
+        };
+    }
     struct Monsters
     {
         public static readonly Monster Noise = new Monster(
