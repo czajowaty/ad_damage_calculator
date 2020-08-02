@@ -73,6 +73,16 @@ namespace AzureDreamsDamageCalculator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ashra {
+            get {
+                object obj = ResourceManager.GetObject("ashra", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap balloon {
             get {
                 object obj = ResourceManager.GetObject("balloon", resourceCulture);
@@ -86,6 +96,16 @@ namespace AzureDreamsDamageCalculator.Properties {
         internal static System.Drawing.Bitmap barong {
             get {
                 object obj = ResourceManager.GetObject("barong", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap battnel {
+            get {
+                object obj = ResourceManager.GetObject("battnel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,6 +153,16 @@ namespace AzureDreamsDamageCalculator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap death {
+            get {
+                object obj = ResourceManager.GetObject("death", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dragon {
             get {
                 object obj = ResourceManager.GetObject("dragon", resourceCulture);
@@ -173,6 +203,36 @@ namespace AzureDreamsDamageCalculator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap genus_fire {
+            get {
+                object obj = ResourceManager.GetObject("genus_fire", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap genus_water {
+            get {
+                object obj = ResourceManager.GetObject("genus_water", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap genus_wind {
+            get {
+                object obj = ResourceManager.GetObject("genus_wind", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap glacier {
             get {
                 object obj = ResourceManager.GetObject("glacier", resourceCulture);
@@ -196,6 +256,56 @@ namespace AzureDreamsDamageCalculator.Properties {
         internal static System.Drawing.Bitmap griffon {
             get {
                 object obj = ResourceManager.GetObject("griffon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap grineut {
+            get {
+                object obj = ResourceManager.GetObject("grineut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hikewne {
+            get {
+                object obj = ResourceManager.GetObject("hikewne", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ifrit {
+            get {
+                object obj = ResourceManager.GetObject("ifrit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap kewne {
+            get {
+                object obj = ResourceManager.GetObject("kewne", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap kid {
+            get {
+                object obj = ResourceManager.GetObject("kid", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,9 +353,29 @@ namespace AzureDreamsDamageCalculator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap manoeva1 {
+            get {
+                object obj = ResourceManager.GetObject("manoeva1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap maximum {
             get {
                 object obj = ResourceManager.GetObject("maximum", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap metal {
+            get {
+                object obj = ResourceManager.GetObject("metal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -296,6 +426,16 @@ namespace AzureDreamsDamageCalculator.Properties {
         internal static System.Drawing.Bitmap pulunpa {
             get {
                 object obj = ResourceManager.GetObject("pulunpa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap saber {
+            get {
+                object obj = ResourceManager.GetObject("saber", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -356,6 +496,16 @@ namespace AzureDreamsDamageCalculator.Properties {
         internal static System.Drawing.Bitmap unicorn {
             get {
                 object obj = ResourceManager.GetObject("unicorn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap univern {
+            get {
+                object obj = ResourceManager.GetObject("univern", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

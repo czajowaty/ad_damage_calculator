@@ -121,9 +121,6 @@
   <data name="arachne" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Monsters\arachne.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="balloon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Monsters\balloon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="barong" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Monsters\barong.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -148,6 +145,9 @@
   <data name="flame" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Monsters\flame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ifrit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Monsters\ifrit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="garuda" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Monsters\garuda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -159,6 +159,18 @@
   </data>
   <data name="griffon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Monsters\griffon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="grineut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Monsters\grineut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hikewne" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Monsters\hikewne.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="kewne" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Monsters\kewne.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="kid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Monsters\kid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="killer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Monsters\killer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -219,5 +231,38 @@
   </data>
   <data name="zu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Monsters\zu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ashra" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Monsters\ashra.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="battnel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Monsters\battnel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="death" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Monsters\death.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="manoeva1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Monsters\manoeva.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="metal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Monsters\metal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="saber" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Monsters\saber.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="univern" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Monsters\univern.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="balloon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Monsters\balloon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="genus_fire" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Monsters\genus_fire.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="genus_water" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Monsters\genus_water.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="genus_wind" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Monsters\genus_wind.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

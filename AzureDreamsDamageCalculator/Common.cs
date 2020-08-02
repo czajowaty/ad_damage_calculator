@@ -6,198 +6,310 @@ namespace AzureDreamsDamageCalculator
     public enum Genus
     { None, Fire, Wind, Water }
 
-    public abstract class Weapon
+    public interface Named
+    { string Name { get; } }
+    public abstract class Weapon : Named
     {
-        public readonly bool isWand;
-        public readonly bool ignoresShield;
-        public readonly Genus genus;
+        public static readonly Weapon NO_WEAPON = new ConstantDamageWeapon(name: "", damage: 0);
 
-        public Weapon(bool isWand = false, bool ignoresShield = false, Genus genus = Genus.None)
+        public Weapon(string name, bool isWand = false, bool ignoresShield = false, Genus genus = Genus.None)
         {
-            this.isWand = isWand;
-            this.ignoresShield = ignoresShield;
-            this.genus = genus;
+            this.Name = name;
+            this.IsWand = isWand;
+            this.IgnoresShield = ignoresShield;
+            this.Genus = genus;
         }
+        public string Name
+        { get; private set; }
+        public bool IsWand
+        { get; private set; }
+        public bool IgnoresShield
+        { get; private set; }
+        public Genus Genus
+        { get; private set; }
+        public abstract int Quality
+        { set; }
 
-        public abstract void SetQuality(int quality);
+
         public abstract uint WeaponDamage();
         public uint WandDamage()
-        {
-            if (isWand)
-            { return WeaponDamage(); }
-            else
-            { return 0; }
-        }
+        { return IsWand ? WeaponDamage() : 0; }
     }
 
     public class ConstantDamageWeapon : Weapon
     {
-        public readonly uint damage;
-
-        public ConstantDamageWeapon(uint damage, bool isWand = false, bool ignoresShield = false, Genus genus = Genus.None) 
-            : base(isWand, ignoresShield, genus)
-        { this.damage = damage; }
-
-        public override void SetQuality(int quality)
-        { }
+        public ConstantDamageWeapon(string name, uint damage, bool isWand = false, bool ignoresShield = false, Genus genus = Genus.None) 
+            : base(name, isWand, ignoresShield, genus)
+        { this.Damage = damage; }
+        public uint Damage
+        { get; private set; }
+        public override int Quality
+        { set { } }
         public override uint WeaponDamage()
-        { return damage; }
+        { return Damage; }
     }
 
     public class QualityBasedDamageWeapon : Weapon
     {
-        private readonly uint attack;
-        public int quality;
+        public static readonly uint MIN_ATTACK = 0u;
+        public static readonly uint MAX_WEAPON_DAMAGE = 99u;
+        private int quality;
 
-        public QualityBasedDamageWeapon(uint attack, bool isWand = false, bool ignoresShield = false, Genus genus = Genus.None)
-            : base(isWand, ignoresShield, genus)
+        public QualityBasedDamageWeapon(string name, uint baseAttack, bool isWand = false, bool ignoresShield = false, Genus genus = Genus.None)
+            : base(name, isWand, ignoresShield, genus)
         {
-            this.attack = attack;
+            this.BaseAttack = baseAttack;
             this.quality = 0;
         }
-
-        public override void SetQuality(int quality)
-        { this.quality = quality; }
+        public uint BaseAttack
+        { get; private set; }
+        public override int Quality
+        { set { this.quality = value; } }
         public override uint WeaponDamage()
-        {  return Math.Min(Math.Max((uint)(attack + quality), 0u), 99u); }
+        {  return Math.Min((uint)Math.Max(BaseAttack + quality, MIN_ATTACK), MAX_WEAPON_DAMAGE); }
     }
 
     public class Sword : QualityBasedDamageWeapon
     {
-        public Sword(uint attack, Genus genus = Genus.None) : base(attack: attack, genus: genus)
+        public Sword(string name, uint baseAttack, Genus genus = Genus.None) : base(name, baseAttack: baseAttack, genus: genus)
         { }
     }
 
     public class Wand : QualityBasedDamageWeapon
     {
-        public Wand(Genus genus = Genus.None) : base(attack: 1, isWand: true, genus: genus)
+        public Wand(string name, Genus genus = Genus.None) : base(name, baseAttack: 1, isWand: true, genus: genus)
         { }
     }
 
-    public struct Shield
+    public class Shield : Named
     {
-        public readonly uint defense;
-        public int quality;
-        public readonly Genus genus;
+        public static readonly Shield NO_SHIELD = new Shield(name: "", baseDefense: 0);
+        public static readonly uint MIN_DEFENSE = 0u;
+        public static readonly uint MAX_SHIELD_DEFENSE = 99u;
 
-        public Shield(uint defense = 0, Genus genus = Genus.None)
+        public Shield(string name, uint baseDefense = 0, Genus genus = Genus.None)
         {
-            this.defense = defense;
-            this.quality = 0;
-            this.genus = genus;
+            this.Name = name;
+            this.BaseDefense = baseDefense;
+            this.Quality = 0;
+            this.Genus = genus;
         }
-
+        public string Name
+        { get; private set; }
+        public uint BaseDefense
+        { get; private set; }
+        public int Quality
+        { get; set; }
+        public Genus Genus
+        { get; set; }
         public uint ShieldDefense()
-        { return Math.Min(Math.Max((uint)(defense + quality), 0u), 99u); }
+        { return Math.Min((uint)Math.Max(BaseDefense + Quality, MIN_DEFENSE), MAX_SHIELD_DEFENSE); }
     }
 
-    public struct UnitTraits
+    public struct UnitTraits : Named
     {
-        public uint baseHp;
-        public uint hpGrowth;
-        public uint baseMp;
-        public uint mpGrowth;
-        public uint baseAttack;
-        public uint attackGrowth;
-        public uint baseDefense;
-        public uint defenseGrowth;
-        public uint baseAgility;
-        public uint agilityGrowth;
-        public uint baseLuck;
-        public uint luckGrowth;
-        public uint baseExpGiven;
-        public uint expGivenGrowth;
-        public Genus nativeGenus;
-        public bool liftable;
-        public bool pushable;
-
-        public UnitStatistics calculateUnitStatistics(uint level)
-        {
-            return new UnitStatistics(
-                attack: StatsCalculator.calculateAttack(this, level), 
-                defense: StatsCalculator.calculateDefense(this, level), 
-                genus: nativeGenus);
-        }
+        public string Name
+        { get; set; }
+        public uint BaseHp;
+        public uint HpGrowth;
+        public uint BaseMp;
+        public uint MpGrowth;
+        public uint BaseAttack;
+        public uint AttackGrowth;
+        public uint BaseDefense;
+        public uint DefenseGrowth;
+        public uint BaseAgility;
+        public uint AgilityGrowth;
+        public uint BaseLuck;
+        public uint LuckGrowth;
+        public uint BaseExpGiven;
+        public uint ExpGivenGrowth;
+        public Genus NativeGenus;
+        public bool Liftable;
+        public bool Pushable;
+        public Bitmap Portrait;
     }
 
     public class UnitStatistics
     {
-        public uint attack;
-        public uint defense;
-        public Genus genus;
+        public static readonly uint MIN_STAT = 1u;
 
-        public UnitStatistics(uint attack, uint defense, Genus genus = Genus.None)
+        private uint baseAttack = 0;
+        private uint baseDefense = 0;
+        private int attackModifier = 0;
+        private int defenseModifier = 0;
+
+        public UnitStatistics(Genus genus = Genus.None)
+        { this.Genus = genus; }
+        public uint BaseAttack
         {
-            this.attack = attack;
-            this.defense = defense;
-            this.genus = genus;
+            get
+            { return baseAttack; }
+            set
+            {
+                this.baseAttack = value;
+                CalculateAttack();
+            }
         }
+        public uint BaseDefense
+        {
+            get
+            { return baseDefense; }
+            set
+            {
+                this.baseDefense = value;
+                CalculateDefense();
+            }
+        }
+        public int AttackModifier
+        {
+            get
+            { return attackModifier; }
+            set
+            {
+                this.attackModifier = value;
+                CalculateAttack();
+            }
+        }
+        public int DefenseModifier
+        {
+            get
+            { return defenseModifier; }
+            set
+            {
+                this.defenseModifier = value;
+                CalculateDefense();
+            }
+        }
+        public Genus Genus
+        { get; set; }
+        public uint Attack
+        { get; private set; }
+        public uint Defense
+        { get; private set; }
+        private void CalculateAttack()
+        { Attack = ModifiedStat(BaseAttack, AttackModifier); }
+        private void CalculateDefense()
+        { Defense = ModifiedStat(BaseDefense, DefenseModifier); }
+        private uint ModifiedStat(uint baseStat, int modifier)
+        { return (uint)Math.Max(baseStat + modifier, MIN_STAT); }
+    }
+
+    public struct SpellTraits
+    {
+        public static readonly SpellTraits EMPTY = new SpellTraits() { name = "", rawDamage = 0, genus = Genus.None };
+
+        public string name;
+        public uint rawDamage;
+        public Genus genus;
+    }
+
+    public class Spell
+    {
+        public static Spell NO_SPELL = new Spell(new SpellTraits() { rawDamage = 0, genus = Genus.None });
+        public static readonly uint MIN_SPELL_LEVEL = 1u;
+        public static readonly uint MAX_SPELL_LEVEL = 99u;
+
+        private SpellTraits traits;
+        private uint baseLevel;
+        private int levelModifier = 0;
+
+        public Spell(SpellTraits traits) : this(traits: traits, baseLevel: 0)
+        { }
+        public Spell(SpellTraits traits, uint baseLevel)
+        {
+            this.traits = traits;
+            this.BaseLevel = baseLevel;
+        }
+        public uint BaseLevel
+        {
+            get
+            { return this.baseLevel; }
+            set
+            {
+                this.baseLevel = value;
+                CalculateLevel();
+            }
+        }
+        public int LevelModifier
+        {
+            get
+            { return levelModifier; }
+            set
+            {
+                this.levelModifier = value;
+                CalculateLevel();
+            }
+        }
+        public uint Level
+        { get; private set; }
+        public Genus Genus
+        {
+            get { return traits.genus; }
+            set { traits.genus = value; }
+        }
+        public uint RawDamage
+        { get { return traits.rawDamage; } }
+        private void CalculateLevel()
+        { Level = (uint)Math.Min(Math.Max(BaseLevel + levelModifier, MIN_SPELL_LEVEL), MAX_SPELL_LEVEL); }
     }
 
     public class Unit
     {
-        public static readonly Weapon NO_WEAPON = new ConstantDamageWeapon(damage: 0);
-        public static readonly Shield NO_SHIELD = new Shield(defense: 0);
-
-        public UnitStatistics unitStatistics;
-        public Weapon weapon;
-        public Shield shield;
-        public bool isFrog;
-
-        public Unit() : this(new UnitStatistics(attack: 0, defense: 0), NO_WEAPON)
-        { }
-        public Unit(UnitStatistics unitStatistics, Weapon weapon)
+        public Unit(UnitTraits traits, uint level = 1)
         {
-            this.unitStatistics = unitStatistics;
-            this.weapon = weapon;
-            this.shield = NO_SHIELD;
-            this.isFrog = false;
+            this.Traits = traits;
+            this.Level = level;
+            this.Stats = new UnitStatistics();
+            this.Weapon = Weapon.NO_WEAPON;
+            this.Shield = Shield.NO_SHIELD;
+            this.IsFrog = false;
         }
-
+        public UnitTraits Traits
+        { get; private set; }
+        public virtual uint Level
+        { get; set; }
+        public UnitStatistics Stats
+        { get; set; }
+        public Weapon Weapon
+        { get; set; }
+        public Shield Shield
+        { get; set; }
+        public bool IsFrog
+        { get; set; }
         public void RemoveWeapon()
-        { this.weapon = NO_WEAPON; }
+        { this.Weapon = Weapon.NO_WEAPON; }
         public void RemoveShield()
-        { this.shield = NO_SHIELD; }
+        { this.Shield = Shield.NO_SHIELD; }
     }
 
     public class Familiar : Unit
     {
-        public uint spellLevel;
-
-        public Familiar() : base(new UnitStatistics(attack: 0, defense: 0), NO_WEAPON)
-        { this.spellLevel = 0; }
-
-        public Spell Spell()
-        { return new Spell(this.spellLevel, unitStatistics.genus); }
+        public Familiar(UnitTraits traits) : this(traits, new SpellTraits() { rawDamage = 0, genus = Genus.None })
+        { }
+        public Familiar(UnitTraits traits, SpellTraits spellTraits) : base(traits)
+        { this.Spell = new Spell(spellTraits); }
+        public Spell Spell
+        { get; private set; }
     }
 
     public class Monster : Unit
     {
-        public readonly string name;
-        public readonly uint hp;
-        public readonly uint mp;
-        public readonly Bitmap image;
-
-        public Monster(string name, UnitStatistics unitStatistics, uint hp, uint mp, Bitmap image) : this(name, unitStatistics, hp, mp, image, NO_WEAPON)
+        public Monster(UnitTraits traits, uint level, uint hp, uint mp) : this(traits, level, hp, mp, SpellTraits.EMPTY)
         { }
-        public Monster(string name, UnitStatistics unitStatistics, uint hp, uint mp, Bitmap image, Weapon weapon) : base(unitStatistics, weapon)
+        public Monster(UnitTraits traits, uint level, uint hp, uint mp, SpellTraits spellTraits, uint spellLevel = 0) : base(traits, level)
         {
-            this.name = name;
-            this.hp = hp;
-            this.mp = mp;
-            this.image = image;
+            this.HP = hp;
+            this.MP = mp;
+            this.Spell = new Spell(spellTraits, spellLevel);
         }
-    }
-
-    public struct Spell
-    {
-        public readonly uint level;
-        public readonly Genus genus;
-
-        public Spell(uint level, Genus genus)
-        {
-            this.level = level;
-            this.genus = genus;
-        }
+        public uint HP
+        { get; private set; }
+        public uint MP
+        { get; private set; }
+        public Bitmap Portrait
+        { get; private set; }
+        public Spell Spell
+        { get; private set; }
     }
 }

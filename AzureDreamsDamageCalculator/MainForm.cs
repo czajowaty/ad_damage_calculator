@@ -7,104 +7,112 @@ namespace AzureDreamsDamageCalculator
 {
     public partial class MainForm : Form
     {
-        public static readonly string VERSION = "0.1.1";
-        public static readonly SortedDictionary<string, Weapon> KohWeaponsNames = new SortedDictionary<string, Weapon>()
-        {
-            { "", Unit.NO_WEAPON },
-            { "GoldSword", Swords.Gold },
-            { "CopperSword", Swords.Copper },
-            { "IronSword", Swords.Iron },
-            { "SteelSword", Swords.Steel },
-            { "VitalSword", Swords.Vital },
-            { "HolySword", Swords.Holy },
-            { "SeraphimSword", Swords.Seraphim },
-            { "DarkSword", Swords.Dark },
-            { "BlizzardSword", Swords.Blizzard },
-            { "FireSword", Swords.Fire },
-            { "GulfwindSword", Swords.Gulfwind },
-            { "WoodenWand", Wands.Wooden },
-            { "ScarletWand", Wands.Scarlet },
-            { "GulfWand", Wands.Gulf },
-            { "StreamWand", Wands.Stream },
-            { "MoneyWand", Wands.Money },
-            { "ParalyzeWand", Wands.Paralyze },
-            { "LifeWand", Wands.Life },
-            { "TrainedWand", Wands.Trained }
-        };
-        public static readonly SortedDictionary<string, Shield> KohShieldsNames = new SortedDictionary<string, Shield>()
-        {
-            { "", Unit.NO_SHIELD },
-            { "Leather", Shields.Leather },
-            { "Wood", Shields.Wood },
-            { "Mirror", Shields.Mirror },
-            { "Copper", Shields.Copper },
-            { "Iron", Shields.Iron },
-            { "Steel", Shields.Steel },
-            { "Scorch", Shields.Scorch },
-            { "Ice", Shields.Ice },
-            { "Earth", Shields.Earth },
-            { "Live", Shields.Live },
-            { "Diamond", Shields.Diamond }
-        };
-        public static readonly SortedDictionary<string, UnitTraits> FamiliarsTraits = new SortedDictionary<string, UnitTraits>()
-        {
-            { "Kewne", UnitsTraits.Kewne },
-            //{ "Dragon", UnitsTraits.Dragon },
-            { "Kid", UnitsTraits.Kid },
-            //{ "Ifrit", UnitsTraits.Ifrit },
-            { "Flame", UnitsTraits.Flame },
-            //{ "Grineut", UnitsTraits.Grineut },
-            { "Griffon", UnitsTraits.Griffon },
-            //{ "Saber", UnitsTraits.Saber },
-            { "Snowman", UnitsTraits.Snowman },
-            //{ "Ashra", UnitsTraits.Ashra },
-            { "Arachne", UnitsTraits.Arachne },
-            //{ "Battnel", UnitsTraits.Battnel },
-            { "Nyuel", UnitsTraits.Nyuel },
-            //{ "Death", UnitsTraits.Death },
-            { "Clown", UnitsTraits.Clown },
-            //{ "Univern", UnitsTraits.Univern },
-            { "Unicorn", UnitsTraits.Unicorn },
-            //{ "Metal", UnitsTraits.Metal },
-            { "Block", UnitsTraits.Block },
-            { "Pulunpa", UnitsTraits.Pulunpa },
-            { "Troll", UnitsTraits.Troll },
-            { "Noise", UnitsTraits.Noise },
-            { "U-Boat", UnitsTraits.UBoat },
-            { "Baloon", UnitsTraits.Baloon },
-            { "Dreamin", UnitsTraits.Dreamin },
-            { "Blume", UnitsTraits.Blume },
-            { "Volcano", UnitsTraits.Volcano },
-            { "Cyclone", UnitsTraits.Cyclone },
-            { "Manoeva", UnitsTraits.Manoeva },
-            { "Barong", UnitsTraits.Barong },
-            { "Picket", UnitsTraits.Picket },
-            { "Kraken", UnitsTraits.Kraken },
-            { "Weadog", UnitsTraits.Weadog },
-            { "Stealth", UnitsTraits.Stealth },
-            { "Viper", UnitsTraits.Viper },
-            { "Naplass", UnitsTraits.Naplass },
-            { "Zu", UnitsTraits.Zu },
-            { "Mandara", UnitsTraits.Mandara },
-            { "Killer", UnitsTraits.Killer },
-            { "Garuda", UnitsTraits.Garuda },
-            { "Glacier", UnitsTraits.Glacier },
-            { "Tyrant", UnitsTraits.Tyrant },
-            { "Golem", UnitsTraits.Golem },
-            { "Maximum", UnitsTraits.Maximum }
-        };
+        public static readonly string VERSION = "0.1.2";
+        public static readonly SortedDictionary<string, Weapon> KohWeaponsNames = CreateNamedDictionary(
+            new[]
+            {
+                Weapon.NO_WEAPON,
+                Swords.Gold,
+                Swords.Copper,
+                Swords.Iron,
+                Swords.Steel,
+                Swords.Vital,
+                Swords.Holy,
+                Swords.Seraphim,
+                Swords.Dark,
+                Swords.Blizzard,
+                Swords.Fire,
+                Swords.Gulfwind,
+                Wands.Wooden,
+                Wands.Scarlet,
+                Wands.Gulf,
+                Wands.Stream,
+                Wands.Money,
+                Wands.Paralyze,
+                Wands.Life,
+                Wands.Trained
+            });
+        public static readonly SortedDictionary<string, Shield> KohShieldsNames = CreateNamedDictionary(
+            new[]
+            {
+                Shield.NO_SHIELD,
+                Shields.Leather,
+                Shields.Wood,
+                Shields.Mirror,
+                Shields.Copper,
+                Shields.Iron,
+                Shields.Steel,
+                Shields.Scorch,
+                Shields.Ice,
+                Shields.Earth,
+                Shields.Live,
+                Shields.Diamond
+            });
+        public static readonly SortedDictionary<string, UnitTraits> FamiliarsTraits = CreateNamedDictionary(
+            new[]
+            {
+                UnitsTraits.Kewne,
+                //{ "Dragon", UnitsTraits.Dragon },
+                UnitsTraits.Kid,
+                //{ "Ifrit", UnitsTraits.Ifrit },
+                UnitsTraits.Flame,
+                //{ "Grineut", UnitsTraits.Grineut },
+                UnitsTraits.Griffon,
+                //{ "Saber", UnitsTraits.Saber },
+                UnitsTraits.Snowman,
+                //{ "Ashra", UnitsTraits.Ashra },
+                UnitsTraits.Arachne,
+                //{ "Battnel", UnitsTraits.Battnel },
+                UnitsTraits.Nyuel,
+                //{ "Death", UnitsTraits.Death },
+                UnitsTraits.Clown,
+                //{ "Univern", UnitsTraits.Univern },
+                UnitsTraits.Unicorn,
+                //{ "Metal", UnitsTraits.Metal },
+                UnitsTraits.Block,
+                UnitsTraits.Pulunpa,
+                UnitsTraits.Troll,
+                UnitsTraits.Noise,
+                UnitsTraits.UBoat,
+                UnitsTraits.Balloon,
+                UnitsTraits.Dreamin,
+                UnitsTraits.Blume,
+                UnitsTraits.Volcano,
+                UnitsTraits.Cyclone,
+                UnitsTraits.Manoeva,
+                UnitsTraits.Barong,
+                UnitsTraits.Picket,
+                UnitsTraits.Kraken,
+                UnitsTraits.Weadog,
+                UnitsTraits.Stealth,
+                UnitsTraits.Viper,
+                UnitsTraits.Naplass,
+                UnitsTraits.Zu,
+                UnitsTraits.Mandara,
+                UnitsTraits.Killer,
+                UnitsTraits.Garuda,
+                UnitsTraits.Glacier,
+                UnitsTraits.Tyrant,
+                UnitsTraits.Golem,
+                UnitsTraits.Maximum
+            });
         public static readonly SortedDictionary<string, Genus> GenusNames = new SortedDictionary<string, Genus>()
         {
             { Genus.Fire.ToString(), Genus.Fire },
             { Genus.Water.ToString(), Genus.Water },
             { Genus.Wind.ToString(), Genus.Wind }
         };
+        private static SortedDictionary<string, T> CreateNamedDictionary<T>(T[] namedEntities) where T : Named
+        {
+            SortedDictionary<string, T> namedDictionary = new SortedDictionary<string, T>();
+            foreach (T namedEntity in namedEntities)
+            { namedDictionary[namedEntity.Name] = namedEntity; }
+            return namedDictionary;
+        }
 
-        private Unit koh = new Unit();
-        private Familiar familiar = new Familiar();
-        private UnitTraits familiarTraits = new UnitTraits();
+        private Unit koh = new Unit(UnitsTraits.Koh);
+        private Familiar familiar;
         private MonsterControl[] monsterControls = new MonsterControl[0];
-        private bool updateMonstersControlBlocked = false;
 
         public MainForm()
         {
@@ -113,13 +121,32 @@ namespace AzureDreamsDamageCalculator
             CreateMonsterControls();
             FillComboBox(kohWeaponComboBox, KohWeaponsNames.Keys);
             FillComboBox(kohShieldComboBox, KohShieldsNames.Keys);
-            FillComboBox(familiarGenusComboBox, GenusNames.Keys);
             FillComboBox(familiarTypeComboBox, FamiliarsTraits.Keys);
-            familiarTypeComboBox.SelectedItem = "Kewne";
+            FillComboBox(familiarGenusComboBox, GenusNames.Keys);
+            familiarTypeComboBox.SelectedItem = UnitsTraits.Kewne.Name;
             UpdateKoh();
             UpdateFamiliar();
+            AddUIDelegatesHandlers();
+            UpdateMonsterControls();
         }
-
+        private void AddUIDelegatesHandlers()
+        {
+            this.kohLevelNumericUpDown.ValueChanged += new System.EventHandler(this.kohLevelNumericUpDown_ValueChanged);
+            this.kohFrogCheckBox.CheckedChanged += new System.EventHandler(this.kohFrogCheckBox_CheckedChanged);
+            this.kohAttackModifierNumericUpDown.ValueChanged += new System.EventHandler(this.kohAttackModifierNumericUpDown_ValueChanged);
+            this.kohDefenseModifierNumericUpDown.ValueChanged += new System.EventHandler(this.kohDefenseModifierNumericUpDown_ValueChanged);
+            this.kohShieldQualityNumericUpDown.ValueChanged += new System.EventHandler(this.kohShieldQualityNumericUpDown_ValueChanged);
+            this.kohShieldComboBox.SelectedIndexChanged += new System.EventHandler(this.kohShieldComboBox_SelectedIndexChanged);
+            this.kohWeaponComboBox.SelectedIndexChanged += new System.EventHandler(this.kohWeaponComboBox_SelectedIndexChanged);
+            this.kohWeaponQualityNumericUpDown.ValueChanged += new System.EventHandler(this.kohWeaponQualityNumericUpDown_ValueChanged);
+            this.familiarTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.familiarTypeComboBox_SelectedIndexChanged);
+            this.familiarGenusComboBox.SelectedIndexChanged += new System.EventHandler(this.familiarGenusComboBox_SelectedIndexChanged);
+            this.familiarFrogCheckBox.CheckedChanged += new System.EventHandler(this.familiarFrogCheckBox_CheckedChanged);
+            this.familiarLevelNumericUpDown.ValueChanged += new System.EventHandler(this.familiarLevelNumericUpDown_ValueChanged);
+            this.familiarSpellLevelModifierNumericUpDown.ValueChanged += new System.EventHandler(this.familiarSpellLevelModifierNumericUpDown_ValueChanged);
+            this.familiarAttackModifierNumericUpDown.ValueChanged += new System.EventHandler(this.familiarAttackModifierNumericUpDown_ValueChanged);
+            this.familiarDefenseModifierNumericUpDown.ValueChanged += new System.EventHandler(this.familiarDefenseModifierNumericUpDown_ValueChanged);
+        }
         private void FillComboBox(ComboBox comboBox, IEnumerable<string> items)
         {
             comboBox.Items.AddRange(items.ToArray<string>());
@@ -127,66 +154,96 @@ namespace AzureDreamsDamageCalculator
         }
         private void UpdateKoh()
         {
-            SetKohStatistics();
+            SetKohFrogStatus();
+            CalculateKohStatistics();
             SetKohWeapon();
             SetKohShield();
         }
-        private void SetKohStatistics()
+        private void SetKohFrogStatus()
+        { koh.IsFrog = kohFrogCheckBox.Checked; }
+        private void CalculateKohStatistics()
         {
-            UnitStatistics unitStatistics = UnitsTraits.Koh.calculateUnitStatistics((uint)kohLevelNumericUpDown.Value);
-            unitStatistics.attack = ModifiedStat(unitStatistics.attack, (int)kohAttackModifierNumericUpDown.Value);
-            unitStatistics.defense = ModifiedStat(unitStatistics.defense, (int)kohDefenseModifierNumericUpDown.Value);
-            koh.unitStatistics = unitStatistics;
-            kohAttackTextBox.Text = unitStatistics.attack.ToString();
-            kohDefenseTextBox.Text = unitStatistics.defense.ToString();
-            UpdateMonsterControls();
+            koh.Level = (uint)kohLevelNumericUpDown.Value;
+            CalculateUnitBaseStats(koh);
+            ModifyKohStats();
         }
-        private uint ModifiedStat(uint stat, int modifier)
-        { return (uint)Math.Max(stat + modifier, 1u); }
+        private void ModifyKohStats()
+        {
+            koh.Stats.AttackModifier = (int)kohAttackModifierNumericUpDown.Value;
+            kohAttackTextBox.Text = koh.Stats.Attack.ToString();
+            koh.Stats.DefenseModifier = (int)kohDefenseModifierNumericUpDown.Value;
+            kohDefenseTextBox.Text = koh.Stats.Defense.ToString();
+        }
         private void SetKohWeapon()
         {
             string weaponName = kohWeaponComboBox.SelectedItem.ToString();
-            koh.weapon = KohWeaponsNames[weaponName];
+            koh.Weapon = KohWeaponsNames[weaponName];
             SetKohWeaponQuality();
         }
         private void SetKohWeaponQuality()
-        {
-            koh.weapon.SetQuality((int)kohWeaponQualityNumericUpDown.Value);
-            UpdateMonsterControls();
-        }
+        { koh.Weapon.Quality = (int)kohWeaponQualityNumericUpDown.Value; }
         private void SetKohShield()
         {
             string shieldName = kohShieldComboBox.SelectedItem.ToString();
-            koh.shield = KohShieldsNames[shieldName];
+            koh.Shield = KohShieldsNames[shieldName];
             SetKohShieldQuality();
         }
         private void SetKohShieldQuality()
-        {
-            koh.shield.quality = (int)kohShieldQualityNumericUpDown.Value;
-            UpdateMonsterControls();
-        }
+        { koh.Shield.Quality = (int)kohShieldQualityNumericUpDown.Value; }
         private void UpdateFamiliar()
         { SetFamiliarType(); }
         private void SetFamiliarType()
         {
             string familiarType = familiarTypeComboBox.SelectedItem.ToString();
-            familiarTraits = FamiliarsTraits[familiarType];
-            familiarGenusComboBox.SelectedItem = familiarTraits.nativeGenus.ToString();
-            SetFamiliarStatistics();
+            CreateFamiliar(FamiliarsTraits[familiarType]);
+            familiarGenusComboBox.SelectedItem = familiar.Stats.Genus.ToString();
         }
-        private void SetFamiliarStatistics()
+        private void CreateFamiliar(UnitTraits traits)
         {
-            uint familiarLevel = (uint)familiarLevelNumericUpDown.Value;
-            UnitStatistics unitStatistics = familiarTraits.calculateUnitStatistics(familiarLevel);
-            unitStatistics.attack = ModifiedStat(unitStatistics.attack, (int)familiarAttackModifierNumericUpDown.Value);
-            unitStatistics.defense = ModifiedStat(unitStatistics.defense, (int)familiarDefenseModifierNumericUpDown.Value);
-            unitStatistics.genus = GenusNames[familiarGenusComboBox.SelectedItem.ToString()];
-            familiar.spellLevel = ModifiedStat(familiarLevel, (int)familiarSpellLevelModifierNumericUpDown.Value);
-            familiar.unitStatistics = unitStatistics;
-            familiarAttackTextBox.Text = unitStatistics.attack.ToString();
-            familiarDefenseTextBox.Text = unitStatistics.defense.ToString();
-            familiarSpellLevelTextBox.Text = familiar.spellLevel.ToString();
-            UpdateMonsterControls();
+            familiar = new Familiar(traits, new SpellTraits() { genus = traits.NativeGenus });
+            familiar.Stats.Genus = traits.NativeGenus;
+            SetFamiliarFrogStatus();
+            SetFamiliarLevel();
+            ModifyFamiliarSpellLevel();
+            CalculateFamiliarStats();
+        }
+        private void SetFamiliarGenus()
+        {
+            Genus genus = GenusNames[familiarGenusComboBox.SelectedItem.ToString()];
+            familiar.Stats.Genus = genus;
+            familiar.Spell.Genus = genus;
+        }
+        private void SetFamiliarFrogStatus()
+        { familiar.IsFrog = kohFrogCheckBox.Checked; }
+        private void SetFamiliarLevel()
+        {
+            familiar.Level = (uint)familiarLevelNumericUpDown.Value;
+            familiar.Spell.BaseLevel = familiar.Level;
+            ModifyFamiliarSpellLevel();
+            CalculateFamiliarStats();
+            ModifyFamiliarStats();
+        }
+        private void ModifyFamiliarSpellLevel()
+        {
+            familiar.Spell.LevelModifier = (int)familiarSpellLevelModifierNumericUpDown.Value;
+            familiarSpellLevelTextBox.Text = familiar.Spell.Level.ToString();
+        }
+        private void CalculateFamiliarStats()
+        {
+            CalculateUnitBaseStats(familiar);
+            ModifyFamiliarStats();
+        }
+        private void ModifyFamiliarStats()
+        {
+            familiar.Stats.AttackModifier = (int)familiarAttackModifierNumericUpDown.Value;
+            familiarAttackTextBox.Text = familiar.Stats.Attack.ToString();
+            familiar.Stats.DefenseModifier = (int)familiarDefenseModifierNumericUpDown.Value;
+            familiarDefenseTextBox.Text = familiar.Stats.Defense.ToString();
+        }
+        private void CalculateUnitBaseStats(Unit unit)
+        {
+            unit.Stats.BaseAttack = StatsCalculator.Attack(unit.Traits, unit.Level);
+            unit.Stats.BaseDefense = StatsCalculator.Defense(unit.Traits, unit.Level);
         }
         private void CreateMonsterControls()
         {
@@ -217,46 +274,83 @@ namespace AzureDreamsDamageCalculator
         }
         private void UpdateMonsterControls()
         {
-            if (updateMonstersControlBlocked)
-            { return; }
             Monster[] monstersOnSelectedFloor = MonstersOnSelectedFloor();
             for (int i = 0; i < monstersOnSelectedFloor.Length; ++i)
             { monsterControls[i].Fill(koh, familiar, monstersOnSelectedFloor[i]); }
         }
         private void kohLevelNumericUpDown_ValueChanged(object sender, EventArgs e)
-        { SetKohStatistics(); }
+        {
+            CalculateKohStatistics();
+            UpdateMonsterControls();
+        }
         private void kohFrogCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            koh.isFrog = kohFrogCheckBox.Checked;
+            SetKohFrogStatus();
             UpdateMonsterControls();
         }
         private void kohAttackModifierNumericUpDown_ValueChanged(object sender, EventArgs e)
-        { SetKohStatistics(); }
+        {
+            ModifyKohStats();
+            UpdateMonsterControls();
+        }
         private void kohDefenseModifierNumericUpDown_ValueChanged(object sender, EventArgs e)
-        { SetKohStatistics(); }
+        {
+            ModifyKohStats();
+            UpdateMonsterControls();
+        }
         private void kohWeaponComboBox_SelectedIndexChanged(object sender, System.EventArgs e)
-        { SetKohWeapon(); }
+        {
+            SetKohWeapon();
+            UpdateMonsterControls();
+        }
         private void kohWeaponQualityNumericUpDown_ValueChanged(object sender, System.EventArgs e)
-        { SetKohWeaponQuality(); }
+        {
+            SetKohWeaponQuality();
+            UpdateMonsterControls();
+        }
         private void kohShieldComboBox_SelectedIndexChanged(object sender, System.EventArgs e)
-        { SetKohShield(); }
+        {
+            SetKohShield();
+            UpdateMonsterControls();
+        }
         private void kohShieldQualityNumericUpDown_ValueChanged(object sender, System.EventArgs e)
-        { SetKohShieldQuality(); }
+        {
+            SetKohShieldQuality();
+            UpdateMonsterControls();
+        }
         private void familiarTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        { SetFamiliarType(); }
+        {
+            SetFamiliarType();
+            UpdateMonsterControls();
+        }
         private void familiarGenusComboBox_SelectedIndexChanged(object sender, System.EventArgs e)
-        { SetFamiliarStatistics(); }
-        private void familiarAttackModifierNumericUpDown_ValueChanged(object sender, EventArgs e)
-        { SetFamiliarStatistics(); }
-        private void familiarDefenseModifierNumericUpDown_ValueChanged(object sender, EventArgs e)
-        { SetFamiliarStatistics(); }
-        private void familiarLevelNumericUpDown_ValueChanged(object sender, EventArgs e)
-        { SetFamiliarStatistics(); }
-        private void familiarSpellLevelModifierNumericUpDown_ValueChanged(object sender, EventArgs e)
-        { SetFamiliarStatistics(); }
+        {
+            SetFamiliarGenus();
+            UpdateMonsterControls();
+        }
         private void familiarFrogCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            familiar.isFrog = familiarFrogCheckBox.Checked;
+            SetFamiliarFrogStatus();
+            UpdateMonsterControls();
+        }
+        private void familiarLevelNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            SetFamiliarLevel();
+            UpdateMonsterControls();
+        }
+        private void familiarSpellLevelModifierNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            ModifyFamiliarSpellLevel();
+            UpdateMonsterControls();
+        }
+        private void familiarAttackModifierNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            ModifyFamiliarStats();
+            UpdateMonsterControls();
+        }
+        private void familiarDefenseModifierNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            ModifyFamiliarStats();
             UpdateMonsterControls();
         }
         private void floorNumericUpDown_ValueChanged(object sender, System.EventArgs e)
@@ -268,10 +362,8 @@ namespace AzureDreamsDamageCalculator
         }
         private void levelUpKohFamiliarButton_Click(object sender, EventArgs e)
         {
-            updateMonstersControlBlocked = true;
             kohLevelNumericUpDown.Value += 1;
             familiarLevelNumericUpDown.Value += 1;
-            updateMonstersControlBlocked = false;
             UpdateMonsterControls();
         }
     }

@@ -59,6 +59,7 @@
     <Compile Include="MonsterControl.Designer.cs">
       <DependentUpon>MonsterControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MonsterCreator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GameElements.cs" />
@@ -193,6 +194,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Monsters\zu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Monsters\kewne.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Monsters\hikewne.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Monsters\kid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Monsters\grineut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Monsters\ashra.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Monsters\battnel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Monsters\death.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Monsters\ifrit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Monsters\metal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Monsters\saber.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Monsters\univern.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Monsters\genus_fire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Monsters\genus_water.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Monsters\genus_wind.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

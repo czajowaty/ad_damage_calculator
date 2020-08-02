@@ -141,7 +141,6 @@
             this.kohDefenseModifierNumericUpDown.Name = "kohDefenseModifierNumericUpDown";
             this.kohDefenseModifierNumericUpDown.Size = new System.Drawing.Size(38, 20);
             this.kohDefenseModifierNumericUpDown.TabIndex = 19;
-            this.kohDefenseModifierNumericUpDown.ValueChanged += new System.EventHandler(this.kohDefenseModifierNumericUpDown_ValueChanged);
             // 
             // label14
             // 
@@ -209,7 +208,6 @@
             0,
             0,
             0});
-            this.kohLevelNumericUpDown.ValueChanged += new System.EventHandler(this.kohLevelNumericUpDown_ValueChanged);
             // 
             // kohFrogCheckBox
             // 
@@ -220,7 +218,6 @@
             this.kohFrogCheckBox.TabIndex = 12;
             this.kohFrogCheckBox.Text = "Frog";
             this.kohFrogCheckBox.UseVisualStyleBackColor = true;
-            this.kohFrogCheckBox.CheckedChanged += new System.EventHandler(this.kohFrogCheckBox_CheckedChanged);
             // 
             // kohShieldQualityNumericUpDown
             // 
@@ -238,7 +235,6 @@
             this.kohShieldQualityNumericUpDown.Name = "kohShieldQualityNumericUpDown";
             this.kohShieldQualityNumericUpDown.Size = new System.Drawing.Size(50, 20);
             this.kohShieldQualityNumericUpDown.TabIndex = 11;
-            this.kohShieldQualityNumericUpDown.ValueChanged += new System.EventHandler(this.kohShieldQualityNumericUpDown_ValueChanged);
             // 
             // label6
             // 
@@ -266,7 +262,6 @@
             this.kohShieldComboBox.Name = "kohShieldComboBox";
             this.kohShieldComboBox.Size = new System.Drawing.Size(121, 21);
             this.kohShieldComboBox.TabIndex = 8;
-            this.kohShieldComboBox.SelectedIndexChanged += new System.EventHandler(this.kohShieldComboBox_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -293,7 +288,6 @@
             this.kohWeaponQualityNumericUpDown.Name = "kohWeaponQualityNumericUpDown";
             this.kohWeaponQualityNumericUpDown.Size = new System.Drawing.Size(50, 20);
             this.kohWeaponQualityNumericUpDown.TabIndex = 6;
-            this.kohWeaponQualityNumericUpDown.ValueChanged += new System.EventHandler(this.kohWeaponQualityNumericUpDown_ValueChanged);
             // 
             // label3
             // 
@@ -312,7 +306,6 @@
             this.kohWeaponComboBox.Name = "kohWeaponComboBox";
             this.kohWeaponComboBox.Size = new System.Drawing.Size(121, 21);
             this.kohWeaponComboBox.TabIndex = 4;
-            this.kohWeaponComboBox.SelectedIndexChanged += new System.EventHandler(this.kohWeaponComboBox_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -348,7 +341,6 @@
             this.kohAttackModifierNumericUpDown.Name = "kohAttackModifierNumericUpDown";
             this.kohAttackModifierNumericUpDown.Size = new System.Drawing.Size(38, 20);
             this.kohAttackModifierNumericUpDown.TabIndex = 1;
-            this.kohAttackModifierNumericUpDown.ValueChanged += new System.EventHandler(this.kohAttackModifierNumericUpDown_ValueChanged);
             // 
             // groupBox1
             // 
@@ -429,7 +421,6 @@
             0,
             0,
             0});
-            this.familiarLevelNumericUpDown.ValueChanged += new System.EventHandler(this.familiarLevelNumericUpDown_ValueChanged);
             // 
             // familiarDefenseModifierNumericUpDown
             // 
@@ -447,7 +438,6 @@
             this.familiarDefenseModifierNumericUpDown.Name = "familiarDefenseModifierNumericUpDown";
             this.familiarDefenseModifierNumericUpDown.Size = new System.Drawing.Size(38, 20);
             this.familiarDefenseModifierNumericUpDown.TabIndex = 27;
-            this.familiarDefenseModifierNumericUpDown.ValueChanged += new System.EventHandler(this.familiarDefenseModifierNumericUpDown_ValueChanged);
             // 
             // familiarTypeComboBox
             // 
@@ -457,7 +447,6 @@
             this.familiarTypeComboBox.Name = "familiarTypeComboBox";
             this.familiarTypeComboBox.Size = new System.Drawing.Size(98, 21);
             this.familiarTypeComboBox.TabIndex = 15;
-            this.familiarTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.familiarTypeComboBox_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -504,7 +493,6 @@
             this.familiarFrogCheckBox.TabIndex = 13;
             this.familiarFrogCheckBox.Text = "Frog";
             this.familiarFrogCheckBox.UseVisualStyleBackColor = true;
-            this.familiarFrogCheckBox.CheckedChanged += new System.EventHandler(this.familiarFrogCheckBox_CheckedChanged);
             // 
             // familiarAttackTextBox
             // 
@@ -549,7 +537,6 @@
             this.familiarSpellLevelModifierNumericUpDown.Name = "familiarSpellLevelModifierNumericUpDown";
             this.familiarSpellLevelModifierNumericUpDown.Size = new System.Drawing.Size(38, 20);
             this.familiarSpellLevelModifierNumericUpDown.TabIndex = 10;
-            this.familiarSpellLevelModifierNumericUpDown.ValueChanged += new System.EventHandler(this.familiarSpellLevelModifierNumericUpDown_ValueChanged);
             // 
             // label17
             // 
@@ -568,7 +555,6 @@
             this.familiarGenusComboBox.Name = "familiarGenusComboBox";
             this.familiarGenusComboBox.Size = new System.Drawing.Size(52, 21);
             this.familiarGenusComboBox.TabIndex = 9;
-            this.familiarGenusComboBox.SelectedIndexChanged += new System.EventHandler(this.familiarGenusComboBox_SelectedIndexChanged);
             // 
             // familiarAttackModifierNumericUpDown
             // 
@@ -586,7 +572,6 @@
             this.familiarAttackModifierNumericUpDown.Name = "familiarAttackModifierNumericUpDown";
             this.familiarAttackModifierNumericUpDown.Size = new System.Drawing.Size(38, 20);
             this.familiarAttackModifierNumericUpDown.TabIndex = 20;
-            this.familiarAttackModifierNumericUpDown.ValueChanged += new System.EventHandler(this.familiarAttackModifierNumericUpDown_ValueChanged);
             // 
             // label7
             // 
