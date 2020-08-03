@@ -126,6 +126,7 @@ namespace AzureDreamsDamageCalculator
         public uint ExpGivenGrowth;
         public Genus NativeGenus;
         public SpellTraits NativeSpell;
+        public bool IsEvolved;
         public bool Liftable;
         public bool Pushable;
         public Bitmap Portrait;

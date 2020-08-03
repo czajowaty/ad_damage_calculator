@@ -7,7 +7,7 @@ namespace AzureDreamsDamageCalculator
 {
     public partial class MainForm : Form
     {
-        public static readonly string VERSION = "0.1.3";
+        public static readonly string VERSION = "0.1.4";
         public static readonly SortedDictionary<string, Weapon> KohWeaponsNames = CreateNamedDictionary(
             new[]
             {
@@ -52,23 +52,23 @@ namespace AzureDreamsDamageCalculator
             new[]
             {
                 UnitsTraits.Kewne,
-                //{ "Dragon", UnitsTraits.Dragon },
+                UnitsTraits.Dragon ,
                 UnitsTraits.Kid,
-                //{ "Ifrit", UnitsTraits.Ifrit },
+                UnitsTraits.Ifrit,
                 UnitsTraits.Flame,
-                //{ "Grineut", UnitsTraits.Grineut },
+                UnitsTraits.Grineut,
                 UnitsTraits.Griffon,
-                //{ "Saber", UnitsTraits.Saber },
+                UnitsTraits.Saber,
                 UnitsTraits.Snowman,
-                //{ "Ashra", UnitsTraits.Ashra },
+                UnitsTraits.Ashra,
                 UnitsTraits.Arachne,
-                //{ "Battnel", UnitsTraits.Battnel },
+                UnitsTraits.Battnel,
                 UnitsTraits.Nyuel,
-                //{ "Death", UnitsTraits.Death },
+                UnitsTraits.Death,
                 UnitsTraits.Clown,
-                //{ "Univern", UnitsTraits.Univern },
+                UnitsTraits.Univern,
                 UnitsTraits.Unicorn,
-                //{ "Metal", UnitsTraits.Metal },
+                UnitsTraits.Metal,
                 UnitsTraits.Block,
                 UnitsTraits.Pulunpa,
                 UnitsTraits.Troll,

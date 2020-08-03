@@ -31,6 +31,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainGroupBox = new System.Windows.Forms.GroupBox();
             this.mainLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.monsterSpellDamageLabel = new System.Windows.Forms.Label();
             this.familiarSpellDamageLabel = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
@@ -80,6 +83,8 @@
             this.defenseTextBox = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
             this.weaponTextBox = new System.Windows.Forms.TextBox();
+            this.liftableCheckBox = new System.Windows.Forms.CheckBox();
+            this.pushableCheckBox = new System.Windows.Forms.CheckBox();
             this.damageGridView = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,11 +97,6 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kohSpellDamageLabel = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
-            this.monsterSpellDamageLabel = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.liftableCheckBox = new System.Windows.Forms.CheckBox();
-            this.pushableCheckBox = new System.Windows.Forms.CheckBox();
             this.mainGroupBox.SuspendLayout();
             this.mainLayout.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -196,6 +196,50 @@
             this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.mainLayout.Size = new System.Drawing.Size(420, 335);
             this.mainLayout.TabIndex = 0;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.BackColor = System.Drawing.Color.Gold;
+            this.mainLayout.SetColumnSpan(this.label42, 2);
+            this.label42.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label42.Location = new System.Drawing.Point(0, 303);
+            this.label42.Margin = new System.Windows.Forms.Padding(0);
+            this.label42.Name = "label42";
+            this.mainLayout.SetRowSpan(this.label42, 2);
+            this.label42.Size = new System.Drawing.Size(150, 32);
+            this.label42.TabIndex = 54;
+            this.label42.Text = "Spell";
+            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.mainLayout.SetColumnSpan(this.label41, 3);
+            this.label41.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label41.Location = new System.Drawing.Point(330, 303);
+            this.label41.Margin = new System.Windows.Forms.Padding(0);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(90, 15);
+            this.label41.TabIndex = 53;
+            this.label41.Text = "Monster\'s";
+            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // monsterSpellDamageLabel
+            // 
+            this.monsterSpellDamageLabel.AutoSize = true;
+            this.monsterSpellDamageLabel.BackColor = System.Drawing.Color.White;
+            this.mainLayout.SetColumnSpan(this.monsterSpellDamageLabel, 3);
+            this.monsterSpellDamageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.monsterSpellDamageLabel.Location = new System.Drawing.Point(330, 318);
+            this.monsterSpellDamageLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.monsterSpellDamageLabel.Name = "monsterSpellDamageLabel";
+            this.monsterSpellDamageLabel.Size = new System.Drawing.Size(90, 17);
+            this.monsterSpellDamageLabel.TabIndex = 52;
+            this.monsterSpellDamageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // familiarSpellDamageLabel
             // 
@@ -859,6 +903,32 @@
             this.weaponTextBox.Size = new System.Drawing.Size(80, 29);
             this.weaponTextBox.TabIndex = 5;
             // 
+            // liftableCheckBox
+            // 
+            this.liftableCheckBox.AutoCheck = false;
+            this.liftableCheckBox.AutoSize = true;
+            this.liftableCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.liftableCheckBox.Location = new System.Drawing.Point(3, 38);
+            this.liftableCheckBox.Name = "liftableCheckBox";
+            this.liftableCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.liftableCheckBox.Size = new System.Drawing.Size(92, 28);
+            this.liftableCheckBox.TabIndex = 6;
+            this.liftableCheckBox.Text = ":Liftable";
+            this.liftableCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // pushableCheckBox
+            // 
+            this.pushableCheckBox.AutoCheck = false;
+            this.pushableCheckBox.AutoSize = true;
+            this.pushableCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.pushableCheckBox.Location = new System.Drawing.Point(101, 38);
+            this.pushableCheckBox.Name = "pushableCheckBox";
+            this.pushableCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.pushableCheckBox.Size = new System.Drawing.Size(113, 28);
+            this.pushableCheckBox.TabIndex = 7;
+            this.pushableCheckBox.Text = ":Pushable";
+            this.pushableCheckBox.UseVisualStyleBackColor = true;
+            // 
             // damageGridView
             // 
             this.damageGridView.AllowUserToAddRows = false;
@@ -986,76 +1056,6 @@
             this.label29.TabIndex = 50;
             this.label29.Text = "Familiar\'s";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // monsterSpellDamageLabel
-            // 
-            this.monsterSpellDamageLabel.AutoSize = true;
-            this.monsterSpellDamageLabel.BackColor = System.Drawing.Color.White;
-            this.mainLayout.SetColumnSpan(this.monsterSpellDamageLabel, 3);
-            this.monsterSpellDamageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.monsterSpellDamageLabel.Location = new System.Drawing.Point(330, 318);
-            this.monsterSpellDamageLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.monsterSpellDamageLabel.Name = "monsterSpellDamageLabel";
-            this.monsterSpellDamageLabel.Size = new System.Drawing.Size(90, 17);
-            this.monsterSpellDamageLabel.TabIndex = 52;
-            this.monsterSpellDamageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.mainLayout.SetColumnSpan(this.label41, 3);
-            this.label41.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label41.Location = new System.Drawing.Point(330, 303);
-            this.label41.Margin = new System.Windows.Forms.Padding(0);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(90, 15);
-            this.label41.TabIndex = 53;
-            this.label41.Text = "Monster\'s";
-            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.BackColor = System.Drawing.Color.Gold;
-            this.mainLayout.SetColumnSpan(this.label42, 2);
-            this.label42.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label42.Location = new System.Drawing.Point(0, 303);
-            this.label42.Margin = new System.Windows.Forms.Padding(0);
-            this.label42.Name = "label42";
-            this.mainLayout.SetRowSpan(this.label42, 2);
-            this.label42.Size = new System.Drawing.Size(150, 32);
-            this.label42.TabIndex = 54;
-            this.label42.Text = "Spell";
-            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // liftableCheckBox
-            // 
-            this.liftableCheckBox.AutoCheck = false;
-            this.liftableCheckBox.AutoSize = true;
-            this.liftableCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.liftableCheckBox.Location = new System.Drawing.Point(3, 38);
-            this.liftableCheckBox.Name = "liftableCheckBox";
-            this.liftableCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.liftableCheckBox.Size = new System.Drawing.Size(92, 28);
-            this.liftableCheckBox.TabIndex = 6;
-            this.liftableCheckBox.Text = ":Liftable";
-            this.liftableCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // pushableCheckBox
-            // 
-            this.pushableCheckBox.AutoCheck = false;
-            this.pushableCheckBox.AutoSize = true;
-            this.pushableCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.pushableCheckBox.Location = new System.Drawing.Point(101, 38);
-            this.pushableCheckBox.Name = "pushableCheckBox";
-            this.pushableCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.pushableCheckBox.Size = new System.Drawing.Size(113, 28);
-            this.pushableCheckBox.TabIndex = 7;
-            this.pushableCheckBox.Text = ":Pushable";
-            this.pushableCheckBox.UseVisualStyleBackColor = true;
             // 
             // MonsterControl
             // 

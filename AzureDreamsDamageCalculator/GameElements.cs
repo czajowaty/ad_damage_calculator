@@ -87,6 +87,7 @@
             ExpGivenGrowth = 0x16,
             NativeGenus = Genus.Fire,
             NativeSpell = SpellsTraits.Breath,
+            IsEvolved = true,
             Liftable = false,
             Pushable = false,
             Portrait = Properties.Resources.dragon
@@ -133,6 +134,7 @@
             ExpGivenGrowth = 0x15,
             NativeGenus = Genus.Fire,
             NativeSpell = SpellsTraits.Sled,
+            IsEvolved = true,
             Liftable = false,
             Pushable = false,
             Portrait = Properties.Resources.ifrit
@@ -179,6 +181,7 @@
             ExpGivenGrowth = 0x12,
             NativeGenus = Genus.Fire,
             NativeSpell = SpellsTraits.Rise,
+            IsEvolved = true,
             Liftable = false,
             Pushable = false,
             Portrait = Properties.Resources.grineut
@@ -224,6 +227,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x11,
             NativeGenus = Genus.Water,
+            IsEvolved = true,
             Liftable = false,
             Pushable = false,
             Portrait = Properties.Resources.saber
@@ -268,6 +272,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x0F,
             NativeGenus = Genus.Water,
+            IsEvolved = true,
             Liftable = false,
             Pushable = false,
             Portrait = Properties.Resources.ashra
@@ -312,6 +317,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x12,
             NativeGenus = Genus.Water,
+            IsEvolved = true,
             Liftable = false,
             Pushable = false,
             Portrait = Properties.Resources.battnel
@@ -356,6 +362,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x10,
             NativeGenus = Genus.Wind,
+            IsEvolved = true,
             Liftable = false,
             Pushable = true,
             Portrait = Properties.Resources.death
@@ -400,6 +407,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x14,
             NativeGenus = Genus.Wind,
+            IsEvolved = true,
             Liftable = false,
             Pushable = false,
             Portrait = Properties.Resources.univern
@@ -444,6 +452,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x12,
             NativeGenus = Genus.Wind,
+            IsEvolved = true,
             Liftable = false,
             Pushable = false,
             Portrait = Properties.Resources.metal
