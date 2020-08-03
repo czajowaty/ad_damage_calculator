@@ -116,6 +116,8 @@ namespace AzureDreamsDamageCalculator
             attackTextBox.Text = monster.Stats.Attack.ToString();
             defenseTextBox.Text = monster.Stats.Defense.ToString();
             weaponTextBox.Text = monster.Weapon.Name;
+            liftableCheckBox.Checked = monster.Traits.Liftable;
+            pushableCheckBox.Checked = monster.Traits.Pushable;
             foreach (Descriptor descriptor in descriptors)
             {
                 uint damage = descriptor.calculateDamageRecipe(koh, familiar, monster, descriptor);
