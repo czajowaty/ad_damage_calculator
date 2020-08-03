@@ -39,7 +39,8 @@ namespace AzureDreamsDamageCalculator
                 monsterCreator.Traits,
                 monsterCreator.Level,
                 StatsCalculator.HP(monsterCreator.Traits, monsterCreator.Level) * monsterCreator.HpMultiplier,
-                StatsCalculator.MP(monsterCreator.Traits, monsterCreator.Level));
+                StatsCalculator.MP(monsterCreator.Traits, monsterCreator.Level),
+                monsterCreator.Traits.NativeSpell);
             monster.Stats.Genus = monsterCreator.Traits.NativeGenus;
             monster.Stats.BaseAttack = StatsCalculator.Attack(monsterCreator.Traits, monsterCreator.Level);
             monster.Stats.BaseDefense = StatsCalculator.Defense(monsterCreator.Traits, monsterCreator.Level);

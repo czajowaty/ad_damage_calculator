@@ -29,10 +29,11 @@ namespace AzureDreamsDamageCalculator
             { Genus.Water, Properties.Resources.genus_water },
             { Genus.Wind, Properties.Resources.genus_wind },
         };
+        static readonly uint INVALID_DAMAGE = 0xFFFFFFFF;
 
         private delegate uint CalculateDamageRecipe(
             Unit koh,
-            Familiar familiar, 
+            Unit familiar, 
             Monster monster, 
             Descriptor descriptor);
         private class Descriptor
@@ -104,7 +105,7 @@ namespace AzureDreamsDamageCalculator
         }
         private void DamageGridView_SelectionChanged(object sender, EventArgs e)
         { damageGridView.ClearSelection(); }
-        public void Fill(Unit koh, Familiar familiar, Monster monster)
+        public void Fill(Unit koh, Unit familiar, Monster monster)
         {
             mainGroupBox.Text = monster.Traits.Name;
             portraitPictureBox.Image = monster.Traits.Portrait;
@@ -118,18 +119,43 @@ namespace AzureDreamsDamageCalculator
             foreach (Descriptor descriptor in descriptors)
             {
                 uint damage = descriptor.calculateDamageRecipe(koh, familiar, monster, descriptor);
-                descriptor.cell.Value = damage.ToString();
+                descriptor.cell.Value = DamageToString(damage);
             }
+            kohSpellDamageLabel.Text = DamageToString(SpellAttackDamage(koh, monster));
+            familiarSpellDamageLabel.Text = DamageToString(SpellAttackDamage(familiar, monster));
+            monsterSpellDamageLabel.Text = DamageToString(SpellAttackDamage(monster, koh));
         }
-        private static uint KohNormalAttackDamage(Unit koh, Familiar familiar, Monster monster, Descriptor descriptor)
+        private string DamageToString(uint damage)
+        { return damage != INVALID_DAMAGE ? damage.ToString() : ""; }
+        private static uint SpellAttackDamage(Unit attacker, Unit defender)
+        {
+            if (attacker.HasSpell())
+            { return DamageCalculator.spellAttackDamage(attacker, defender); }
+            else
+            { return INVALID_DAMAGE; }
+        }
+        private static uint KohNormalAttackDamage(Unit koh, Unit familiar, Monster monster, Descriptor descriptor)
         { return NonSpellAttackDamage(koh, monster, descriptor); }
-        private static uint MixtureAttackDamage(Unit koh, Familiar familiar, Monster monster, Descriptor descriptor)
-        { return MixtureAttackDamage(koh, monster, familiar.Spell, descriptor); }
-        private static uint FamiliarAttackDamage(Unit koh, Familiar familiar, Monster monster, Descriptor descriptor)
+        private static uint MixtureAttackDamage(Unit koh, Unit familiar, Monster monster, Descriptor descriptor)
+        {
+            if (familiar.HasSpell())
+            {
+                return DamageCalculator.mixtureAttackDamage(
+                    koh,
+                    monster,
+                    descriptor.damageRoll,
+                    descriptor.groundModifier,
+                    descriptor.criticalHit,
+                    familiar.Spell);
+            }
+            else
+            { return INVALID_DAMAGE; }
+        }
+        private static uint FamiliarAttackDamage(Unit koh, Unit familiar, Monster monster, Descriptor descriptor)
         { return NonSpellAttackDamage(familiar, monster, descriptor); }
-        private static uint VsKohAttackDamage(Unit koh, Familiar familiar, Monster monster, Descriptor descriptor)
+        private static uint VsKohAttackDamage(Unit koh, Unit familiar, Monster monster, Descriptor descriptor)
         { return NonSpellAttackDamage(monster, koh, descriptor); }
-        private static uint VsFamiliarAttackDamage(Unit koh, Familiar familiar, Monster monster, Descriptor descriptor)
+        private static uint VsFamiliarAttackDamage(Unit koh, Unit familiar, Monster monster, Descriptor descriptor)
         { return NonSpellAttackDamage(monster, familiar, descriptor); }
         private static uint NonSpellAttackDamage(Unit attacker, Unit defender, Descriptor descriptor)
         {
@@ -139,16 +165,6 @@ namespace AzureDreamsDamageCalculator
                 descriptor.damageRoll, 
                 descriptor.groundModifier, 
                 descriptor.criticalHit);
-        }
-        private static uint MixtureAttackDamage(Unit attacker, Unit defender, Spell spell, Descriptor descriptor)
-        {
-            return DamageCalculator.mixtureAttackDamage(
-                attacker,
-                defender,
-                descriptor.damageRoll,
-                descriptor.groundModifier,
-                descriptor.criticalHit,
-                spell);
         }
     }
 }

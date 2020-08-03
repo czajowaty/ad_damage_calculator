@@ -96,6 +96,10 @@ namespace AzureDreamsDamageCalculator
                 UnitsTraits.Golem,
                 UnitsTraits.Maximum
             });
+        public static readonly SortedDictionary<string, SpellTraits> KohSpells = CreateNamedDictionary(
+            new []{ SpellsTraits.FireBall, SpellsTraits.BlazeBall, SpellsTraits.FlameBall, SpellsTraits.PillarBall, SpellsTraits.AcidRainBall });
+        public static readonly SortedDictionary<string, SpellTraits> FamiliarSpells = CreateNamedDictionary(
+            new[] { SpellTraits.EMPTY, SpellsTraits.Breath, SpellsTraits.Sled, SpellsTraits.Brid, SpellsTraits.Rise, SpellsTraits.Grave });
         public static readonly SortedDictionary<string, Genus> GenusNames = new SortedDictionary<string, Genus>()
         {
             { Genus.Fire.ToString(), Genus.Fire },
@@ -111,7 +115,7 @@ namespace AzureDreamsDamageCalculator
         }
 
         private Unit koh = new Unit(UnitsTraits.Koh);
-        private Familiar familiar;
+        private Unit familiar;
         private MonsterControl[] monsterControls = new MonsterControl[0];
 
         public MainForm()
@@ -121,9 +125,12 @@ namespace AzureDreamsDamageCalculator
             CreateMonsterControls();
             FillComboBox(kohWeaponComboBox, KohWeaponsNames.Keys);
             FillComboBox(kohShieldComboBox, KohShieldsNames.Keys);
+            FillComboBox(kohSpellComboBox, KohSpells.Keys);
             FillComboBox(familiarTypeComboBox, FamiliarsTraits.Keys);
             FillComboBox(familiarGenusComboBox, GenusNames.Keys);
+            FillComboBox(familiarSpellComboBox, FamiliarSpells.Keys);
             familiarTypeComboBox.SelectedItem = UnitsTraits.Kewne.Name;
+            familiarSpellComboBox.SelectedItem = UnitsTraits.Kewne.NativeSpell.Name;
             UpdateKoh();
             UpdateFamiliar();
             AddUIDelegatesHandlers();
@@ -139,11 +146,13 @@ namespace AzureDreamsDamageCalculator
             this.kohShieldComboBox.SelectedIndexChanged += new System.EventHandler(this.kohShieldComboBox_SelectedIndexChanged);
             this.kohWeaponComboBox.SelectedIndexChanged += new System.EventHandler(this.kohWeaponComboBox_SelectedIndexChanged);
             this.kohWeaponQualityNumericUpDown.ValueChanged += new System.EventHandler(this.kohWeaponQualityNumericUpDown_ValueChanged);
+            this.kohSpellComboBox.SelectedIndexChanged += new System.EventHandler(this.kohSpellComboBox_SelectedIndexChanged);
             this.familiarTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.familiarTypeComboBox_SelectedIndexChanged);
             this.familiarGenusComboBox.SelectedIndexChanged += new System.EventHandler(this.familiarGenusComboBox_SelectedIndexChanged);
             this.familiarFrogCheckBox.CheckedChanged += new System.EventHandler(this.familiarFrogCheckBox_CheckedChanged);
             this.familiarLevelNumericUpDown.ValueChanged += new System.EventHandler(this.familiarLevelNumericUpDown_ValueChanged);
             this.familiarSpellLevelModifierNumericUpDown.ValueChanged += new System.EventHandler(this.familiarSpellLevelModifierNumericUpDown_ValueChanged);
+            this.familiarSpellComboBox.SelectedIndexChanged += new System.EventHandler(this.familiarSpellComboBox_SelectedIndexChanged);
             this.familiarAttackModifierNumericUpDown.ValueChanged += new System.EventHandler(this.familiarAttackModifierNumericUpDown_ValueChanged);
             this.familiarDefenseModifierNumericUpDown.ValueChanged += new System.EventHandler(this.familiarDefenseModifierNumericUpDown_ValueChanged);
         }
@@ -158,6 +167,7 @@ namespace AzureDreamsDamageCalculator
             CalculateKohStatistics();
             SetKohWeapon();
             SetKohShield();
+            SetKohSpell();
         }
         private void SetKohFrogStatus()
         { koh.IsFrog = kohFrogCheckBox.Checked; }
@@ -166,6 +176,7 @@ namespace AzureDreamsDamageCalculator
             koh.Level = (uint)kohLevelNumericUpDown.Value;
             CalculateUnitBaseStats(koh);
             ModifyKohStats();
+            SetKohSpellLevel();
         }
         private void ModifyKohStats()
         {
@@ -190,6 +201,14 @@ namespace AzureDreamsDamageCalculator
         }
         private void SetKohShieldQuality()
         { koh.Shield.Quality = (int)kohShieldQualityNumericUpDown.Value; }
+        private void SetKohSpell()
+        {
+            string kohSpellName = kohSpellComboBox.SelectedItem.ToString();
+            koh.Spell = new Spell(KohSpells[kohSpellName]);
+            SetKohSpellLevel();
+        }
+        private void SetKohSpellLevel()
+        { koh.Spell.BaseLevel = koh.Level * 4; }
         private void UpdateFamiliar()
         { SetFamiliarType(); }
         private void SetFamiliarType()
@@ -197,10 +216,11 @@ namespace AzureDreamsDamageCalculator
             string familiarType = familiarTypeComboBox.SelectedItem.ToString();
             CreateFamiliar(FamiliarsTraits[familiarType]);
             familiarGenusComboBox.SelectedItem = familiar.Stats.Genus.ToString();
+            familiarSpellComboBox.SelectedItem = familiar.Spell.Name;
         }
         private void CreateFamiliar(UnitTraits traits)
         {
-            familiar = new Familiar(traits, new SpellTraits() { genus = traits.NativeGenus });
+            familiar = new Unit(traits, traits.NativeSpell);
             familiar.Stats.Genus = traits.NativeGenus;
             SetFamiliarFrogStatus();
             SetFamiliarLevel();
@@ -222,6 +242,12 @@ namespace AzureDreamsDamageCalculator
             ModifyFamiliarSpellLevel();
             CalculateFamiliarStats();
             ModifyFamiliarStats();
+        }
+        private void SetFamiliarSpell()
+        {
+            string spellTraits = familiarSpellComboBox.SelectedItem.ToString();
+            familiar.Spell = new Spell(FamiliarSpells[spellTraits], familiar.Level);
+            ModifyFamiliarSpellLevel();
         }
         private void ModifyFamiliarSpellLevel()
         {
@@ -318,6 +344,11 @@ namespace AzureDreamsDamageCalculator
             SetKohShieldQuality();
             UpdateMonsterControls();
         }
+        private void kohSpellComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetKohSpell();
+            UpdateMonsterControls();
+        }
         private void familiarTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             SetFamiliarType();
@@ -341,6 +372,11 @@ namespace AzureDreamsDamageCalculator
         private void familiarSpellLevelModifierNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             ModifyFamiliarSpellLevel();
+            UpdateMonsterControls();
+        }
+        private void familiarSpellComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetFamiliarSpell();
             UpdateMonsterControls();
         }
         private void familiarAttackModifierNumericUpDown_ValueChanged(object sender, EventArgs e)

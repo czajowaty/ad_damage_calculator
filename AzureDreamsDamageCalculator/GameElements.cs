@@ -63,6 +63,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x10,
             NativeGenus = Genus.Fire,
+            NativeSpell = SpellsTraits.Brid,
             Liftable = true,
             Pushable = true,
             Portrait = Properties.Resources.kewne
@@ -85,6 +86,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x16,
             NativeGenus = Genus.Fire,
+            NativeSpell = SpellsTraits.Breath,
             Liftable = false,
             Pushable = false,
             Portrait = Properties.Resources.dragon
@@ -107,6 +109,7 @@
             BaseExpGiven = 0x02,
             ExpGivenGrowth = 0x13,
             NativeGenus = Genus.Fire,
+            NativeSpell = SpellsTraits.Breath,
             Liftable = true,
             Pushable = true,
             Portrait = Properties.Resources.kid
@@ -129,6 +132,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x15,
             NativeGenus = Genus.Fire,
+            NativeSpell = SpellsTraits.Sled,
             Liftable = false,
             Pushable = false,
             Portrait = Properties.Resources.ifrit
@@ -151,6 +155,7 @@
             BaseExpGiven = 0x02,
             ExpGivenGrowth = 0x0F,
             NativeGenus = Genus.Fire,
+            NativeSpell = SpellsTraits.Sled,
             Liftable = false,
             Pushable = true,
             Portrait = Properties.Resources.flame
@@ -173,6 +178,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x12,
             NativeGenus = Genus.Fire,
+            NativeSpell = SpellsTraits.Rise,
             Liftable = false,
             Pushable = false,
             Portrait = Properties.Resources.grineut
@@ -195,6 +201,7 @@
             BaseExpGiven = 0x02,
             ExpGivenGrowth = 0x10,
             NativeGenus = Genus.Fire,
+            NativeSpell = SpellsTraits.Rise,
             Liftable = true,
             Pushable = true,
             Portrait = Properties.Resources.griffon
@@ -1017,28 +1024,16 @@
 
     public struct SpellsTraits
     {
-        public static readonly SpellTraits Breath = new SpellTraits() { name = "Breath", rawDamage = 16, genus = Genus.Fire };
-        public static readonly SpellTraits Sled = new SpellTraits() { name = "Sled", rawDamage = 8, genus = Genus.Fire };
-        public static readonly SpellTraits Brid = new SpellTraits() { name = "Brid", rawDamage = 10, genus = Genus.Fire };
-        public static readonly SpellTraits Rise = new SpellTraits() { name = "Rise", rawDamage = 19, genus = Genus.Fire };
-        public static readonly SpellTraits Grave = new SpellTraits() { name = "Grave", rawDamage = 24, genus = Genus.Wind };
-        public static readonly SpellTraits FireBall;
-        public static readonly SpellTraits BlazeBall;
-        public static readonly SpellTraits FlameBall;
-        public static readonly SpellTraits PillarBall;
-        public static readonly SpellTraits AcidRainBall = new SpellTraits() { name = "Acid rain ball", rawDamage = 32, genus = Genus.Water };
-
-        static SpellsTraits()
-        {
-            FireBall = Breath;
-            FireBall.name = "Fire ball";
-            BlazeBall = Sled;
-            BlazeBall.name = "Blaze ball";
-            FlameBall = Brid;
-            FlameBall.name = "Flame ball";
-            PillarBall = Rise;
-            PillarBall.name = "Pillar ball";
-        }
+        public static readonly SpellTraits Breath = new SpellTraits(name: "Breath", rawDamage: 16, genus: Genus.Fire);
+        public static readonly SpellTraits Sled = new SpellTraits(name: "Sled", rawDamage: 8, genus: Genus.Fire);
+        public static readonly SpellTraits Brid = new SpellTraits(name: "Brid", rawDamage: 10, genus: Genus.Fire);
+        public static readonly SpellTraits Rise = new SpellTraits(name: "Rise", rawDamage: 19, genus: Genus.Fire);
+        public static readonly SpellTraits Grave = new SpellTraits(name: "Grave", rawDamage: 24, genus: Genus.Wind);
+        public static readonly SpellTraits FireBall = new SpellTraits(name: "Fire ball", rawDamage: 16, genus: Genus.Fire);
+        public static readonly SpellTraits BlazeBall = new SpellTraits(name: "Blaze ball", rawDamage: 8, genus: Genus.Fire);
+        public static readonly SpellTraits FlameBall = new SpellTraits(name: "Flame ball", rawDamage: 10, genus: Genus.Fire);
+        public static readonly SpellTraits PillarBall = new SpellTraits(name: "Pillar ball", rawDamage: 19, genus: Genus.Fire);
+        public static readonly SpellTraits AcidRainBall = new SpellTraits(name: "Acid rain ball", rawDamage: 32, genus: Genus.Water);
     }
 
     public struct Monsters

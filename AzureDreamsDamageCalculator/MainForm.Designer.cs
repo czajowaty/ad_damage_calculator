@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.kohGroupBox = new System.Windows.Forms.GroupBox();
+            this.kohSpellComboBox = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.kohDefenseModifierNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
             this.kohDefenseTextBox = new System.Windows.Forms.TextBox();
@@ -49,6 +51,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.kohAttackModifierNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.familiarSpellComboBox = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.familiarSpellLevelTextBox = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -98,6 +102,8 @@
             // 
             this.kohGroupBox.AutoSize = true;
             this.kohGroupBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.kohGroupBox.Controls.Add(this.kohSpellComboBox);
+            this.kohGroupBox.Controls.Add(this.label20);
             this.kohGroupBox.Controls.Add(this.kohDefenseModifierNumericUpDown);
             this.kohGroupBox.Controls.Add(this.label14);
             this.kohGroupBox.Controls.Add(this.kohDefenseTextBox);
@@ -120,10 +126,28 @@
             this.kohGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kohGroupBox.Location = new System.Drawing.Point(3, 3);
             this.kohGroupBox.Name = "kohGroupBox";
-            this.kohGroupBox.Size = new System.Drawing.Size(343, 139);
+            this.kohGroupBox.Size = new System.Drawing.Size(343, 166);
             this.kohGroupBox.TabIndex = 0;
             this.kohGroupBox.TabStop = false;
             this.kohGroupBox.Text = "Koh";
+            // 
+            // kohSpellComboBox
+            // 
+            this.kohSpellComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.kohSpellComboBox.FormattingEnabled = true;
+            this.kohSpellComboBox.Location = new System.Drawing.Point(63, 126);
+            this.kohSpellComboBox.Name = "kohSpellComboBox";
+            this.kohSpellComboBox.Size = new System.Drawing.Size(121, 21);
+            this.kohSpellComboBox.TabIndex = 21;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(6, 129);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(33, 13);
+            this.label20.TabIndex = 20;
+            this.label20.Text = "Spell:";
             // 
             // kohDefenseModifierNumericUpDown
             // 
@@ -346,6 +370,8 @@
             // 
             this.groupBox1.AutoSize = true;
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox1.Controls.Add(this.familiarSpellComboBox);
+            this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.familiarSpellLevelTextBox);
             this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.label18);
@@ -368,10 +394,28 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(352, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(338, 139);
+            this.groupBox1.Size = new System.Drawing.Size(338, 166);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Familiar";
+            // 
+            // familiarSpellComboBox
+            // 
+            this.familiarSpellComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.familiarSpellComboBox.FormattingEnabled = true;
+            this.familiarSpellComboBox.Location = new System.Drawing.Point(48, 72);
+            this.familiarSpellComboBox.Name = "familiarSpellComboBox";
+            this.familiarSpellComboBox.Size = new System.Drawing.Size(121, 21);
+            this.familiarSpellComboBox.TabIndex = 31;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(6, 75);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(33, 13);
+            this.label21.TabIndex = 30;
+            this.label21.Text = "Spell:";
             // 
             // familiarSpellLevelTextBox
             // 
@@ -424,7 +468,7 @@
             // 
             // familiarDefenseModifierNumericUpDown
             // 
-            this.familiarDefenseModifierNumericUpDown.Location = new System.Drawing.Point(226, 73);
+            this.familiarDefenseModifierNumericUpDown.Location = new System.Drawing.Point(226, 99);
             this.familiarDefenseModifierNumericUpDown.Maximum = new decimal(new int[] {
             99,
             0,
@@ -451,7 +495,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(172, 76);
+            this.label11.Location = new System.Drawing.Point(172, 102);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(48, 13);
             this.label11.TabIndex = 26;
@@ -468,7 +512,7 @@
             // 
             // familiarDefenseTextBox
             // 
-            this.familiarDefenseTextBox.Location = new System.Drawing.Point(307, 73);
+            this.familiarDefenseTextBox.Location = new System.Drawing.Point(307, 99);
             this.familiarDefenseTextBox.Name = "familiarDefenseTextBox";
             this.familiarDefenseTextBox.ReadOnly = true;
             this.familiarDefenseTextBox.Size = new System.Drawing.Size(25, 20);
@@ -478,7 +522,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 76);
+            this.label12.Location = new System.Drawing.Point(6, 102);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(48, 13);
             this.label12.TabIndex = 24;
@@ -496,7 +540,7 @@
             // 
             // familiarAttackTextBox
             // 
-            this.familiarAttackTextBox.Location = new System.Drawing.Point(141, 73);
+            this.familiarAttackTextBox.Location = new System.Drawing.Point(141, 99);
             this.familiarAttackTextBox.Name = "familiarAttackTextBox";
             this.familiarAttackTextBox.ReadOnly = true;
             this.familiarAttackTextBox.Size = new System.Drawing.Size(25, 20);
@@ -515,7 +559,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(270, 76);
+            this.label16.Location = new System.Drawing.Point(270, 102);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(31, 13);
             this.label16.TabIndex = 22;
@@ -541,7 +585,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(104, 76);
+            this.label17.Location = new System.Drawing.Point(104, 102);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(31, 13);
             this.label17.TabIndex = 21;
@@ -558,7 +602,7 @@
             // 
             // familiarAttackModifierNumericUpDown
             // 
-            this.familiarAttackModifierNumericUpDown.Location = new System.Drawing.Point(60, 73);
+            this.familiarAttackModifierNumericUpDown.Location = new System.Drawing.Point(60, 99);
             this.familiarAttackModifierNumericUpDown.Maximum = new decimal(new int[] {
             99,
             0,
@@ -599,7 +643,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(948, 145);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(948, 172);
             this.tableLayoutPanel1.TabIndex = 13;
             // 
             // groupBox2
@@ -611,7 +655,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(696, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(111, 139);
+            this.groupBox2.Size = new System.Drawing.Size(111, 166);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Other settings";
@@ -656,7 +700,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(813, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(132, 139);
+            this.groupBox3.Size = new System.Drawing.Size(132, 166);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Operations";
@@ -693,9 +737,9 @@
             this.monsterControlsFlowLayoutPanel.AutoScroll = true;
             this.monsterControlsFlowLayoutPanel.AutoSize = true;
             this.monsterControlsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.monsterControlsFlowLayoutPanel.Location = new System.Drawing.Point(3, 154);
+            this.monsterControlsFlowLayoutPanel.Location = new System.Drawing.Point(3, 181);
             this.monsterControlsFlowLayoutPanel.Name = "monsterControlsFlowLayoutPanel";
-            this.monsterControlsFlowLayoutPanel.Size = new System.Drawing.Size(1578, 704);
+            this.monsterControlsFlowLayoutPanel.Size = new System.Drawing.Size(1578, 677);
             this.monsterControlsFlowLayoutPanel.TabIndex = 14;
             // 
             // MainForm
@@ -782,6 +826,10 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button levelUpKohFamiliarButton;
+        private System.Windows.Forms.ComboBox kohSpellComboBox;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ComboBox familiarSpellComboBox;
+        private System.Windows.Forms.Label label21;
     }
 }
 

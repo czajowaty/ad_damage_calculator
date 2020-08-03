@@ -5,8 +5,6 @@ namespace AzureDreamsDamageCalculator
 {
     public class DamageCalculator
     {
-        static readonly int GROUND_MODIFIER_SAME_LEVEL = 0;
-
         public static uint standardAttackDamage(Unit attacker, Unit defender, byte damageRoll, int highGround, bool isCriticalHit)
         { return mixtureAttackDamage(attacker, defender, damageRoll, highGround, isCriticalHit, Spell.NO_SPELL); }
         public static uint mixtureAttackDamage(Unit attacker, Unit defender, byte damageRoll, int highGround, bool isCriticalHit, Spell spell)
@@ -19,15 +17,16 @@ namespace AzureDreamsDamageCalculator
             float criticalHitMultiplier = calculateCriticalHitMultiplier(isCriticalHit);
             return (uint)Math.Max(damage * criticalHitMultiplier, 1);
         }
-        public static uint spellAttackDamage(Unit attacker, Unit defender, Spell spell)
+        public static uint spellAttackDamage(Unit attacker, Unit defender)
         {
+            Spell spell = attacker.Spell;
             uint baseDamage = (spell.RawDamage + spell.Level) * 2;
             uint baseDefense = calculateBaseDefense(attacker, defender);
-            int combatAdvantage = calculateCombatAdvantage(new[] { spell.Genus }, defender.Stats.Genus, GROUND_MODIFIER_SAME_LEVEL);
+            int combatAdvantage = calculateSpellCombatAdvantage(attacker, defender);
             int combatDamage = (int)(baseDamage * combatAdvantage);
             if (combatAdvantage < 0)
             { combatDamage = (int)Math.Floor((combatDamage + 3) / 4.0f); }
-            return Math.Max((uint)Math.Floor((baseDamage + combatDamage - baseDefense) / 2.0f), 1u);
+            return (uint)Math.Max(Math.Floor((baseDamage + combatDamage - baseDefense) / 2.0f), 1u);
         }
         private static uint calculateBaseDamage(Unit attacker, byte damageRoll, Spell spell)
         {
@@ -54,9 +53,9 @@ namespace AzureDreamsDamageCalculator
             return (uint)Math.Max(Math.Floor((defender.Stats.Defense + shieldDefense) / (float)frogPenalty), 1);
         }
         private static int calculateCombatAdvantage(Unit attacker, Unit defender, Spell spell, int highGround)
-        { return calculateCombatAdvantage(findAttackerElements(attacker, spell), findDefenderElement(defender), highGround); }
-        private static int calculateCombatAdvantage(Genus[] attackerElements, Genus defenderElement, int highGround)
         {
+            Genus[] attackerElements = findAttackerElements(attacker, spell);
+            Genus defenderElement = findDefenderElement(defender);
             int elementalAdvantages = (int)calculateElementalAdvantages(attackerElements, defenderElement);
             int elementalDisadvantages = (int)calculateElementalDisadvantages(attackerElements, defenderElement);
             return elementalAdvantages - 2 * elementalDisadvantages + highGround;
@@ -75,6 +74,14 @@ namespace AzureDreamsDamageCalculator
             { return defender.Stats.Genus; }
             else
             { return defender.Shield.Genus; }
+        }
+        private static int calculateSpellCombatAdvantage(Unit attacker, Unit defender)
+        {
+            Genus[] attackerElements = { attacker.Spell.Genus };
+            Genus defenderElement = findDefenderElement(defender);
+            int elementalAdvantages = (int)calculateElementalAdvantages(attackerElements, defenderElement);
+            int elementalDisadvantages = (int)calculateElementalDisadvantages(attackerElements, defenderElement);
+            return elementalAdvantages - elementalDisadvantages;
         }
         private static uint calculateElementalAdvantages(Genus[] attackerElements, Genus defenderElement)
         {

@@ -31,13 +31,39 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainGroupBox = new System.Windows.Forms.GroupBox();
             this.mainLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label35 = new System.Windows.Forms.Label();
-            this.attackTextBox = new System.Windows.Forms.TextBox();
-            this.label36 = new System.Windows.Forms.Label();
-            this.defenseTextBox = new System.Windows.Forms.TextBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.weaponTextBox = new System.Windows.Forms.TextBox();
+            this.familiarSpellDamageLabel = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.portraitPictureBox = new System.Windows.Forms.PictureBox();
             this.genusPictureBox = new System.Windows.Forms.PictureBox();
@@ -47,37 +73,13 @@
             this.hpTextBox = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.mpTextBox = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label35 = new System.Windows.Forms.Label();
+            this.attackTextBox = new System.Windows.Forms.TextBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.defenseTextBox = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.weaponTextBox = new System.Windows.Forms.TextBox();
             this.damageGridView = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,12 +90,17 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kohSpellDamageLabel = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.monsterSpellDamageLabel = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
             this.mainGroupBox.SuspendLayout();
             this.mainLayout.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.portraitPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genusPictureBox)).BeginInit();
+            this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.damageGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,7 +110,7 @@
             this.mainGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainGroupBox.Location = new System.Drawing.Point(0, 0);
             this.mainGroupBox.Name = "mainGroupBox";
-            this.mainGroupBox.Size = new System.Drawing.Size(426, 288);
+            this.mainGroupBox.Size = new System.Drawing.Size(426, 354);
             this.mainGroupBox.TabIndex = 0;
             this.mainGroupBox.TabStop = false;
             this.mainGroupBox.Text = "Monster";
@@ -122,6 +129,13 @@
             this.mainLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.mainLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.mainLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.mainLayout.Controls.Add(this.label42, 0, 15);
+            this.mainLayout.Controls.Add(this.label41, 8, 15);
+            this.mainLayout.Controls.Add(this.monsterSpellDamageLabel, 8, 16);
+            this.mainLayout.Controls.Add(this.familiarSpellDamageLabel, 5, 16);
+            this.mainLayout.Controls.Add(this.label28, 2, 15);
+            this.mainLayout.Controls.Add(this.label40, 0, 14);
+            this.mainLayout.Controls.Add(this.label39, 1, 13);
             this.mainLayout.Controls.Add(this.label16, 10, 3);
             this.mainLayout.Controls.Add(this.label15, 9, 3);
             this.mainLayout.Controls.Add(this.label14, 8, 3);
@@ -149,358 +163,93 @@
             this.mainLayout.Controls.Add(this.label25, 1, 10);
             this.mainLayout.Controls.Add(this.label26, 0, 11);
             this.mainLayout.Controls.Add(this.label27, 0, 13);
-            this.mainLayout.Controls.Add(this.label28, 1, 11);
-            this.mainLayout.Controls.Add(this.label29, 1, 12);
-            this.mainLayout.Controls.Add(this.label30, 1, 13);
-            this.mainLayout.Controls.Add(this.label31, 1, 14);
+            this.mainLayout.Controls.Add(this.label30, 1, 11);
+            this.mainLayout.Controls.Add(this.label31, 1, 12);
             this.mainLayout.Controls.Add(this.flowLayoutPanel1, 0, 0);
             this.mainLayout.Controls.Add(this.flowLayoutPanel2, 0, 1);
             this.mainLayout.Controls.Add(this.damageGridView, 2, 5);
+            this.mainLayout.Controls.Add(this.kohSpellDamageLabel, 2, 16);
+            this.mainLayout.Controls.Add(this.label29, 5, 15);
             this.mainLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainLayout.Location = new System.Drawing.Point(3, 16);
             this.mainLayout.Name = "mainLayout";
-            this.mainLayout.RowCount = 15;
+            this.mainLayout.RowCount = 17;
             this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.mainLayout.Size = new System.Drawing.Size(420, 269);
+            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333402F));
+            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333402F));
+            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333402F));
+            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333402F));
+            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333402F));
+            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333402F));
+            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333402F));
+            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333402F));
+            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333402F));
+            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333402F));
+            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333402F));
+            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.332569F));
+            this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.mainLayout.Size = new System.Drawing.Size(420, 335);
             this.mainLayout.TabIndex = 0;
             // 
-            // flowLayoutPanel2
+            // familiarSpellDamageLabel
             // 
-            this.flowLayoutPanel2.AutoSize = true;
-            this.flowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.Yellow;
-            this.mainLayout.SetColumnSpan(this.flowLayoutPanel2, 11);
-            this.flowLayoutPanel2.Controls.Add(this.label35);
-            this.flowLayoutPanel2.Controls.Add(this.attackTextBox);
-            this.flowLayoutPanel2.Controls.Add(this.label36);
-            this.flowLayoutPanel2.Controls.Add(this.defenseTextBox);
-            this.flowLayoutPanel2.Controls.Add(this.label37);
-            this.flowLayoutPanel2.Controls.Add(this.weaponTextBox);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 36);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(420, 35);
-            this.flowLayoutPanel2.TabIndex = 43;
+            this.familiarSpellDamageLabel.AutoSize = true;
+            this.familiarSpellDamageLabel.BackColor = System.Drawing.Color.White;
+            this.mainLayout.SetColumnSpan(this.familiarSpellDamageLabel, 3);
+            this.familiarSpellDamageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.familiarSpellDamageLabel.Location = new System.Drawing.Point(240, 317);
+            this.familiarSpellDamageLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.familiarSpellDamageLabel.Name = "familiarSpellDamageLabel";
+            this.familiarSpellDamageLabel.Size = new System.Drawing.Size(90, 18);
+            this.familiarSpellDamageLabel.TabIndex = 51;
+            this.familiarSpellDamageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label35
+            // label28
             // 
-            this.label35.AutoSize = true;
-            this.label35.BackColor = System.Drawing.Color.Yellow;
-            this.label35.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label35.Location = new System.Drawing.Point(3, 0);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(52, 35);
-            this.label35.TabIndex = 0;
-            this.label35.Text = "ATK:";
-            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label28.AutoSize = true;
+            this.label28.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.mainLayout.SetColumnSpan(this.label28, 3);
+            this.label28.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label28.Location = new System.Drawing.Point(150, 299);
+            this.label28.Margin = new System.Windows.Forms.Padding(0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(90, 18);
+            this.label28.TabIndex = 48;
+            this.label28.Text = "Koh\'s";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // attackTextBox
+            // label40
             // 
-            this.attackTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.attackTextBox.Location = new System.Drawing.Point(61, 3);
-            this.attackTextBox.Name = "attackTextBox";
-            this.attackTextBox.ReadOnly = true;
-            this.attackTextBox.Size = new System.Drawing.Size(36, 29);
-            this.attackTextBox.TabIndex = 1;
+            this.label40.AutoSize = true;
+            this.label40.BackColor = System.Drawing.Color.LightGreen;
+            this.label40.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label40.Location = new System.Drawing.Point(95, 281);
+            this.label40.Margin = new System.Windows.Forms.Padding(0);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(55, 18);
+            this.label40.TabIndex = 47;
+            this.label40.Text = "Y";
+            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label36
+            // label39
             // 
-            this.label36.AutoSize = true;
-            this.label36.BackColor = System.Drawing.Color.Yellow;
-            this.label36.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label36.Location = new System.Drawing.Point(103, 0);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(53, 35);
-            this.label36.TabIndex = 2;
-            this.label36.Text = "DEF:";
-            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // defenseTextBox
-            // 
-            this.defenseTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.defenseTextBox.Location = new System.Drawing.Point(162, 3);
-            this.defenseTextBox.Name = "defenseTextBox";
-            this.defenseTextBox.ReadOnly = true;
-            this.defenseTextBox.Size = new System.Drawing.Size(36, 29);
-            this.defenseTextBox.TabIndex = 3;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.BackColor = System.Drawing.Color.Yellow;
-            this.label37.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label37.Location = new System.Drawing.Point(204, 0);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(100, 35);
-            this.label37.TabIndex = 4;
-            this.label37.Text = "WEAPON:";
-            this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // weaponTextBox
-            // 
-            this.weaponTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.weaponTextBox.Location = new System.Drawing.Point(310, 3);
-            this.weaponTextBox.Name = "weaponTextBox";
-            this.weaponTextBox.ReadOnly = true;
-            this.weaponTextBox.Size = new System.Drawing.Size(80, 29);
-            this.weaponTextBox.TabIndex = 5;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoSize = true;
-            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Yellow;
-            this.mainLayout.SetColumnSpan(this.flowLayoutPanel1, 11);
-            this.flowLayoutPanel1.Controls.Add(this.portraitPictureBox);
-            this.flowLayoutPanel1.Controls.Add(this.genusPictureBox);
-            this.flowLayoutPanel1.Controls.Add(this.label34);
-            this.flowLayoutPanel1.Controls.Add(this.levelTextBox);
-            this.flowLayoutPanel1.Controls.Add(this.label32);
-            this.flowLayoutPanel1.Controls.Add(this.hpTextBox);
-            this.flowLayoutPanel1.Controls.Add(this.label33);
-            this.flowLayoutPanel1.Controls.Add(this.mpTextBox);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(420, 36);
-            this.flowLayoutPanel1.TabIndex = 42;
-            // 
-            // portraitPictureBox
-            // 
-            this.portraitPictureBox.BackColor = System.Drawing.Color.Yellow;
-            this.portraitPictureBox.Location = new System.Drawing.Point(3, 3);
-            this.portraitPictureBox.Name = "portraitPictureBox";
-            this.portraitPictureBox.Size = new System.Drawing.Size(30, 30);
-            this.portraitPictureBox.TabIndex = 0;
-            this.portraitPictureBox.TabStop = false;
-            // 
-            // genusPictureBox
-            // 
-            this.genusPictureBox.Location = new System.Drawing.Point(39, 3);
-            this.genusPictureBox.Name = "genusPictureBox";
-            this.genusPictureBox.Size = new System.Drawing.Size(30, 30);
-            this.genusPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.genusPictureBox.TabIndex = 7;
-            this.genusPictureBox.TabStop = false;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label34.Location = new System.Drawing.Point(75, 0);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(60, 36);
-            this.label34.TabIndex = 8;
-            this.label34.Text = "Level:";
-            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // levelTextBox
-            // 
-            this.levelTextBox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.levelTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.levelTextBox.Location = new System.Drawing.Point(141, 3);
-            this.levelTextBox.Name = "levelTextBox";
-            this.levelTextBox.ReadOnly = true;
-            this.levelTextBox.Size = new System.Drawing.Size(36, 29);
-            this.levelTextBox.TabIndex = 9;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label32.Location = new System.Drawing.Point(183, 0);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(41, 36);
-            this.label32.TabIndex = 1;
-            this.label32.Text = "HP:";
-            this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // hpTextBox
-            // 
-            this.hpTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hpTextBox.Location = new System.Drawing.Point(230, 3);
-            this.hpTextBox.Name = "hpTextBox";
-            this.hpTextBox.ReadOnly = true;
-            this.hpTextBox.Size = new System.Drawing.Size(36, 29);
-            this.hpTextBox.TabIndex = 2;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label33.Location = new System.Drawing.Point(272, 0);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(43, 36);
-            this.label33.TabIndex = 3;
-            this.label33.Text = "MP:";
-            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // mpTextBox
-            // 
-            this.mpTextBox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.mpTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.mpTextBox.Location = new System.Drawing.Point(321, 3);
-            this.mpTextBox.Name = "mpTextBox";
-            this.mpTextBox.ReadOnly = true;
-            this.mpTextBox.Size = new System.Drawing.Size(36, 29);
-            this.mpTextBox.TabIndex = 4;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.BackColor = System.Drawing.Color.Yellow;
-            this.label27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label27.Location = new System.Drawing.Point(0, 239);
-            this.label27.Margin = new System.Windows.Forms.Padding(0);
-            this.label27.Name = "label27";
-            this.mainLayout.SetRowSpan(this.label27, 2);
-            this.label27.Size = new System.Drawing.Size(95, 30);
-            this.label27.TabIndex = 36;
-            this.label27.Text = "vs. Familiar";
-            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.BackColor = System.Drawing.Color.Gold;
-            this.label26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label26.Location = new System.Drawing.Point(0, 209);
-            this.label26.Margin = new System.Windows.Forms.Padding(0);
-            this.label26.Name = "label26";
-            this.mainLayout.SetRowSpan(this.label26, 2);
-            this.label26.Size = new System.Drawing.Size(95, 30);
-            this.label26.TabIndex = 35;
-            this.label26.Text = "vs. Koh";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.BackColor = System.Drawing.Color.Gold;
-            this.mainLayout.SetColumnSpan(this.label21, 9);
-            this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label21.Location = new System.Drawing.Point(150, 103);
-            this.label21.Margin = new System.Windows.Forms.Padding(0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(270, 16);
-            this.label21.TabIndex = 30;
-            this.label21.Text = "Damage";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.Yellow;
-            this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label17.Location = new System.Drawing.Point(0, 179);
-            this.label17.Margin = new System.Windows.Forms.Padding(0);
-            this.label17.Name = "label17";
-            this.mainLayout.SetRowSpan(this.label17, 2);
-            this.label17.Size = new System.Drawing.Size(95, 30);
-            this.label17.TabIndex = 26;
-            this.label17.Text = "Familiar attack";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.mainLayout.SetColumnSpan(this.label5, 3);
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(150, 71);
-            this.label5.Margin = new System.Windows.Forms.Padding(0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 16);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "0";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Yellow;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(0, 119);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.mainLayout.SetRowSpan(this.label1, 2);
-            this.label1.Size = new System.Drawing.Size(95, 30);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Normal attack";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Gold;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(0, 149);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.mainLayout.SetRowSpan(this.label2, 2);
-            this.label2.Size = new System.Drawing.Size(95, 30);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Mixture magic";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.LawnGreen;
-            this.mainLayout.SetColumnSpan(this.label6, 3);
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(240, 71);
-            this.label6.Margin = new System.Windows.Forms.Padding(0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 16);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "1";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Red;
-            this.mainLayout.SetColumnSpan(this.label7, 3);
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.Location = new System.Drawing.Point(330, 71);
-            this.label7.Margin = new System.Windows.Forms.Padding(0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 16);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "-1";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label39.AutoSize = true;
+            this.label39.BackColor = System.Drawing.Color.Cyan;
+            this.label39.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label39.Location = new System.Drawing.Point(95, 263);
+            this.label39.Margin = new System.Windows.Forms.Padding(0);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(55, 18);
+            this.label39.TabIndex = 46;
+            this.label39.Text = "N";
+            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label16
             // 
@@ -614,6 +363,36 @@
             this.label9.Text = "1";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Red;
+            this.mainLayout.SetColumnSpan(this.label7, 3);
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label7.Location = new System.Drawing.Point(330, 71);
+            this.label7.Margin = new System.Windows.Forms.Padding(0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(90, 16);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "-1";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.LawnGreen;
+            this.mainLayout.SetColumnSpan(this.label6, 3);
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(240, 71);
+            this.label6.Margin = new System.Windows.Forms.Padding(0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 16);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "1";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -628,6 +407,36 @@
             this.label3.Text = "High ground";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Gold;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(0, 155);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.Name = "label2";
+            this.mainLayout.SetRowSpan(this.label2, 2);
+            this.label2.Size = new System.Drawing.Size(95, 36);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Mixture magic";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Yellow;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(0, 119);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.mainLayout.SetRowSpan(this.label1, 2);
+            this.label1.Size = new System.Drawing.Size(95, 36);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Normal attack";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -641,6 +450,21 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Damage roll";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.mainLayout.SetColumnSpan(this.label5, 3);
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(150, 71);
+            this.label5.Margin = new System.Windows.Forms.Padding(0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(90, 16);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "0";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
             // 
@@ -670,6 +494,21 @@
             this.label18.Text = "Critical?";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Yellow;
+            this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label17.Location = new System.Drawing.Point(0, 191);
+            this.label17.Margin = new System.Windows.Forms.Padding(0);
+            this.label17.Name = "label17";
+            this.mainLayout.SetRowSpan(this.label17, 2);
+            this.label17.Size = new System.Drawing.Size(95, 36);
+            this.label17.TabIndex = 26;
+            this.label17.Text = "Familiar attack";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -679,7 +518,7 @@
             this.label19.Location = new System.Drawing.Point(95, 119);
             this.label19.Margin = new System.Windows.Forms.Padding(0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(55, 15);
+            this.label19.Size = new System.Drawing.Size(55, 18);
             this.label19.TabIndex = 28;
             this.label19.Text = "N";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -690,13 +529,28 @@
             this.label20.BackColor = System.Drawing.Color.LightGreen;
             this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label20.Location = new System.Drawing.Point(95, 134);
+            this.label20.Location = new System.Drawing.Point(95, 137);
             this.label20.Margin = new System.Windows.Forms.Padding(0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(55, 15);
+            this.label20.Size = new System.Drawing.Size(55, 18);
             this.label20.TabIndex = 29;
             this.label20.Text = "Y";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.Gold;
+            this.mainLayout.SetColumnSpan(this.label21, 9);
+            this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label21.Location = new System.Drawing.Point(150, 103);
+            this.label21.Margin = new System.Windows.Forms.Padding(0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(270, 16);
+            this.label21.TabIndex = 30;
+            this.label21.Text = "Damage";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label22
             // 
@@ -704,10 +558,10 @@
             this.label22.BackColor = System.Drawing.Color.Cyan;
             this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label22.Location = new System.Drawing.Point(95, 149);
+            this.label22.Location = new System.Drawing.Point(95, 155);
             this.label22.Margin = new System.Windows.Forms.Padding(0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(55, 15);
+            this.label22.Size = new System.Drawing.Size(55, 18);
             this.label22.TabIndex = 31;
             this.label22.Text = "N";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -718,10 +572,10 @@
             this.label23.BackColor = System.Drawing.Color.LightGreen;
             this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label23.Location = new System.Drawing.Point(95, 164);
+            this.label23.Location = new System.Drawing.Point(95, 173);
             this.label23.Margin = new System.Windows.Forms.Padding(0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(55, 15);
+            this.label23.Size = new System.Drawing.Size(55, 18);
             this.label23.TabIndex = 32;
             this.label23.Text = "Y";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -732,10 +586,10 @@
             this.label24.BackColor = System.Drawing.Color.Cyan;
             this.label24.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label24.Location = new System.Drawing.Point(95, 179);
+            this.label24.Location = new System.Drawing.Point(95, 191);
             this.label24.Margin = new System.Windows.Forms.Padding(0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(55, 15);
+            this.label24.Size = new System.Drawing.Size(55, 18);
             this.label24.TabIndex = 33;
             this.label24.Text = "N";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -746,41 +600,43 @@
             this.label25.BackColor = System.Drawing.Color.LightGreen;
             this.label25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label25.Location = new System.Drawing.Point(95, 194);
+            this.label25.Location = new System.Drawing.Point(95, 209);
             this.label25.Margin = new System.Windows.Forms.Padding(0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(55, 15);
+            this.label25.Size = new System.Drawing.Size(55, 18);
             this.label25.TabIndex = 34;
             this.label25.Text = "Y";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label28
+            // label26
             // 
-            this.label28.AutoSize = true;
-            this.label28.BackColor = System.Drawing.Color.Cyan;
-            this.label28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label28.Location = new System.Drawing.Point(95, 209);
-            this.label28.Margin = new System.Windows.Forms.Padding(0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(55, 15);
-            this.label28.TabIndex = 37;
-            this.label28.Text = "N";
-            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label26.AutoSize = true;
+            this.label26.BackColor = System.Drawing.Color.Gold;
+            this.label26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label26.Location = new System.Drawing.Point(0, 227);
+            this.label26.Margin = new System.Windows.Forms.Padding(0);
+            this.label26.Name = "label26";
+            this.mainLayout.SetRowSpan(this.label26, 2);
+            this.label26.Size = new System.Drawing.Size(95, 36);
+            this.label26.TabIndex = 35;
+            this.label26.Text = "vs. Koh";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label29
+            // label27
             // 
-            this.label29.AutoSize = true;
-            this.label29.BackColor = System.Drawing.Color.LightGreen;
-            this.label29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label29.Location = new System.Drawing.Point(95, 224);
-            this.label29.Margin = new System.Windows.Forms.Padding(0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(55, 15);
-            this.label29.TabIndex = 38;
-            this.label29.Text = "Y";
-            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label27.AutoSize = true;
+            this.label27.BackColor = System.Drawing.Color.Yellow;
+            this.label27.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label27.Location = new System.Drawing.Point(0, 263);
+            this.label27.Margin = new System.Windows.Forms.Padding(0);
+            this.label27.Name = "label27";
+            this.mainLayout.SetRowSpan(this.label27, 2);
+            this.label27.Size = new System.Drawing.Size(95, 36);
+            this.label27.TabIndex = 36;
+            this.label27.Text = "vs. Familiar";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label30
             // 
@@ -788,10 +644,10 @@
             this.label30.BackColor = System.Drawing.Color.Cyan;
             this.label30.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label30.Location = new System.Drawing.Point(95, 239);
+            this.label30.Location = new System.Drawing.Point(95, 227);
             this.label30.Margin = new System.Windows.Forms.Padding(0);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(55, 15);
+            this.label30.Size = new System.Drawing.Size(55, 18);
             this.label30.TabIndex = 39;
             this.label30.Text = "N";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -802,13 +658,202 @@
             this.label31.BackColor = System.Drawing.Color.LightGreen;
             this.label31.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label31.Location = new System.Drawing.Point(95, 254);
+            this.label31.Location = new System.Drawing.Point(95, 245);
             this.label31.Margin = new System.Windows.Forms.Padding(0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(55, 15);
+            this.label31.Size = new System.Drawing.Size(55, 18);
             this.label31.TabIndex = 40;
             this.label31.Text = "Y";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Yellow;
+            this.mainLayout.SetColumnSpan(this.flowLayoutPanel1, 11);
+            this.flowLayoutPanel1.Controls.Add(this.portraitPictureBox);
+            this.flowLayoutPanel1.Controls.Add(this.genusPictureBox);
+            this.flowLayoutPanel1.Controls.Add(this.label34);
+            this.flowLayoutPanel1.Controls.Add(this.levelTextBox);
+            this.flowLayoutPanel1.Controls.Add(this.label32);
+            this.flowLayoutPanel1.Controls.Add(this.hpTextBox);
+            this.flowLayoutPanel1.Controls.Add(this.label33);
+            this.flowLayoutPanel1.Controls.Add(this.mpTextBox);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(420, 36);
+            this.flowLayoutPanel1.TabIndex = 42;
+            // 
+            // portraitPictureBox
+            // 
+            this.portraitPictureBox.BackColor = System.Drawing.Color.Yellow;
+            this.portraitPictureBox.Location = new System.Drawing.Point(3, 3);
+            this.portraitPictureBox.Name = "portraitPictureBox";
+            this.portraitPictureBox.Size = new System.Drawing.Size(30, 30);
+            this.portraitPictureBox.TabIndex = 0;
+            this.portraitPictureBox.TabStop = false;
+            // 
+            // genusPictureBox
+            // 
+            this.genusPictureBox.Location = new System.Drawing.Point(39, 3);
+            this.genusPictureBox.Name = "genusPictureBox";
+            this.genusPictureBox.Size = new System.Drawing.Size(30, 30);
+            this.genusPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.genusPictureBox.TabIndex = 7;
+            this.genusPictureBox.TabStop = false;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label34.Location = new System.Drawing.Point(75, 0);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(60, 36);
+            this.label34.TabIndex = 8;
+            this.label34.Text = "Level:";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // levelTextBox
+            // 
+            this.levelTextBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.levelTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.levelTextBox.Location = new System.Drawing.Point(141, 3);
+            this.levelTextBox.Name = "levelTextBox";
+            this.levelTextBox.ReadOnly = true;
+            this.levelTextBox.Size = new System.Drawing.Size(36, 29);
+            this.levelTextBox.TabIndex = 9;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label32.Location = new System.Drawing.Point(183, 0);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(41, 36);
+            this.label32.TabIndex = 1;
+            this.label32.Text = "HP:";
+            this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // hpTextBox
+            // 
+            this.hpTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.hpTextBox.Location = new System.Drawing.Point(230, 3);
+            this.hpTextBox.Name = "hpTextBox";
+            this.hpTextBox.ReadOnly = true;
+            this.hpTextBox.Size = new System.Drawing.Size(36, 29);
+            this.hpTextBox.TabIndex = 2;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label33.Location = new System.Drawing.Point(272, 0);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(43, 36);
+            this.label33.TabIndex = 3;
+            this.label33.Text = "MP:";
+            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // mpTextBox
+            // 
+            this.mpTextBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.mpTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.mpTextBox.Location = new System.Drawing.Point(321, 3);
+            this.mpTextBox.Name = "mpTextBox";
+            this.mpTextBox.ReadOnly = true;
+            this.mpTextBox.Size = new System.Drawing.Size(36, 29);
+            this.mpTextBox.TabIndex = 4;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.AutoSize = true;
+            this.flowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.Yellow;
+            this.mainLayout.SetColumnSpan(this.flowLayoutPanel2, 11);
+            this.flowLayoutPanel2.Controls.Add(this.label35);
+            this.flowLayoutPanel2.Controls.Add(this.attackTextBox);
+            this.flowLayoutPanel2.Controls.Add(this.label36);
+            this.flowLayoutPanel2.Controls.Add(this.defenseTextBox);
+            this.flowLayoutPanel2.Controls.Add(this.label37);
+            this.flowLayoutPanel2.Controls.Add(this.weaponTextBox);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 36);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(420, 35);
+            this.flowLayoutPanel2.TabIndex = 43;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.BackColor = System.Drawing.Color.Yellow;
+            this.label35.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label35.Location = new System.Drawing.Point(3, 0);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(52, 35);
+            this.label35.TabIndex = 0;
+            this.label35.Text = "ATK:";
+            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // attackTextBox
+            // 
+            this.attackTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.attackTextBox.Location = new System.Drawing.Point(61, 3);
+            this.attackTextBox.Name = "attackTextBox";
+            this.attackTextBox.ReadOnly = true;
+            this.attackTextBox.Size = new System.Drawing.Size(36, 29);
+            this.attackTextBox.TabIndex = 1;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.BackColor = System.Drawing.Color.Yellow;
+            this.label36.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label36.Location = new System.Drawing.Point(103, 0);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(53, 35);
+            this.label36.TabIndex = 2;
+            this.label36.Text = "DEF:";
+            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // defenseTextBox
+            // 
+            this.defenseTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.defenseTextBox.Location = new System.Drawing.Point(162, 3);
+            this.defenseTextBox.Name = "defenseTextBox";
+            this.defenseTextBox.ReadOnly = true;
+            this.defenseTextBox.Size = new System.Drawing.Size(36, 29);
+            this.defenseTextBox.TabIndex = 3;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.BackColor = System.Drawing.Color.Yellow;
+            this.label37.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label37.Location = new System.Drawing.Point(204, 0);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(100, 35);
+            this.label37.TabIndex = 4;
+            this.label37.Text = "WEAPON:";
+            this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // weaponTextBox
+            // 
+            this.weaponTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.weaponTextBox.Location = new System.Drawing.Point(310, 3);
+            this.weaponTextBox.Name = "weaponTextBox";
+            this.weaponTextBox.ReadOnly = true;
+            this.weaponTextBox.Size = new System.Drawing.Size(80, 29);
+            this.weaponTextBox.TabIndex = 5;
             // 
             // damageGridView
             // 
@@ -853,7 +898,7 @@
             this.damageGridView.ShowCellToolTips = false;
             this.damageGridView.ShowEditingIcon = false;
             this.damageGridView.ShowRowErrors = false;
-            this.damageGridView.Size = new System.Drawing.Size(270, 150);
+            this.damageGridView.Size = new System.Drawing.Size(270, 180);
             this.damageGridView.TabIndex = 44;
             // 
             // Column1
@@ -910,22 +955,94 @@
             this.Column9.HeaderText = "Column9";
             this.Column9.Name = "Column9";
             // 
+            // kohSpellDamageLabel
+            // 
+            this.kohSpellDamageLabel.AutoSize = true;
+            this.kohSpellDamageLabel.BackColor = System.Drawing.Color.White;
+            this.mainLayout.SetColumnSpan(this.kohSpellDamageLabel, 3);
+            this.kohSpellDamageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kohSpellDamageLabel.Location = new System.Drawing.Point(150, 317);
+            this.kohSpellDamageLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.kohSpellDamageLabel.Name = "kohSpellDamageLabel";
+            this.kohSpellDamageLabel.Size = new System.Drawing.Size(90, 18);
+            this.kohSpellDamageLabel.TabIndex = 49;
+            this.kohSpellDamageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.BackColor = System.Drawing.Color.Cyan;
+            this.mainLayout.SetColumnSpan(this.label29, 3);
+            this.label29.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label29.Location = new System.Drawing.Point(240, 299);
+            this.label29.Margin = new System.Windows.Forms.Padding(0);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(90, 18);
+            this.label29.TabIndex = 50;
+            this.label29.Text = "Familiar\'s";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // monsterSpellDamageLabel
+            // 
+            this.monsterSpellDamageLabel.AutoSize = true;
+            this.monsterSpellDamageLabel.BackColor = System.Drawing.Color.White;
+            this.mainLayout.SetColumnSpan(this.monsterSpellDamageLabel, 3);
+            this.monsterSpellDamageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.monsterSpellDamageLabel.Location = new System.Drawing.Point(330, 317);
+            this.monsterSpellDamageLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.monsterSpellDamageLabel.Name = "monsterSpellDamageLabel";
+            this.monsterSpellDamageLabel.Size = new System.Drawing.Size(90, 18);
+            this.monsterSpellDamageLabel.TabIndex = 52;
+            this.monsterSpellDamageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.mainLayout.SetColumnSpan(this.label41, 3);
+            this.label41.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label41.Location = new System.Drawing.Point(330, 299);
+            this.label41.Margin = new System.Windows.Forms.Padding(0);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(90, 18);
+            this.label41.TabIndex = 53;
+            this.label41.Text = "Monster\'s";
+            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.BackColor = System.Drawing.Color.Gold;
+            this.mainLayout.SetColumnSpan(this.label42, 2);
+            this.label42.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label42.Location = new System.Drawing.Point(0, 299);
+            this.label42.Margin = new System.Windows.Forms.Padding(0);
+            this.label42.Name = "label42";
+            this.mainLayout.SetRowSpan(this.label42, 2);
+            this.label42.Size = new System.Drawing.Size(150, 36);
+            this.label42.TabIndex = 54;
+            this.label42.Text = "Spell";
+            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MonsterControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.mainGroupBox);
             this.Name = "MonsterControl";
-            this.Size = new System.Drawing.Size(426, 288);
+            this.Size = new System.Drawing.Size(426, 354);
             this.mainGroupBox.ResumeLayout(false);
             this.mainLayout.ResumeLayout(false);
             this.mainLayout.PerformLayout();
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.portraitPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genusPictureBox)).EndInit();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.damageGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -962,8 +1079,6 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -992,5 +1107,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label kohSpellDamageLabel;
+        private System.Windows.Forms.Label familiarSpellDamageLabel;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label monsterSpellDamageLabel;
     }
 }

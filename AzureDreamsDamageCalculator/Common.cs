@@ -125,6 +125,7 @@ namespace AzureDreamsDamageCalculator
         public uint BaseExpGiven;
         public uint ExpGivenGrowth;
         public Genus NativeGenus;
+        public SpellTraits NativeSpell;
         public bool Liftable;
         public bool Pushable;
         public Bitmap Portrait;
@@ -195,18 +196,29 @@ namespace AzureDreamsDamageCalculator
         { return (uint)Math.Max(baseStat + modifier, MIN_STAT); }
     }
 
-    public struct SpellTraits
+    public struct SpellTraits : Named
     {
-        public static readonly SpellTraits EMPTY = new SpellTraits() { name = "", rawDamage = 0, genus = Genus.None };
+        public static readonly SpellTraits EMPTY = new SpellTraits(name: "", genus: Genus.None);
 
-        public string name;
-        public uint rawDamage;
-        public Genus genus;
+        public SpellTraits(string name, Genus genus, uint rawDamage = 0)
+        {
+            this.Name = name;
+            this.Genus = genus;
+            this.RawDamage = rawDamage;
+        }
+        public string Name
+        { get; private set; }
+        public uint RawDamage
+        { get; private set; }
+        public Genus Genus
+        { get; set; }
+        public SpellTraits Copy()
+        { return new SpellTraits(Name, Genus) { RawDamage = RawDamage }; }
     }
 
     public class Spell
     {
-        public static Spell NO_SPELL = new Spell(new SpellTraits() { rawDamage = 0, genus = Genus.None });
+        public static Spell NO_SPELL = new Spell(SpellTraits.EMPTY);
         public static readonly uint MIN_SPELL_LEVEL = 1u;
         public static readonly uint MAX_SPELL_LEVEL = 99u;
 
@@ -218,9 +230,11 @@ namespace AzureDreamsDamageCalculator
         { }
         public Spell(SpellTraits traits, uint baseLevel)
         {
-            this.traits = traits;
+            this.traits = traits.Copy();
             this.BaseLevel = baseLevel;
         }
+        public string Name
+        { get { return IsValid() ? this.traits.Name : SpellTraits.EMPTY.Name; } }
         public uint BaseLevel
         {
             get
@@ -245,18 +259,22 @@ namespace AzureDreamsDamageCalculator
         { get; private set; }
         public Genus Genus
         {
-            get { return traits.genus; }
-            set { traits.genus = value; }
+            get { return traits.Genus; }
+            set { traits.Genus = value; }
         }
         public uint RawDamage
-        { get { return traits.rawDamage; } }
+        { get { return traits.RawDamage; } }
         private void CalculateLevel()
         { Level = (uint)Math.Min(Math.Max(BaseLevel + levelModifier, MIN_SPELL_LEVEL), MAX_SPELL_LEVEL); }
+        public bool IsValid()
+        { return traits.RawDamage > 0; }
     }
 
     public class Unit
     {
-        public Unit(UnitTraits traits, uint level = 1)
+        public Unit(UnitTraits traits, uint level = 1) : this(traits, SpellTraits.EMPTY, level)
+        { }
+        public Unit(UnitTraits traits, SpellTraits spellTraits, uint level = 1)
         {
             this.Traits = traits;
             this.Level = level;
@@ -264,6 +282,7 @@ namespace AzureDreamsDamageCalculator
             this.Weapon = Weapon.NO_WEAPON;
             this.Shield = Shield.NO_SHIELD;
             this.IsFrog = false;
+            this.Spell = new Spell(spellTraits, level);
         }
         public UnitTraits Traits
         { get; private set; }
@@ -271,45 +290,46 @@ namespace AzureDreamsDamageCalculator
         { get; set; }
         public UnitStatistics Stats
         { get; set; }
+        public Genus Genus
+        {
+            get
+            { return Stats.Genus; }
+            set
+            {
+                Stats.Genus = Genus;
+                Spell.Genus = Genus;
+            }
+        }
         public Weapon Weapon
         { get; set; }
         public Shield Shield
         { get; set; }
         public bool IsFrog
         { get; set; }
+        public Spell Spell
+        { get; set; }
+        public bool HasSpell()
+        { return Spell.IsValid(); }
         public void RemoveWeapon()
         { this.Weapon = Weapon.NO_WEAPON; }
         public void RemoveShield()
         { this.Shield = Shield.NO_SHIELD; }
     }
 
-    public class Familiar : Unit
-    {
-        public Familiar(UnitTraits traits) : this(traits, new SpellTraits() { rawDamage = 0, genus = Genus.None })
-        { }
-        public Familiar(UnitTraits traits, SpellTraits spellTraits) : base(traits)
-        { this.Spell = new Spell(spellTraits); }
-        public Spell Spell
-        { get; private set; }
-    }
-
     public class Monster : Unit
     {
         public Monster(UnitTraits traits, uint level, uint hp, uint mp) : this(traits, level, hp, mp, SpellTraits.EMPTY)
         { }
-        public Monster(UnitTraits traits, uint level, uint hp, uint mp, SpellTraits spellTraits, uint spellLevel = 0) : base(traits, level)
+        public Monster(UnitTraits traits, uint level, uint hp, uint mp, SpellTraits spellTraits) : base(traits, spellTraits, level)
         {
             this.HP = hp;
             this.MP = mp;
-            this.Spell = new Spell(spellTraits, spellLevel);
         }
         public uint HP
         { get; private set; }
         public uint MP
         { get; private set; }
         public Bitmap Portrait
-        { get; private set; }
-        public Spell Spell
         { get; private set; }
     }
 }
