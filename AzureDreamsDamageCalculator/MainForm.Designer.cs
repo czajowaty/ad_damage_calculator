@@ -80,6 +80,7 @@
             this.levelUpKohFamiliarButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.monsterControlsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.familiarSpellLockedCheckBox = new System.Windows.Forms.CheckBox();
             this.kohGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kohDefenseModifierNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kohLevelNumericUpDown)).BeginInit();
@@ -370,6 +371,7 @@
             // 
             this.groupBox1.AutoSize = true;
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox1.Controls.Add(this.familiarSpellLockedCheckBox);
             this.groupBox1.Controls.Add(this.familiarSpellComboBox);
             this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.familiarSpellLevelTextBox);
@@ -394,7 +396,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(352, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(338, 166);
+            this.groupBox1.Size = new System.Drawing.Size(375, 166);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Familiar";
@@ -643,7 +645,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(948, 172);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(985, 172);
             this.tableLayoutPanel1.TabIndex = 13;
             // 
             // groupBox2
@@ -653,7 +655,7 @@
             this.groupBox2.Controls.Add(this.floorNumericUpDown);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(696, 3);
+            this.groupBox2.Location = new System.Drawing.Point(733, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(111, 166);
             this.groupBox2.TabIndex = 13;
@@ -698,7 +700,7 @@
             this.groupBox3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox3.Controls.Add(this.levelUpKohFamiliarButton);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(813, 3);
+            this.groupBox3.Location = new System.Drawing.Point(850, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(132, 166);
             this.groupBox3.TabIndex = 14;
@@ -741,6 +743,17 @@
             this.monsterControlsFlowLayoutPanel.Name = "monsterControlsFlowLayoutPanel";
             this.monsterControlsFlowLayoutPanel.Size = new System.Drawing.Size(1578, 677);
             this.monsterControlsFlowLayoutPanel.TabIndex = 14;
+            // 
+            // familiarSpellLockedCheckBox
+            // 
+            this.familiarSpellLockedCheckBox.AutoSize = true;
+            this.familiarSpellLockedCheckBox.Location = new System.Drawing.Point(307, 48);
+            this.familiarSpellLockedCheckBox.Name = "familiarSpellLockedCheckBox";
+            this.familiarSpellLockedCheckBox.Size = new System.Drawing.Size(62, 17);
+            this.familiarSpellLockedCheckBox.TabIndex = 32;
+            this.familiarSpellLockedCheckBox.Text = "Locked";
+            this.familiarSpellLockedCheckBox.UseVisualStyleBackColor = true;
+            this.familiarSpellLockedCheckBox.CheckedChanged += new System.EventHandler(this.familiarSpellLockedCheckBox_CheckedChanged);
             // 
             // MainForm
             // 
@@ -830,6 +843,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox familiarSpellComboBox;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.CheckBox familiarSpellLockedCheckBox;
     }
 }
 

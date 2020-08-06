@@ -7,7 +7,7 @@ namespace AzureDreamsDamageCalculator
 {
     public partial class MainForm : Form
     {
-        public static readonly string VERSION = "0.1.4";
+        public static readonly string VERSION = "0.1.5";
         public static readonly SortedDictionary<string, Weapon> KohWeaponsNames = CreateNamedDictionary(
             new[]
             {
@@ -223,7 +223,7 @@ namespace AzureDreamsDamageCalculator
             familiar = new Unit(traits, traits.NativeSpell);
             familiar.Stats.Genus = traits.NativeGenus;
             SetFamiliarFrogStatus();
-            SetFamiliarLevel();
+            SetFamiliarLevel(initialize: true);
             ModifyFamiliarSpellLevel();
             CalculateFamiliarStats();
         }
@@ -232,13 +232,21 @@ namespace AzureDreamsDamageCalculator
             Genus genus = GenusNames[familiarGenusComboBox.SelectedItem.ToString()];
             familiar.Stats.Genus = genus;
             familiar.Spell.Genus = genus;
+            familiarSpellLockedCheckBox.Checked = !familiar.IsNativeGenus;
         }
         private void SetFamiliarFrogStatus()
         { familiar.IsFrog = kohFrogCheckBox.Checked; }
-        private void SetFamiliarLevel()
+        private void SetFamiliarLevel(bool initialize = false)
         {
-            familiar.Level = (uint)familiarLevelNumericUpDown.Value;
+            uint newLevel = (uint)familiarLevelNumericUpDown.Value;
+            int levelDifference = initialize ? 0 : (int)(newLevel - familiar.Level);
+            familiar.Level = newLevel;
             familiar.Spell.BaseLevel = familiar.Level;
+            if (familiarSpellLockedCheckBox.Checked)
+            {
+                int spellLevelModifier = (int)familiarSpellLevelModifierNumericUpDown.Value;
+                familiarSpellLevelModifierNumericUpDown.Value = spellLevelModifier - levelDifference;
+            }
             ModifyFamiliarSpellLevel();
             CalculateFamiliarStats();
             ModifyFamiliarStats();
@@ -373,6 +381,10 @@ namespace AzureDreamsDamageCalculator
         {
             ModifyFamiliarSpellLevel();
             UpdateMonsterControls();
+        }
+        private void familiarSpellLockedCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
         private void familiarSpellComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {

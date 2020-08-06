@@ -315,6 +315,8 @@ namespace AzureDreamsDamageCalculator
         { this.Weapon = Weapon.NO_WEAPON; }
         public void RemoveShield()
         { this.Shield = Shield.NO_SHIELD; }
+        public bool IsNativeGenus
+        { get { return Traits.NativeGenus == Genus; } }
     }
 
     public class Monster : Unit
