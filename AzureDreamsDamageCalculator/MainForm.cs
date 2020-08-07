@@ -7,7 +7,7 @@ namespace AzureDreamsDamageCalculator
 {
     public partial class MainForm : Form
     {
-        public static readonly string VERSION = "0.1.7";
+        public static readonly string VERSION = "0.2";
         public static readonly SortedDictionary<string, Weapon> KohWeaponsNames = CreateNamedDictionary(
             new[]
             {
