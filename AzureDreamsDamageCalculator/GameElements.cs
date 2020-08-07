@@ -362,6 +362,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x10,
             NativeGenus = Genus.Wind,
+            SpecialTraits = SpecialTraits.DoubleSpellGrowth,
             IsEvolved = true,
             Liftable = false,
             Pushable = true,
@@ -385,6 +386,7 @@
             BaseExpGiven = 0x02,
             ExpGivenGrowth = 0x12,
             NativeGenus = Genus.Wind,
+            SpecialTraits = SpecialTraits.DoubleSpellGrowth,
             Liftable = true,
             Pushable = true,
             Portrait = Properties.Resources.clown
@@ -849,6 +851,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x0E,
             NativeGenus = Genus.Fire,
+            SpecialTraits = SpecialTraits.DoubleHP,
             Liftable = false,
             Pushable = true,
             Portrait = Properties.Resources.naplass
@@ -1082,8 +1085,7 @@
         public static readonly Monster MandaraLv26 = new MonsterCreator(UnitsTraits.Mandara, level: 26);
         public static readonly Monster SnowmanLv25 = new MonsterCreator(UnitsTraits.Snowman, level: 25);
         public static readonly Monster ManoevaLv25 = new MonsterCreator(UnitsTraits.Manoeva, level: 25);
-        public static readonly Monster NaplassLv27 = new MonsterCreator(UnitsTraits.Naplass, level: 27)
-            .GiveDoubleHPTrait();
+        public static readonly Monster NaplassLv27 = new MonsterCreator(UnitsTraits.Naplass, level: 27);
         public static readonly Monster KillerLv28 = new MonsterCreator(UnitsTraits.Killer, level: 28)
             .GiveWeapon(new ConstantDamageWeapon(name: "", damage: 8));
         public static readonly Monster TyrantLv29 = new MonsterCreator(UnitsTraits.Tyrant, level: 29);
@@ -1127,7 +1129,7 @@
             // 16
             new Monster[] { GarudaLv16, TrollSwordLv15, ManoevaLv15, BarongLv20 },
             // 17
-            new Monster[] { GarudaLv16, TrollSwordLv15, ManoevaLv15, TrollHammerLv2, TrollBowLv10 },
+            new Monster[] { GarudaLv16, TrollSwordLv15, ManoevaLv15, TrollHammerLv2, TrollBowLv10, PicketLv17 },
             // 18
             new Monster[] { ManoevaLv15, ArachneLv18, PicketLv17 },
             // 19

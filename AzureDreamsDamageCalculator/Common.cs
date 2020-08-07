@@ -6,6 +6,9 @@ namespace AzureDreamsDamageCalculator
     public enum Genus
     { None, Fire, Wind, Water }
 
+    public enum SpecialTraits
+    { None, DoubleHP, DoubleAttack, DoubleDefense, DoubleSpellGrowth }
+
     public interface Named
     { string Name { get; } }
     public abstract class Weapon : Named
@@ -126,6 +129,7 @@ namespace AzureDreamsDamageCalculator
         public uint ExpGivenGrowth;
         public Genus NativeGenus;
         public SpellTraits NativeSpell;
+        public SpecialTraits SpecialTraits;
         public bool IsEvolved;
         public bool Liftable;
         public bool Pushable;
@@ -278,6 +282,7 @@ namespace AzureDreamsDamageCalculator
         public Unit(UnitTraits traits, SpellTraits spellTraits, uint level = 1)
         {
             this.Traits = traits;
+            this.SpecialTraits = SpecialTraits.None;
             this.Level = level;
             this.Stats = new UnitStatistics();
             this.Weapon = Weapon.NO_WEAPON;
@@ -287,6 +292,16 @@ namespace AzureDreamsDamageCalculator
         }
         public UnitTraits Traits
         { get; private set; }
+        public SpecialTraits SpecialTraits
+        { get; set; }
+        public bool HasDoubleHP()
+        { return SpecialTraits == SpecialTraits.DoubleHP; }
+        public bool HasDoubleAttack()
+        { return SpecialTraits == SpecialTraits.DoubleAttack; }
+        public bool HasDoubleDefense()
+        { return SpecialTraits == SpecialTraits.DoubleDefense; }
+        public bool HasDoubleSpellGrowth()
+        { return SpecialTraits == SpecialTraits.DoubleSpellGrowth; }
         public virtual uint Level
         { get; set; }
         public UnitStatistics Stats

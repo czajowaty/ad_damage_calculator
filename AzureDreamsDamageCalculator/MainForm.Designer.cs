@@ -51,6 +51,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.kohAttackModifierNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.familiarSpellLockedCheckBox = new System.Windows.Forms.CheckBox();
             this.familiarSpellComboBox = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.familiarSpellLevelTextBox = new System.Windows.Forms.TextBox();
@@ -80,7 +81,8 @@
             this.levelUpKohFamiliarButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.monsterControlsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.familiarSpellLockedCheckBox = new System.Windows.Forms.CheckBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.familiarSpecialTraitComboBox = new System.Windows.Forms.ComboBox();
             this.kohGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kohDefenseModifierNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kohLevelNumericUpDown)).BeginInit();
@@ -371,6 +373,8 @@
             // 
             this.groupBox1.AutoSize = true;
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox1.Controls.Add(this.familiarSpecialTraitComboBox);
+            this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.familiarSpellLockedCheckBox);
             this.groupBox1.Controls.Add(this.familiarSpellComboBox);
             this.groupBox1.Controls.Add(this.label21);
@@ -400,6 +404,16 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Familiar";
+            // 
+            // familiarSpellLockedCheckBox
+            // 
+            this.familiarSpellLockedCheckBox.AutoSize = true;
+            this.familiarSpellLockedCheckBox.Location = new System.Drawing.Point(307, 48);
+            this.familiarSpellLockedCheckBox.Name = "familiarSpellLockedCheckBox";
+            this.familiarSpellLockedCheckBox.Size = new System.Drawing.Size(62, 17);
+            this.familiarSpellLockedCheckBox.TabIndex = 32;
+            this.familiarSpellLockedCheckBox.Text = "Locked";
+            this.familiarSpellLockedCheckBox.UseVisualStyleBackColor = true;
             // 
             // familiarSpellComboBox
             // 
@@ -744,16 +758,23 @@
             this.monsterControlsFlowLayoutPanel.Size = new System.Drawing.Size(1578, 677);
             this.monsterControlsFlowLayoutPanel.TabIndex = 14;
             // 
-            // familiarSpellLockedCheckBox
+            // label22
             // 
-            this.familiarSpellLockedCheckBox.AutoSize = true;
-            this.familiarSpellLockedCheckBox.Location = new System.Drawing.Point(307, 48);
-            this.familiarSpellLockedCheckBox.Name = "familiarSpellLockedCheckBox";
-            this.familiarSpellLockedCheckBox.Size = new System.Drawing.Size(62, 17);
-            this.familiarSpellLockedCheckBox.TabIndex = 32;
-            this.familiarSpellLockedCheckBox.Text = "Locked";
-            this.familiarSpellLockedCheckBox.UseVisualStyleBackColor = true;
-            this.familiarSpellLockedCheckBox.CheckedChanged += new System.EventHandler(this.familiarSpellLockedCheckBox_CheckedChanged);
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(175, 75);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(31, 13);
+            this.label22.TabIndex = 33;
+            this.label22.Text = "Trait:";
+            // 
+            // familiarSpecialTraitComboBox
+            // 
+            this.familiarSpecialTraitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.familiarSpecialTraitComboBox.FormattingEnabled = true;
+            this.familiarSpecialTraitComboBox.Location = new System.Drawing.Point(212, 72);
+            this.familiarSpecialTraitComboBox.Name = "familiarSpecialTraitComboBox";
+            this.familiarSpecialTraitComboBox.Size = new System.Drawing.Size(121, 21);
+            this.familiarSpecialTraitComboBox.TabIndex = 34;
             // 
             // MainForm
             // 
@@ -844,6 +865,8 @@
         private System.Windows.Forms.ComboBox familiarSpellComboBox;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.CheckBox familiarSpellLockedCheckBox;
+        private System.Windows.Forms.ComboBox familiarSpecialTraitComboBox;
+        private System.Windows.Forms.Label label22;
     }
 }
 

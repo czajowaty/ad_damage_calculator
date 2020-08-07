@@ -7,7 +7,7 @@ namespace AzureDreamsDamageCalculator
 {
     public partial class MainForm : Form
     {
-        public static readonly string VERSION = "0.1.5";
+        public static readonly string VERSION = "0.1.6";
         public static readonly SortedDictionary<string, Weapon> KohWeaponsNames = CreateNamedDictionary(
             new[]
             {
@@ -106,6 +106,13 @@ namespace AzureDreamsDamageCalculator
             { Genus.Water.ToString(), Genus.Water },
             { Genus.Wind.ToString(), Genus.Wind }
         };
+        public static readonly SortedDictionary<string, SpecialTraits> FamiliarSpecialTraits = new SortedDictionary<string, SpecialTraits>()
+        {
+            { "", SpecialTraits.None },
+            { "Double ATK", SpecialTraits.DoubleAttack },
+            { "Double DEF", SpecialTraits.DoubleDefense },
+            { "Double spell growth", SpecialTraits.DoubleSpellGrowth }
+        };
         private static SortedDictionary<string, T> CreateNamedDictionary<T>(T[] namedEntities) where T : Named
         {
             SortedDictionary<string, T> namedDictionary = new SortedDictionary<string, T>();
@@ -129,6 +136,7 @@ namespace AzureDreamsDamageCalculator
             FillComboBox(familiarTypeComboBox, FamiliarsTraits.Keys);
             FillComboBox(familiarGenusComboBox, GenusNames.Keys);
             FillComboBox(familiarSpellComboBox, FamiliarSpells.Keys);
+            FillComboBox(familiarSpecialTraitComboBox, FamiliarSpecialTraits.Keys);
             familiarTypeComboBox.SelectedItem = UnitsTraits.Kewne.Name;
             familiarSpellComboBox.SelectedItem = UnitsTraits.Kewne.NativeSpell.Name;
             UpdateKoh();
@@ -153,6 +161,7 @@ namespace AzureDreamsDamageCalculator
             this.familiarLevelNumericUpDown.ValueChanged += new System.EventHandler(this.familiarLevelNumericUpDown_ValueChanged);
             this.familiarSpellLevelModifierNumericUpDown.ValueChanged += new System.EventHandler(this.familiarSpellLevelModifierNumericUpDown_ValueChanged);
             this.familiarSpellComboBox.SelectedIndexChanged += new System.EventHandler(this.familiarSpellComboBox_SelectedIndexChanged);
+            this.familiarSpecialTraitComboBox.SelectedIndexChanged += new System.EventHandler(this.familiarTraitComboBox_SelectedIndexChanged);
             this.familiarAttackModifierNumericUpDown.ValueChanged += new System.EventHandler(this.familiarAttackModifierNumericUpDown_ValueChanged);
             this.familiarDefenseModifierNumericUpDown.ValueChanged += new System.EventHandler(this.familiarDefenseModifierNumericUpDown_ValueChanged);
         }
@@ -247,6 +256,11 @@ namespace AzureDreamsDamageCalculator
                 int spellLevelModifier = (int)familiarSpellLevelModifierNumericUpDown.Value;
                 familiarSpellLevelModifierNumericUpDown.Value = spellLevelModifier - levelDifference;
             }
+            else if (familiar.HasDoubleSpellGrowth())
+            {
+                int spellLevelModifier = (int)familiarSpellLevelModifierNumericUpDown.Value;
+                familiarSpellLevelModifierNumericUpDown.Value = spellLevelModifier + levelDifference;
+            }
             ModifyFamiliarSpellLevel();
             CalculateFamiliarStats();
             ModifyFamiliarStats();
@@ -276,8 +290,8 @@ namespace AzureDreamsDamageCalculator
         }
         private void CalculateUnitBaseStats(Unit unit)
         {
-            unit.Stats.BaseAttack = StatsCalculator.Attack(unit.Traits, unit.Level);
-            unit.Stats.BaseDefense = StatsCalculator.Defense(unit.Traits, unit.Level);
+            unit.Stats.BaseAttack = StatsCalculator.Attack(unit.Traits, unit.Level, unit.HasDoubleAttack());
+            unit.Stats.BaseDefense = StatsCalculator.Defense(unit.Traits, unit.Level, unit.HasDoubleDefense());
         }
         private void CreateMonsterControls()
         {
@@ -382,9 +396,36 @@ namespace AzureDreamsDamageCalculator
             ModifyFamiliarSpellLevel();
             UpdateMonsterControls();
         }
-        private void familiarSpellLockedCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void familiarTraitComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            SpecialTraits oldSpecialTraits = familiar.SpecialTraits;
+            string specialTraits = familiarSpecialTraitComboBox.SelectedItem.ToString();
+            familiar.SpecialTraits = FamiliarSpecialTraits[specialTraits];
+            OnFamiliarSpecialTraitChanged(oldSpecialTraits);
+            OnFamiliarSpecialTraitChanged(familiar.SpecialTraits);
+        }
+        private void OnFamiliarSpecialTraitChanged(SpecialTraits specialTraits)
+        {
+            switch (specialTraits)
+            {
+                case SpecialTraits.DoubleAttack:
+                case SpecialTraits.DoubleDefense:
+                    CalculateFamiliarStats();
+                    break;
+                case SpecialTraits.DoubleSpellGrowth:
+                    familiarDoubleSpellGrowthTraitChanged();
+                    break;
+            }
+        }
 
+        private void familiarDoubleSpellGrowthTraitChanged()
+        {
+            uint level = (uint)familiarLevelNumericUpDown.Value;
+            int spellLevelModifier = (int)familiarSpellLevelModifierNumericUpDown.Value;
+            if (familiar.HasDoubleSpellGrowth())
+            { familiarSpellLevelModifierNumericUpDown.Value = spellLevelModifier + level; }
+            else
+            { familiarSpellLevelModifierNumericUpDown.Value = spellLevelModifier - level; }
         }
         private void familiarSpellComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
