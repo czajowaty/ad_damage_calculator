@@ -7,7 +7,7 @@ namespace AzureDreamsDamageCalculator
 {
     public partial class MainForm : Form
     {
-        public static readonly string VERSION = "0.1.6";
+        public static readonly string VERSION = "0.1.7";
         public static readonly SortedDictionary<string, Weapon> KohWeaponsNames = CreateNamedDictionary(
             new[]
             {
@@ -137,12 +137,31 @@ namespace AzureDreamsDamageCalculator
             FillComboBox(familiarGenusComboBox, GenusNames.Keys);
             FillComboBox(familiarSpellComboBox, FamiliarSpells.Keys);
             FillComboBox(familiarSpecialTraitComboBox, FamiliarSpecialTraits.Keys);
-            familiarTypeComboBox.SelectedItem = UnitsTraits.Kewne.Name;
-            familiarSpellComboBox.SelectedItem = UnitsTraits.Kewne.NativeSpell.Name;
-            UpdateKoh();
-            UpdateFamiliar();
+            ResetUI();
             AddUIDelegatesHandlers();
             UpdateMonsterControls();
+        }
+        private void ResetUI()
+        {
+            kohLevelNumericUpDown.Value = 1;
+            kohFrogCheckBox.Checked = false;
+            kohAttackModifierNumericUpDown.Value = 0;
+            kohDefenseModifierNumericUpDown.Value = 0;
+            kohWeaponComboBox.SelectedItem = Swords.Copper.Name;
+            kohWeaponQualityNumericUpDown.Value = 0;
+            kohShieldComboBox.SelectedItem = Shields.Wood.Name;
+            kohShieldQualityNumericUpDown.Value = 0;
+            kohSpellComboBox.SelectedItem = SpellsTraits.FlameBall.Name;
+            familiarSpecialTraitComboBox.SelectedIndex = 0;
+            familiarTypeComboBox.SelectedItem = UnitsTraits.Kewne.Name;
+            familiarFrogCheckBox.Checked = false;
+            familiarLevelNumericUpDown.Value = 1;
+            familiarSpellLevelModifierNumericUpDown.Value = 0;
+            familiarSpellComboBox.SelectedItem = UnitsTraits.Kewne.NativeSpell.Name;
+            familiarAttackModifierNumericUpDown.Value = 0;
+            familiarDefenseModifierNumericUpDown.Value = 0;
+            UpdateKoh();
+            UpdateFamiliar();
         }
         private void AddUIDelegatesHandlers()
         {
@@ -455,5 +474,7 @@ namespace AzureDreamsDamageCalculator
             familiarLevelNumericUpDown.Value += 1;
             UpdateMonsterControls();
         }
+        private void resetButton_Click(object sender, EventArgs e)
+        { ResetUI(); }
     }
 }
