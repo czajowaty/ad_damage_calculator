@@ -160,6 +160,7 @@ namespace AzureDreamsDamageCalculator
             familiarSpellComboBox.SelectedItem = UnitsTraits.Kewne.NativeSpell.Name;
             familiarAttackModifierNumericUpDown.Value = 0;
             familiarDefenseModifierNumericUpDown.Value = 0;
+            floorNumericUpDown.Value = 1;
             UpdateKoh();
             UpdateFamiliar();
         }
