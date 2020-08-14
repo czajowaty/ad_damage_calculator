@@ -33,6 +33,7 @@
             this.removeKohSpellButton = new System.Windows.Forms.Button();
             this.addChargeButton = new System.Windows.Forms.Button();
             this.removeChargeButton = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
             this.addKohSpellButton = new System.Windows.Forms.Button();
             this.kohSpellComboBox = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -92,7 +93,8 @@
             this.levelUpKohFamiliarButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.monsterControlsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.label19 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.eggsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.kohGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kohDefenseModifierNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kohLevelNumericUpDown)).BeginInit();
@@ -110,6 +112,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.floorNumericUpDown)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // kohGroupBox
@@ -190,6 +193,15 @@
             this.removeChargeButton.Text = "-";
             this.removeChargeButton.UseVisualStyleBackColor = true;
             this.removeChargeButton.Click += new System.EventHandler(this.removeChargeButton_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 156);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(49, 13);
+            this.label19.TabIndex = 24;
+            this.label19.Text = "Charges:";
             // 
             // addKohSpellButton
             // 
@@ -787,15 +799,18 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.kohGroupBox, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox2, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox3, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox2, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox3, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox4, 4, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1005, 199);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1578, 199);
             this.tableLayoutPanel1.TabIndex = 13;
             // 
             // groupBox2
@@ -805,7 +820,7 @@
             this.groupBox2.Controls.Add(this.floorNumericUpDown);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(753, 3);
+            this.groupBox2.Location = new System.Drawing.Point(891, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(111, 193);
             this.groupBox2.TabIndex = 13;
@@ -851,7 +866,7 @@
             this.groupBox3.Controls.Add(this.resetButton);
             this.groupBox3.Controls.Add(this.levelUpKohFamiliarButton);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(870, 3);
+            this.groupBox3.Location = new System.Drawing.Point(753, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(132, 193);
             this.groupBox3.TabIndex = 14;
@@ -905,14 +920,27 @@
             this.monsterControlsFlowLayoutPanel.Size = new System.Drawing.Size(1578, 650);
             this.monsterControlsFlowLayoutPanel.TabIndex = 14;
             // 
-            // label19
+            // groupBox4
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(6, 156);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(49, 13);
-            this.label19.TabIndex = 24;
-            this.label19.Text = "Charges:";
+            this.groupBox4.Controls.Add(this.eggsFlowLayoutPanel);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Location = new System.Drawing.Point(1008, 3);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(567, 193);
+            this.groupBox4.TabIndex = 15;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Eggs";
+            // 
+            // eggsFlowLayoutPanel
+            // 
+            this.eggsFlowLayoutPanel.AutoScroll = true;
+            this.eggsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.eggsFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.eggsFlowLayoutPanel.Location = new System.Drawing.Point(3, 16);
+            this.eggsFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.eggsFlowLayoutPanel.Name = "eggsFlowLayoutPanel";
+            this.eggsFlowLayoutPanel.Size = new System.Drawing.Size(561, 174);
+            this.eggsFlowLayoutPanel.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -946,6 +974,7 @@
             this.groupBox3.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1016,6 +1045,8 @@
         private System.Windows.Forms.Button removeKohSpellButton;
         private System.Windows.Forms.Button identifyKohSpellButton;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.FlowLayoutPanel eggsFlowLayoutPanel;
     }
 }
 

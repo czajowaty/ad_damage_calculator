@@ -1212,6 +1212,100 @@
             // 39
             new Monster[] { GlacierLv30, GolemLv30, MaximumLv30, DragonLv29 }
         };
+
+    }
+
+    public struct Eggs
+    {
+        public static readonly Egg[] Floor1_5 =
+        {
+                new Egg(UnitsTraits.Noise.Name, 0.1875f),
+                new Egg(UnitsTraits.Flame.Name, 0.1563f),
+                new Egg(UnitsTraits.Pulunpa.Name, 0.1563f),
+                new Egg(UnitsTraits.Balloon.Name, 0.125f),
+                new Egg(UnitsTraits.Troll.Name, 0.125f),
+                new Egg(UnitsTraits.Blume.Name, 0.0938f),
+                new Egg(UnitsTraits.Cyclone.Name, 0.0938f),
+                new Egg(UnitsTraits.Manoeva.Name, 0.0625f)
+            };
+        public static readonly Egg[] Floor6_10 =
+        {
+                new Egg(UnitsTraits.Blume.Name, 0.1875f),
+                new Egg(UnitsTraits.Balloon.Name, 0.1563f),
+                new Egg(UnitsTraits.Cyclone.Name, 0.1563f),
+                new Egg(UnitsTraits.Manoeva.Name, 0.125f),
+                new Egg(UnitsTraits.Clown.Name, 0.0938f),
+                new Egg(UnitsTraits.Dreamin.Name, 0.0938f),
+                new Egg(UnitsTraits.UBoat.Name, 0.0938f),
+                new Egg(UnitsTraits.Volcano.Name, 0.0938f)
+            };
+        public static readonly Egg[] Floor11_15 =
+        {
+                new Egg(UnitsTraits.Clown.Name, 0.1563f),
+                new Egg(UnitsTraits.Dreamin.Name, 0.1563f),
+                new Egg(UnitsTraits.UBoat.Name, 0.1563f),
+                new Egg(UnitsTraits.Volcano.Name, 0.1563f),
+                new Egg(UnitsTraits.Garuda.Name, 0.0938f),
+                new Egg(UnitsTraits.Griffon.Name, 0.0938f),
+                new Egg(UnitsTraits.Kraken.Name, 0.0938f),
+                new Egg(UnitsTraits.Nyuel.Name, 0.0938f)
+            };
+        public static readonly Egg[] Floor16_20 =
+        {
+                new Egg(UnitsTraits.Garuda.Name, 0.1563f),
+                new Egg(UnitsTraits.Griffon.Name, 0.1563f),
+                new Egg(UnitsTraits.Kraken.Name, 0.1563f),
+                new Egg(UnitsTraits.Nyuel.Name, 0.1563f),
+                new Egg(UnitsTraits.Arachne.Name, 0.0938f),
+                new Egg(UnitsTraits.Picket.Name, 0.0938f),
+                new Egg(UnitsTraits.Weadog.Name, 0.0938f),
+                new Egg(UnitsTraits.Troll.Name, 0.0625f),
+                new Egg(UnitsTraits.Barong.Name, 0.0313f)
+            };
+        public static readonly Egg[] Floor21_25 =
+        {
+                new Egg(UnitsTraits.Arachne.Name, 0.1563f),
+                new Egg(UnitsTraits.Picket.Name, 0.1563f),
+                new Egg(UnitsTraits.Weadog.Name, 0.1563f),
+                new Egg(UnitsTraits.Block.Name, 0.0938f),
+                new Egg(UnitsTraits.Stealth.Name, 0.0938f),
+                new Egg(UnitsTraits.Unicorn.Name, 0.0938f),
+                new Egg(UnitsTraits.Viper.Name, 0.0938f),
+                new Egg(UnitsTraits.Manoeva.Name, 0.0625f),
+                new Egg(UnitsTraits.Troll.Name, 0.0625f),
+                new Egg(UnitsTraits.Barong.Name, 0.0313f)
+            };
+        public static readonly Egg[] Floor26_30 =
+        {
+                new Egg(UnitsTraits.Block.Name, 0.1563f),
+                new Egg(UnitsTraits.Stealth.Name, 0.1563f),
+                new Egg(UnitsTraits.Unicorn.Name, 0.1563f),
+                new Egg(UnitsTraits.Viper.Name, 0.1563f),
+                new Egg(UnitsTraits.Mandara.Name, 0.0938f),
+                new Egg(UnitsTraits.Naplass.Name, 0.0938f),
+                new Egg(UnitsTraits.Snowman.Name, 0.0938f),
+                new Egg(UnitsTraits.Zu.Name, 0.0938f)
+            };
+        public static readonly Egg[] Floor31_35 =
+        {
+                new Egg(UnitsTraits.Mandara.Name, 0.1563f),
+                new Egg(UnitsTraits.Naplass.Name, 0.1563f),
+                new Egg(UnitsTraits.Snowman.Name, 0.1563f),
+                new Egg(UnitsTraits.Zu.Name, 0.1563f),
+                new Egg(UnitsTraits.Glacier.Name, 0.0938f),
+                new Egg(UnitsTraits.Kid.Name, 0.0938f),
+                new Egg(UnitsTraits.Killer.Name, 0.0938f),
+                new Egg(UnitsTraits.Tyrant.Name, 0.0938f)
+            };
+        public static readonly Egg[] Floor36_39 =
+        {
+                new Egg(UnitsTraits.Killer.Name, 0.2188f),
+                new Egg(UnitsTraits.Glacier.Name, 0.1875f),
+                new Egg(UnitsTraits.Tyrant.Name, 0.1875f),
+                new Egg(UnitsTraits.Golem.Name, 0.1563f),
+                new Egg(UnitsTraits.Kid.Name, 0.1563f),
+                new Egg(UnitsTraits.Maximum.Name, 0.0938f)
+            };
     }
 
     struct Swords

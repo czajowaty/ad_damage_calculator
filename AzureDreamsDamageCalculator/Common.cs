@@ -464,4 +464,17 @@ namespace AzureDreamsDamageCalculator
         public Spell Spell2
         { get; set; }
     }
+
+    public struct Egg
+    {
+        public Egg(string name, float probability)
+        {
+            Name = name;
+            Probability = probability;
+        }
+        public string Name
+        { get; private set; }
+        public float Probability
+        { get; private set; }
+    }
 }

@@ -9,7 +9,7 @@ namespace AzureDreamsDamageCalculator
 {
     public partial class MainForm : Form
     {
-        public static readonly string VERSION = "0.2.1";
+        public static readonly string VERSION = "0.2.2";
         public static readonly SortedDictionary<string, Weapon> KohWeaponsNames = Helpers.CreateNamedDictionary(
             new[]
             {
@@ -162,6 +162,8 @@ namespace AzureDreamsDamageCalculator
             floorNumericUpDown.Value = 1;
             UpdateKoh();
             UpdateFamiliar();
+            UpdateEggs();
+
         }
         private void AddUIDelegatesHandlers()
         {
@@ -470,6 +472,41 @@ namespace AzureDreamsDamageCalculator
             halfSize.Height /= 2;
             dialogWindow.Location = Cursor.Position - halfSize;
         }
+        private void UpdateEggs()
+        {
+            eggsFlowLayoutPanel.Controls.Clear();
+            foreach (Egg egg in EggsOnCurrentFloor())
+            {
+                Label label = new Label();
+                label.AutoSize = true;
+                label.BackColor = Color.White;
+                label.Font = new Font(label.Font.FontFamily, emSize: 14);
+                label.Margin = new Padding(5);
+                label.Text = string.Format("{0}: {1:F2}%", egg.Name, egg.Probability * 100);
+                label.TextAlign = ContentAlignment.MiddleCenter;
+                eggsFlowLayoutPanel.Controls.Add(label);
+            }
+        }
+        private Egg[] EggsOnCurrentFloor()
+        {
+            uint floor = (uint)floorNumericUpDown.Value;
+            if (floor <= 5)
+            { return Eggs.Floor1_5; }
+            else if (floor <= 10)
+            { return Eggs.Floor6_10; }
+            else if (floor <= 15)
+            { return Eggs.Floor11_15; }
+            else if (floor <= 20)
+            { return Eggs.Floor16_20; }
+            else if (floor <= 25)
+            { return Eggs.Floor21_25; }
+            else if (floor <= 30)
+            { return Eggs.Floor26_30; }
+            else if (floor <= 35)
+            { return Eggs.Floor31_35; }
+            else
+            { return Eggs.Floor36_39; }
+        }
         private void familiarTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             SetFamiliarType();
@@ -568,6 +605,9 @@ namespace AzureDreamsDamageCalculator
             CreateMonsterControls();
             UpdateMonsterControls(useNativeMonsterGenus: true);
             monsterControlsFlowLayoutPanel.ResumeLayout();
+            eggsFlowLayoutPanel.SuspendLayout();
+            UpdateEggs();
+            eggsFlowLayoutPanel.ResumeLayout();
         }
         private void levelUpKohFamiliarButton_Click(object sender, EventArgs e)
         {
