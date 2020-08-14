@@ -47,6 +47,18 @@
   <ItemGroup>
     <Compile Include="Common.cs" />
     <Compile Include="DamageCalculator.cs" />
+    <Compile Include="AddSpellDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSpellDialog.Designer.cs">
+      <DependentUpon>AddSpellDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdentifySpellDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdentifySpellDialog.Designer.cs">
+      <DependentUpon>IdentifySpellDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +76,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GameElements.cs" />
     <Compile Include="StatsCalculator.cs" />
+    <EmbeddedResource Include="AddSpellDialog.resx">
+      <DependentUpon>AddSpellDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdentifySpellDialog.resx">
+      <DependentUpon>IdentifySpellDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -236,6 +254,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Monsters\genus_wind.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Monsters\genus_fire_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Monsters\genus_water_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Monsters\genus_wind_gray.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

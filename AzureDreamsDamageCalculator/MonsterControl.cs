@@ -12,7 +12,8 @@ namespace AzureDreamsDamageCalculator
         static readonly bool[] CRITICAL_HIT_OPTIONS = { false, true };
         static readonly CalculateDamageRecipe[] CALCULATE_DAMAGE_RECIPES = {
             KohNormalAttackDamage,
-            MixtureAttackDamage,
+            Mixture1AttackDamage,
+            Mixture2AttackDamage,
             FamiliarAttackDamage,
             VsKohAttackDamage,
             VsFamiliarAttackDamage
@@ -27,7 +28,7 @@ namespace AzureDreamsDamageCalculator
 
         private delegate uint CalculateDamageRecipe(
             Unit koh,
-            Unit familiar, 
+            Familiar familiar, 
             Monster monster, 
             Descriptor descriptor);
         private class Descriptor
@@ -38,13 +39,58 @@ namespace AzureDreamsDamageCalculator
             public bool criticalHit;
             public CalculateDamageRecipe calculateDamageRecipe;
         }
+        private class GenusDescriptor
+        {
+            public Genus Genus
+            { get; set; }
+            public PictureBox PictureBox
+            { get; set; }
+            public Bitmap ActiveImage
+            { get; set; }
+            public Bitmap InactiveImage
+            { get; set; }
+        }
 
         private List<Descriptor> descriptors = new List<Descriptor>();
+        private GenusDescriptor fireGenusDescriptor;
+        private GenusDescriptor waterGenusDescriptor;
+        private GenusDescriptor windGenusDescriptor;
+        private GenusDescriptor activeGenusDescriptor;
+        private Unit koh;
+        private Familiar familiar;
+        private Monster monster;
+        private Spell kohSpell;
 
         public MonsterControl()
         {
             InitializeComponent();
+            PrepareGenusDescriptors();
             CreateDamageTextBoxes();
+        }
+        private void PrepareGenusDescriptors()
+        {
+            fireGenusDescriptor = new GenusDescriptor()
+            {
+                Genus = Genus.Fire,
+                PictureBox = fireGenusPictureBox,
+                ActiveImage = Properties.Resources.genus_fire,
+                InactiveImage = Properties.Resources.genus_fire_gray
+            };
+            waterGenusDescriptor = new GenusDescriptor()
+            {
+                Genus = Genus.Water,
+                PictureBox = waterGenusPictureBox,
+                ActiveImage = Properties.Resources.genus_water,
+                InactiveImage = Properties.Resources.genus_water_gray
+            };
+            windGenusDescriptor = new GenusDescriptor()
+            {
+                Genus = Genus.Wind,
+                PictureBox = windGenusPictureBox,
+                ActiveImage = Properties.Resources.genus_wind,
+                InactiveImage = Properties.Resources.genus_wind_gray
+            };
+            activeGenusDescriptor = fireGenusDescriptor;
         }
         private void CreateDamageTextBoxes()
         {
@@ -99,11 +145,21 @@ namespace AzureDreamsDamageCalculator
         }
         private void DamageGridView_SelectionChanged(object sender, EventArgs e)
         { damageGridView.ClearSelection(); }
-        public void Fill(Unit koh, Unit familiar, Monster monster)
+        public void Fill(Unit koh, Familiar familiar, Monster monster, Spell kohSpell, bool useNativeGenus)
+        {
+            this.koh = koh;
+            this.familiar = familiar;
+            Genus genus = (useNativeGenus | this.monster == null) ? monster.Genus : this.monster.Genus;
+            this.monster = monster.Copy();
+            this.monster.Genus = genus;
+            this.kohSpell = kohSpell;
+            Fill();
+        }
+        private void Fill()
         {
             mainGroupBox.Text = monster.Traits.Name;
             portraitPictureBox.Image = monster.Traits.Portrait;
-            genusPictureBox.Image = GenusImageMapping[monster.Stats.Genus];
+            SetActiveGenus(monster.Stats.Genus);
             levelTextBox.Text = monster.Level.ToString();
             hpTextBox.Text = monster.HP.ToString();
             mpTextBox.Text = monster.MP.ToString();
@@ -117,24 +173,49 @@ namespace AzureDreamsDamageCalculator
                 uint damage = descriptor.calculateDamageRecipe(koh, familiar, monster, descriptor);
                 descriptor.cell.Value = DamageToString(damage);
             }
-            kohSpellDamageLabel.Text = DamageToString(SpellAttackDamage(koh, monster));
-            familiarSpellDamageLabel.Text = DamageToString(SpellAttackDamage(familiar, monster));
-            monsterSpellDamageLabel.Text = DamageToString(SpellAttackDamage(monster, koh));
+            kohSpellDamageLabel.Text = DamageToString(SpellAttackDamage(koh, monster, kohSpell));
+            familiarSpell1DamageLabel.Text = DamageToString(SpellAttackDamage(familiar, monster, familiar.Spell));
+            familiarSpell2DamageLabel.Text = DamageToString(SpellAttackDamage(familiar, monster, familiar.Spell2));
+            monsterVsKohSpellDamageLabel.Text = DamageToString(SpellAttackDamage(monster, koh, monster.Spell));
+            monsterVsFamiliarSpellDamageLabel.Text = DamageToString(SpellAttackDamage(monster, familiar, monster.Spell));
+        }
+        private void SetActiveGenus(Genus genus)
+        {
+            activeGenusDescriptor.PictureBox.BackColor = Color.Yellow;
+            activeGenusDescriptor.PictureBox.Image = activeGenusDescriptor.InactiveImage;
+            switch (genus)
+            {
+                case Genus.Fire:
+                    activeGenusDescriptor = fireGenusDescriptor;
+                    break;
+                case Genus.Water:
+                    activeGenusDescriptor = waterGenusDescriptor;
+                    break;
+                case Genus.Wind:
+                    activeGenusDescriptor = windGenusDescriptor;
+                    break;
+            }
+            activeGenusDescriptor.PictureBox.BackColor = Color.White;
+            activeGenusDescriptor.PictureBox.Image = activeGenusDescriptor.ActiveImage;
         }
         private string DamageToString(uint damage)
         { return damage != INVALID_DAMAGE ? damage.ToString() : ""; }
-        private static uint SpellAttackDamage(Unit attacker, Unit defender)
+        private static uint SpellAttackDamage(Unit attacker, Unit defender, Spell spell)
         {
-            if (attacker.HasSpell())
-            { return DamageCalculator.spellAttackDamage(attacker, defender); }
+            if (spell.IsDamagingDirectSpellType())
+            { return DamageCalculator.spellAttackDamage(attacker, defender, spell); }
             else
             { return INVALID_DAMAGE; }
         }
-        private static uint KohNormalAttackDamage(Unit koh, Unit familiar, Monster monster, Descriptor descriptor)
+        private static uint KohNormalAttackDamage(Unit koh, Familiar familiar, Monster monster, Descriptor descriptor)
         { return NonSpellAttackDamage(koh, monster, descriptor); }
-        private static uint MixtureAttackDamage(Unit koh, Unit familiar, Monster monster, Descriptor descriptor)
+        private static uint Mixture1AttackDamage(Unit koh, Familiar familiar, Monster monster, Descriptor descriptor)
+        { return MixtureAttackDamage(koh, familiar, familiar.Spell, monster, descriptor); }
+        private static uint Mixture2AttackDamage(Unit koh, Familiar familiar, Monster monster, Descriptor descriptor)
+        { return MixtureAttackDamage(koh, familiar, familiar.Spell2, monster, descriptor); }
+        private static uint MixtureAttackDamage(Unit koh, Familiar familiar, Spell familiarSpell, Monster monster, Descriptor descriptor)
         {
-            if (familiar.HasSpell())
+            if (familiarSpell.IsSwordTypeMixtureMagic())
             {
                 return DamageCalculator.mixtureAttackDamage(
                     koh,
@@ -142,16 +223,18 @@ namespace AzureDreamsDamageCalculator
                     descriptor.damageRoll,
                     descriptor.groundModifier,
                     descriptor.criticalHit,
-                    familiar.Spell);
+                    familiarSpell);
             }
+            else if (familiarSpell.IsWaveTypeMixtureMagic())
+            { return DamageCalculator.spellAttackDamage(familiar, monster, familiarSpell); }
             else
             { return INVALID_DAMAGE; }
         }
-        private static uint FamiliarAttackDamage(Unit koh, Unit familiar, Monster monster, Descriptor descriptor)
+        private static uint FamiliarAttackDamage(Unit koh, Familiar familiar, Monster monster, Descriptor descriptor)
         { return NonSpellAttackDamage(familiar, monster, descriptor); }
-        private static uint VsKohAttackDamage(Unit koh, Unit familiar, Monster monster, Descriptor descriptor)
+        private static uint VsKohAttackDamage(Unit koh, Familiar familiar, Monster monster, Descriptor descriptor)
         { return NonSpellAttackDamage(monster, koh, descriptor); }
-        private static uint VsFamiliarAttackDamage(Unit koh, Unit familiar, Monster monster, Descriptor descriptor)
+        private static uint VsFamiliarAttackDamage(Unit koh, Familiar familiar, Monster monster, Descriptor descriptor)
         { return NonSpellAttackDamage(monster, familiar, descriptor); }
         private static uint NonSpellAttackDamage(Unit attacker, Unit defender, Descriptor descriptor)
         {
@@ -161,6 +244,21 @@ namespace AzureDreamsDamageCalculator
                 descriptor.damageRoll, 
                 descriptor.groundModifier, 
                 descriptor.criticalHit);
+        }
+        private void fireGenusPictureBox_Click(object sender, EventArgs e)
+        {
+            monster.Genus = Genus.Fire;
+            Fill();
+        }
+        private void waterGenusPictureBox_Click(object sender, EventArgs e)
+        {
+            monster.Genus = Genus.Water;
+            Fill();
+        }
+        private void windGenusPictureBox_Click(object sender, EventArgs e)
+        {
+            monster.Genus = Genus.Wind;
+            Fill();
         }
     }
 }

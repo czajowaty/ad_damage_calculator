@@ -14,10 +14,27 @@ namespace AzureDreamsDamageCalculator
         { return CalculateStat(ref traits, level, traits.BaseDefense, traits.DefenseGrowth, ATK_DEF_DIVISOR, doubleStat); }
         public static uint HP(UnitTraits traits, uint level, bool doubleStat)
         {
-            // TODO: Calculate HP correctly for evolved monsters
-            uint calculatedHp = traits.BaseHp +
-                (uint)Math.Floor(traits.HpGrowth * (level - 1) / 16.0f) +
-                (uint)Math.Floor(2896 * traits.HpGrowth * Math.Sqrt(traits.HpGrowth * (level - 1)) / 32768);
+            uint calculatedHp;
+            if (traits.IsEvolved)
+            {
+                calculatedHp = traits.BaseHp;
+                for (uint n = 1; n < level; ++n)
+                {
+                    calculatedHp = calculatedHp +
+                        (uint)(
+                            Math.Floor(traits.HpGrowth * n / 16.0f) -
+                            Math.Floor(traits.HpGrowth * (n - 1) / 16.0f) +
+                            Math.Floor(2896 * traits.HpGrowth * Math.Sqrt(traits.HpGrowth * n) / 32768.0f) -
+                            Math.Floor(2896 * traits.HpGrowth * Math.Sqrt(traits.HpGrowth * (n - 1)) / 32768.0f)
+                        );
+                }
+            }
+            else
+            {
+                calculatedHp = traits.BaseHp +
+                    (uint)Math.Floor(traits.HpGrowth * (level - 1) / 16.0f) +
+                    (uint)Math.Floor(2896 * traits.HpGrowth * Math.Sqrt(traits.HpGrowth * (level - 1)) / 32768);
+            }
             return CappedStat(calculatedHp, doubleStat);
         }
         public static uint MP(UnitTraits traits, uint level)

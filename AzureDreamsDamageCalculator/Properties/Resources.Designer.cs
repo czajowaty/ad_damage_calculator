@@ -213,6 +213,16 @@ namespace AzureDreamsDamageCalculator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap genus_fire_gray {
+            get {
+                object obj = ResourceManager.GetObject("genus_fire_gray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap genus_water {
             get {
                 object obj = ResourceManager.GetObject("genus_water", resourceCulture);
@@ -223,9 +233,29 @@ namespace AzureDreamsDamageCalculator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap genus_water_gray {
+            get {
+                object obj = ResourceManager.GetObject("genus_water_gray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap genus_wind {
             get {
                 object obj = ResourceManager.GetObject("genus_wind", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap genus_wind_gray {
+            get {
+                object obj = ResourceManager.GetObject("genus_wind_gray", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.kohGroupBox = new System.Windows.Forms.GroupBox();
+            this.identifyKohSpellButton = new System.Windows.Forms.Button();
+            this.removeKohSpellButton = new System.Windows.Forms.Button();
+            this.addChargeButton = new System.Windows.Forms.Button();
+            this.removeChargeButton = new System.Windows.Forms.Button();
+            this.addKohSpellButton = new System.Windows.Forms.Button();
             this.kohSpellComboBox = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.kohDefenseModifierNumericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -51,13 +56,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.kohAttackModifierNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.familiarSpell2LockedCheckBox = new System.Windows.Forms.CheckBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.familiarSpell2LevelNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.familiarSpell2ComboBox = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.familiarSpecialTraitComboBox = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.familiarSpellLockedCheckBox = new System.Windows.Forms.CheckBox();
-            this.familiarSpellComboBox = new System.Windows.Forms.ComboBox();
+            this.familiarSpell1LockedCheckBox = new System.Windows.Forms.CheckBox();
+            this.familiarSpell1ComboBox = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.familiarSpellLevelTextBox = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.familiarLevelNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.familiarDefenseModifierNumericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -70,7 +78,7 @@
             this.familiarAttackTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.familiarSpellLevelModifierNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.familiarSpell1LevelNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label17 = new System.Windows.Forms.Label();
             this.familiarGenusComboBox = new System.Windows.Forms.ComboBox();
             this.familiarAttackModifierNumericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -80,10 +88,11 @@
             this.floorNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.resetButton = new System.Windows.Forms.Button();
             this.levelUpKohFamiliarButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.monsterControlsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.resetButton = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
             this.kohGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kohDefenseModifierNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kohLevelNumericUpDown)).BeginInit();
@@ -91,9 +100,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.kohWeaponQualityNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kohAttackModifierNumericUpDown)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.familiarSpell2LevelNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.familiarLevelNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.familiarDefenseModifierNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.familiarSpellLevelModifierNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.familiarSpell1LevelNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.familiarAttackModifierNumericUpDown)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -106,6 +116,12 @@
             // 
             this.kohGroupBox.AutoSize = true;
             this.kohGroupBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.kohGroupBox.Controls.Add(this.identifyKohSpellButton);
+            this.kohGroupBox.Controls.Add(this.removeKohSpellButton);
+            this.kohGroupBox.Controls.Add(this.addChargeButton);
+            this.kohGroupBox.Controls.Add(this.removeChargeButton);
+            this.kohGroupBox.Controls.Add(this.label19);
+            this.kohGroupBox.Controls.Add(this.addKohSpellButton);
             this.kohGroupBox.Controls.Add(this.kohSpellComboBox);
             this.kohGroupBox.Controls.Add(this.label20);
             this.kohGroupBox.Controls.Add(this.kohDefenseModifierNumericUpDown);
@@ -130,10 +146,60 @@
             this.kohGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kohGroupBox.Location = new System.Drawing.Point(3, 3);
             this.kohGroupBox.Name = "kohGroupBox";
-            this.kohGroupBox.Size = new System.Drawing.Size(343, 166);
+            this.kohGroupBox.Size = new System.Drawing.Size(343, 193);
             this.kohGroupBox.TabIndex = 0;
             this.kohGroupBox.TabStop = false;
             this.kohGroupBox.Text = "Koh";
+            // 
+            // identifyKohSpellButton
+            // 
+            this.identifyKohSpellButton.Location = new System.Drawing.Point(90, 153);
+            this.identifyKohSpellButton.Name = "identifyKohSpellButton";
+            this.identifyKohSpellButton.Size = new System.Drawing.Size(67, 21);
+            this.identifyKohSpellButton.TabIndex = 29;
+            this.identifyKohSpellButton.Text = "Identify";
+            this.identifyKohSpellButton.UseVisualStyleBackColor = true;
+            this.identifyKohSpellButton.Click += new System.EventHandler(this.identifyKohSpellButton_Click);
+            // 
+            // removeKohSpellButton
+            // 
+            this.removeKohSpellButton.Location = new System.Drawing.Point(234, 126);
+            this.removeKohSpellButton.Name = "removeKohSpellButton";
+            this.removeKohSpellButton.Size = new System.Drawing.Size(63, 21);
+            this.removeKohSpellButton.TabIndex = 28;
+            this.removeKohSpellButton.Text = "Remove";
+            this.removeKohSpellButton.UseVisualStyleBackColor = true;
+            this.removeKohSpellButton.Click += new System.EventHandler(this.removeKohSpellButton_Click);
+            // 
+            // addChargeButton
+            // 
+            this.addChargeButton.Location = new System.Drawing.Point(163, 153);
+            this.addChargeButton.Name = "addChargeButton";
+            this.addChargeButton.Size = new System.Drawing.Size(21, 21);
+            this.addChargeButton.TabIndex = 26;
+            this.addChargeButton.Text = "+";
+            this.addChargeButton.UseVisualStyleBackColor = true;
+            this.addChargeButton.Click += new System.EventHandler(this.addChargeButton_Click);
+            // 
+            // removeChargeButton
+            // 
+            this.removeChargeButton.Location = new System.Drawing.Point(63, 153);
+            this.removeChargeButton.Name = "removeChargeButton";
+            this.removeChargeButton.Size = new System.Drawing.Size(21, 21);
+            this.removeChargeButton.TabIndex = 25;
+            this.removeChargeButton.Text = "-";
+            this.removeChargeButton.UseVisualStyleBackColor = true;
+            this.removeChargeButton.Click += new System.EventHandler(this.removeChargeButton_Click);
+            // 
+            // addKohSpellButton
+            // 
+            this.addKohSpellButton.Location = new System.Drawing.Point(193, 126);
+            this.addKohSpellButton.Name = "addKohSpellButton";
+            this.addKohSpellButton.Size = new System.Drawing.Size(35, 21);
+            this.addKohSpellButton.TabIndex = 22;
+            this.addKohSpellButton.Text = "Add";
+            this.addKohSpellButton.UseVisualStyleBackColor = true;
+            this.addKohSpellButton.Click += new System.EventHandler(this.addKohSpellButton_Click);
             // 
             // kohSpellComboBox
             // 
@@ -374,13 +440,16 @@
             // 
             this.groupBox1.AutoSize = true;
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox1.Controls.Add(this.familiarSpell2LockedCheckBox);
+            this.groupBox1.Controls.Add(this.label25);
+            this.groupBox1.Controls.Add(this.familiarSpell2LevelNumericUpDown);
+            this.groupBox1.Controls.Add(this.familiarSpell2ComboBox);
+            this.groupBox1.Controls.Add(this.label23);
             this.groupBox1.Controls.Add(this.familiarSpecialTraitComboBox);
             this.groupBox1.Controls.Add(this.label22);
-            this.groupBox1.Controls.Add(this.familiarSpellLockedCheckBox);
-            this.groupBox1.Controls.Add(this.familiarSpellComboBox);
+            this.groupBox1.Controls.Add(this.familiarSpell1LockedCheckBox);
+            this.groupBox1.Controls.Add(this.familiarSpell1ComboBox);
             this.groupBox1.Controls.Add(this.label21);
-            this.groupBox1.Controls.Add(this.familiarSpellLevelTextBox);
-            this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.familiarLevelNumericUpDown);
             this.groupBox1.Controls.Add(this.familiarDefenseModifierNumericUpDown);
@@ -393,7 +462,7 @@
             this.groupBox1.Controls.Add(this.familiarAttackTextBox);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.familiarSpellLevelModifierNumericUpDown);
+            this.groupBox1.Controls.Add(this.familiarSpell1LevelNumericUpDown);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.familiarGenusComboBox);
             this.groupBox1.Controls.Add(this.familiarAttackModifierNumericUpDown);
@@ -401,74 +470,117 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(352, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(375, 166);
+            this.groupBox1.Size = new System.Drawing.Size(395, 193);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Familiar";
+            // 
+            // familiarSpell2LockedCheckBox
+            // 
+            this.familiarSpell2LockedCheckBox.AutoSize = true;
+            this.familiarSpell2LockedCheckBox.Location = new System.Drawing.Point(249, 128);
+            this.familiarSpell2LockedCheckBox.Name = "familiarSpell2LockedCheckBox";
+            this.familiarSpell2LockedCheckBox.Size = new System.Drawing.Size(62, 17);
+            this.familiarSpell2LockedCheckBox.TabIndex = 41;
+            this.familiarSpell2LockedCheckBox.Text = "Locked";
+            this.familiarSpell2LockedCheckBox.UseVisualStyleBackColor = true;
+            this.familiarSpell2LockedCheckBox.CheckedChanged += new System.EventHandler(this.familiarSpell2LockedCheckBox_CheckedChanged);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(141, 129);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(58, 13);
+            this.label25.TabIndex = 38;
+            this.label25.Text = "Spell level:";
+            // 
+            // familiarSpell2LevelNumericUpDown
+            // 
+            this.familiarSpell2LevelNumericUpDown.Location = new System.Drawing.Point(205, 126);
+            this.familiarSpell2LevelNumericUpDown.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.familiarSpell2LevelNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.familiarSpell2LevelNumericUpDown.Name = "familiarSpell2LevelNumericUpDown";
+            this.familiarSpell2LevelNumericUpDown.Size = new System.Drawing.Size(38, 20);
+            this.familiarSpell2LevelNumericUpDown.TabIndex = 37;
+            this.familiarSpell2LevelNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // familiarSpell2ComboBox
+            // 
+            this.familiarSpell2ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.familiarSpell2ComboBox.FormattingEnabled = true;
+            this.familiarSpell2ComboBox.Location = new System.Drawing.Point(48, 126);
+            this.familiarSpell2ComboBox.Name = "familiarSpell2ComboBox";
+            this.familiarSpell2ComboBox.Size = new System.Drawing.Size(87, 21);
+            this.familiarSpell2ComboBox.TabIndex = 36;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(6, 129);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(42, 13);
+            this.label23.TabIndex = 35;
+            this.label23.Text = "Spell 2:";
             // 
             // familiarSpecialTraitComboBox
             // 
             this.familiarSpecialTraitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.familiarSpecialTraitComboBox.FormattingEnabled = true;
-            this.familiarSpecialTraitComboBox.Location = new System.Drawing.Point(212, 72);
+            this.familiarSpecialTraitComboBox.Location = new System.Drawing.Point(292, 18);
             this.familiarSpecialTraitComboBox.Name = "familiarSpecialTraitComboBox";
-            this.familiarSpecialTraitComboBox.Size = new System.Drawing.Size(121, 21);
+            this.familiarSpecialTraitComboBox.Size = new System.Drawing.Size(97, 21);
             this.familiarSpecialTraitComboBox.TabIndex = 34;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(175, 75);
+            this.label22.Location = new System.Drawing.Point(255, 22);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(31, 13);
             this.label22.TabIndex = 33;
             this.label22.Text = "Trait:";
             // 
-            // familiarSpellLockedCheckBox
+            // familiarSpell1LockedCheckBox
             // 
-            this.familiarSpellLockedCheckBox.AutoSize = true;
-            this.familiarSpellLockedCheckBox.Location = new System.Drawing.Point(307, 48);
-            this.familiarSpellLockedCheckBox.Name = "familiarSpellLockedCheckBox";
-            this.familiarSpellLockedCheckBox.Size = new System.Drawing.Size(62, 17);
-            this.familiarSpellLockedCheckBox.TabIndex = 32;
-            this.familiarSpellLockedCheckBox.Text = "Locked";
-            this.familiarSpellLockedCheckBox.UseVisualStyleBackColor = true;
+            this.familiarSpell1LockedCheckBox.AutoSize = true;
+            this.familiarSpell1LockedCheckBox.Location = new System.Drawing.Point(249, 101);
+            this.familiarSpell1LockedCheckBox.Name = "familiarSpell1LockedCheckBox";
+            this.familiarSpell1LockedCheckBox.Size = new System.Drawing.Size(62, 17);
+            this.familiarSpell1LockedCheckBox.TabIndex = 32;
+            this.familiarSpell1LockedCheckBox.Text = "Locked";
+            this.familiarSpell1LockedCheckBox.UseVisualStyleBackColor = true;
+            this.familiarSpell1LockedCheckBox.CheckedChanged += new System.EventHandler(this.familiarSpell1LockedCheckBox_CheckedChanged);
             // 
-            // familiarSpellComboBox
+            // familiarSpell1ComboBox
             // 
-            this.familiarSpellComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.familiarSpellComboBox.FormattingEnabled = true;
-            this.familiarSpellComboBox.Location = new System.Drawing.Point(48, 72);
-            this.familiarSpellComboBox.Name = "familiarSpellComboBox";
-            this.familiarSpellComboBox.Size = new System.Drawing.Size(121, 21);
-            this.familiarSpellComboBox.TabIndex = 31;
+            this.familiarSpell1ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.familiarSpell1ComboBox.FormattingEnabled = true;
+            this.familiarSpell1ComboBox.Location = new System.Drawing.Point(48, 99);
+            this.familiarSpell1ComboBox.Name = "familiarSpell1ComboBox";
+            this.familiarSpell1ComboBox.Size = new System.Drawing.Size(87, 21);
+            this.familiarSpell1ComboBox.TabIndex = 31;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(6, 75);
+            this.label21.Location = new System.Drawing.Point(6, 102);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(33, 13);
+            this.label21.Size = new System.Drawing.Size(42, 13);
             this.label21.TabIndex = 30;
-            this.label21.Text = "Spell:";
-            // 
-            // familiarSpellLevelTextBox
-            // 
-            this.familiarSpellLevelTextBox.Location = new System.Drawing.Point(277, 46);
-            this.familiarSpellLevelTextBox.Name = "familiarSpellLevelTextBox";
-            this.familiarSpellLevelTextBox.ReadOnly = true;
-            this.familiarSpellLevelTextBox.Size = new System.Drawing.Size(25, 20);
-            this.familiarSpellLevelTextBox.TabIndex = 29;
-            this.familiarSpellLevelTextBox.Text = "255";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(215, 49);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(58, 13);
-            this.label19.TabIndex = 28;
-            this.label19.Text = "Spell level:";
+            this.label21.Text = "Spell 1:";
             // 
             // label18
             // 
@@ -503,7 +615,7 @@
             // 
             // familiarDefenseModifierNumericUpDown
             // 
-            this.familiarDefenseModifierNumericUpDown.Location = new System.Drawing.Point(226, 99);
+            this.familiarDefenseModifierNumericUpDown.Location = new System.Drawing.Point(226, 73);
             this.familiarDefenseModifierNumericUpDown.Maximum = new decimal(new int[] {
             99,
             0,
@@ -530,7 +642,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(172, 102);
+            this.label11.Location = new System.Drawing.Point(172, 76);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(48, 13);
             this.label11.TabIndex = 26;
@@ -547,7 +659,7 @@
             // 
             // familiarDefenseTextBox
             // 
-            this.familiarDefenseTextBox.Location = new System.Drawing.Point(307, 99);
+            this.familiarDefenseTextBox.Location = new System.Drawing.Point(307, 73);
             this.familiarDefenseTextBox.Name = "familiarDefenseTextBox";
             this.familiarDefenseTextBox.ReadOnly = true;
             this.familiarDefenseTextBox.Size = new System.Drawing.Size(25, 20);
@@ -557,7 +669,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 102);
+            this.label12.Location = new System.Drawing.Point(6, 76);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(48, 13);
             this.label12.TabIndex = 24;
@@ -566,7 +678,7 @@
             // familiarFrogCheckBox
             // 
             this.familiarFrogCheckBox.AutoSize = true;
-            this.familiarFrogCheckBox.Location = new System.Drawing.Point(255, 21);
+            this.familiarFrogCheckBox.Location = new System.Drawing.Point(90, 48);
             this.familiarFrogCheckBox.Name = "familiarFrogCheckBox";
             this.familiarFrogCheckBox.Size = new System.Drawing.Size(47, 17);
             this.familiarFrogCheckBox.TabIndex = 13;
@@ -575,7 +687,7 @@
             // 
             // familiarAttackTextBox
             // 
-            this.familiarAttackTextBox.Location = new System.Drawing.Point(141, 99);
+            this.familiarAttackTextBox.Location = new System.Drawing.Point(141, 73);
             this.familiarAttackTextBox.Name = "familiarAttackTextBox";
             this.familiarAttackTextBox.ReadOnly = true;
             this.familiarAttackTextBox.Size = new System.Drawing.Size(25, 20);
@@ -585,42 +697,47 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(90, 49);
+            this.label8.Location = new System.Drawing.Point(141, 102);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 13);
+            this.label8.Size = new System.Drawing.Size(58, 13);
             this.label8.TabIndex = 11;
-            this.label8.Text = "Spell level +/-:";
+            this.label8.Text = "Spell level:";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(270, 102);
+            this.label16.Location = new System.Drawing.Point(270, 76);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(31, 13);
             this.label16.TabIndex = 22;
             this.label16.Text = "DEF:";
             // 
-            // familiarSpellLevelModifierNumericUpDown
+            // familiarSpell1LevelNumericUpDown
             // 
-            this.familiarSpellLevelModifierNumericUpDown.Location = new System.Drawing.Point(171, 46);
-            this.familiarSpellLevelModifierNumericUpDown.Maximum = new decimal(new int[] {
+            this.familiarSpell1LevelNumericUpDown.Location = new System.Drawing.Point(205, 99);
+            this.familiarSpell1LevelNumericUpDown.Maximum = new decimal(new int[] {
             99,
             0,
             0,
             0});
-            this.familiarSpellLevelModifierNumericUpDown.Minimum = new decimal(new int[] {
-            99,
+            this.familiarSpell1LevelNumericUpDown.Minimum = new decimal(new int[] {
+            1,
             0,
             0,
-            -2147483648});
-            this.familiarSpellLevelModifierNumericUpDown.Name = "familiarSpellLevelModifierNumericUpDown";
-            this.familiarSpellLevelModifierNumericUpDown.Size = new System.Drawing.Size(38, 20);
-            this.familiarSpellLevelModifierNumericUpDown.TabIndex = 10;
+            0});
+            this.familiarSpell1LevelNumericUpDown.Name = "familiarSpell1LevelNumericUpDown";
+            this.familiarSpell1LevelNumericUpDown.Size = new System.Drawing.Size(38, 20);
+            this.familiarSpell1LevelNumericUpDown.TabIndex = 10;
+            this.familiarSpell1LevelNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(104, 102);
+            this.label17.Location = new System.Drawing.Point(104, 76);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(31, 13);
             this.label17.TabIndex = 21;
@@ -637,7 +754,7 @@
             // 
             // familiarAttackModifierNumericUpDown
             // 
-            this.familiarAttackModifierNumericUpDown.Location = new System.Drawing.Point(60, 99);
+            this.familiarAttackModifierNumericUpDown.Location = new System.Drawing.Point(60, 73);
             this.familiarAttackModifierNumericUpDown.Maximum = new decimal(new int[] {
             99,
             0,
@@ -678,7 +795,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(985, 172);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1005, 199);
             this.tableLayoutPanel1.TabIndex = 13;
             // 
             // groupBox2
@@ -688,9 +805,9 @@
             this.groupBox2.Controls.Add(this.floorNumericUpDown);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(733, 3);
+            this.groupBox2.Location = new System.Drawing.Point(753, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(111, 166);
+            this.groupBox2.Size = new System.Drawing.Size(111, 193);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Other settings";
@@ -734,12 +851,22 @@
             this.groupBox3.Controls.Add(this.resetButton);
             this.groupBox3.Controls.Add(this.levelUpKohFamiliarButton);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(850, 3);
+            this.groupBox3.Location = new System.Drawing.Point(870, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(132, 166);
+            this.groupBox3.Size = new System.Drawing.Size(132, 193);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Operations";
+            // 
+            // resetButton
+            // 
+            this.resetButton.Location = new System.Drawing.Point(6, 48);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(120, 23);
+            this.resetButton.TabIndex = 1;
+            this.resetButton.Text = "Reset";
+            this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
             // levelUpKohFamiliarButton
             // 
@@ -773,20 +900,19 @@
             this.monsterControlsFlowLayoutPanel.AutoScroll = true;
             this.monsterControlsFlowLayoutPanel.AutoSize = true;
             this.monsterControlsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.monsterControlsFlowLayoutPanel.Location = new System.Drawing.Point(3, 181);
+            this.monsterControlsFlowLayoutPanel.Location = new System.Drawing.Point(3, 208);
             this.monsterControlsFlowLayoutPanel.Name = "monsterControlsFlowLayoutPanel";
-            this.monsterControlsFlowLayoutPanel.Size = new System.Drawing.Size(1578, 677);
+            this.monsterControlsFlowLayoutPanel.Size = new System.Drawing.Size(1578, 650);
             this.monsterControlsFlowLayoutPanel.TabIndex = 14;
             // 
-            // resetButton
+            // label19
             // 
-            this.resetButton.Location = new System.Drawing.Point(6, 48);
-            this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(120, 23);
-            this.resetButton.TabIndex = 1;
-            this.resetButton.Text = "Reset";
-            this.resetButton.UseVisualStyleBackColor = true;
-            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 156);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(49, 13);
+            this.label19.TabIndex = 24;
+            this.label19.Text = "Charges:";
             // 
             // MainForm
             // 
@@ -806,9 +932,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.kohAttackModifierNumericUpDown)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.familiarSpell2LevelNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.familiarLevelNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.familiarDefenseModifierNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.familiarSpellLevelModifierNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.familiarSpell1LevelNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.familiarAttackModifierNumericUpDown)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -840,7 +967,7 @@
         private System.Windows.Forms.ComboBox familiarGenusComboBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown familiarSpellLevelModifierNumericUpDown;
+        private System.Windows.Forms.NumericUpDown familiarSpell1LevelNumericUpDown;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.NumericUpDown floorNumericUpDown;
@@ -868,18 +995,27 @@
         private System.Windows.Forms.NumericUpDown familiarAttackModifierNumericUpDown;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.NumericUpDown familiarLevelNumericUpDown;
-        private System.Windows.Forms.TextBox familiarSpellLevelTextBox;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button levelUpKohFamiliarButton;
-        private System.Windows.Forms.ComboBox kohSpellComboBox;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.ComboBox familiarSpellComboBox;
+        private System.Windows.Forms.ComboBox familiarSpell1ComboBox;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.CheckBox familiarSpellLockedCheckBox;
+        private System.Windows.Forms.CheckBox familiarSpell1LockedCheckBox;
         private System.Windows.Forms.ComboBox familiarSpecialTraitComboBox;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button resetButton;
+        private System.Windows.Forms.ComboBox familiarSpell2ComboBox;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.CheckBox familiarSpell2LockedCheckBox;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.NumericUpDown familiarSpell2LevelNumericUpDown;
+        private System.Windows.Forms.ComboBox kohSpellComboBox;
+        private System.Windows.Forms.Button addKohSpellButton;
+        private System.Windows.Forms.Button addChargeButton;
+        private System.Windows.Forms.Button removeChargeButton;
+        private System.Windows.Forms.Button removeKohSpellButton;
+        private System.Windows.Forms.Button identifyKohSpellButton;
+        private System.Windows.Forms.Label label19;
     }
 }
 

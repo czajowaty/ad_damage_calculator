@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Drawing;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace AzureDreamsDamageCalculator
 {
     public partial class MainForm : Form
     {
-        public static readonly string VERSION = "0.2";
-        public static readonly SortedDictionary<string, Weapon> KohWeaponsNames = CreateNamedDictionary(
+        public static readonly string VERSION = "0.2.1";
+        public static readonly SortedDictionary<string, Weapon> KohWeaponsNames = Helpers.CreateNamedDictionary(
             new[]
             {
                 Weapon.NO_WEAPON,
@@ -32,7 +34,7 @@ namespace AzureDreamsDamageCalculator
                 Wands.Life,
                 Wands.Trained
             });
-        public static readonly SortedDictionary<string, Shield> KohShieldsNames = CreateNamedDictionary(
+        public static readonly SortedDictionary<string, Shield> KohShieldsNames = Helpers.CreateNamedDictionary(
             new[]
             {
                 Shield.NO_SHIELD,
@@ -48,7 +50,7 @@ namespace AzureDreamsDamageCalculator
                 Shields.Live,
                 Shields.Diamond
             });
-        public static readonly SortedDictionary<string, UnitTraits> FamiliarsTraits = CreateNamedDictionary(
+        public static readonly SortedDictionary<string, UnitTraits> FamiliarsTraits = Helpers.CreateNamedDictionary(
             new[]
             {
                 UnitsTraits.Kewne,
@@ -96,10 +98,8 @@ namespace AzureDreamsDamageCalculator
                 UnitsTraits.Golem,
                 UnitsTraits.Maximum
             });
-        public static readonly SortedDictionary<string, SpellTraits> KohSpells = CreateNamedDictionary(
-            new []{ SpellsTraits.FireBall, SpellsTraits.BlazeBall, SpellsTraits.FlameBall, SpellsTraits.PillarBall, SpellsTraits.AcidRainBall });
-        public static readonly SortedDictionary<string, SpellTraits> FamiliarSpells = CreateNamedDictionary(
-            new[] { SpellTraits.EMPTY, SpellsTraits.Breath, SpellsTraits.Sled, SpellsTraits.Brid, SpellsTraits.Rise, SpellsTraits.Grave });
+        public static readonly SortedDictionary<string, SpellTraits> FamiliarSpells = Helpers.CreateNamedDictionary(
+            new[] { SpellTraits.EMPTY, SpellsTraits.Breath, SpellsTraits.Sled, SpellsTraits.Brid, SpellsTraits.Rise, SpellsTraits.Down });
         public static readonly SortedDictionary<string, Genus> GenusNames = new SortedDictionary<string, Genus>()
         {
             { Genus.Fire.ToString(), Genus.Fire },
@@ -113,31 +113,28 @@ namespace AzureDreamsDamageCalculator
             { "Double DEF", SpecialTraits.DoubleDefense },
             { "Double spell growth", SpecialTraits.DoubleSpellGrowth }
         };
-        private static SortedDictionary<string, T> CreateNamedDictionary<T>(T[] namedEntities) where T : Named
-        {
-            SortedDictionary<string, T> namedDictionary = new SortedDictionary<string, T>();
-            foreach (T namedEntity in namedEntities)
-            { namedDictionary[namedEntity.Name] = namedEntity; }
-            return namedDictionary;
-        }
 
         private Unit koh = new Unit(UnitsTraits.Koh);
-        private Unit familiar;
+        private BindingList<BallSpell> kohSpellsList = new BindingList<BallSpell>();
+        private BallSpell kohSpell = BallSpell.NO_BALL_SPELL;
+        private Familiar familiar;
         private MonsterControl[] monsterControls = new MonsterControl[0];
 
         public MainForm()
         {
             InitializeComponent();
+            kohSpellComboBox.DataSource = kohSpellsList;
             Text += " " + VERSION;
             CreateMonsterControls();
             FillComboBox(kohWeaponComboBox, KohWeaponsNames.Keys);
             FillComboBox(kohShieldComboBox, KohShieldsNames.Keys);
-            FillComboBox(kohSpellComboBox, KohSpells.Keys);
             FillComboBox(familiarTypeComboBox, FamiliarsTraits.Keys);
             FillComboBox(familiarGenusComboBox, GenusNames.Keys);
-            FillComboBox(familiarSpellComboBox, FamiliarSpells.Keys);
+            FillComboBox(familiarSpell1ComboBox, FamiliarSpells.Keys);
+            FillComboBox(familiarSpell2ComboBox, FamiliarSpells.Keys);
             FillComboBox(familiarSpecialTraitComboBox, FamiliarSpecialTraits.Keys);
             ResetUI();
+            OnKohSpellChanged();
             AddUIDelegatesHandlers();
             UpdateMonsterControls();
         }
@@ -151,13 +148,15 @@ namespace AzureDreamsDamageCalculator
             kohWeaponQualityNumericUpDown.Value = 0;
             kohShieldComboBox.SelectedItem = Shields.Wood.Name;
             kohShieldQualityNumericUpDown.Value = 0;
-            kohSpellComboBox.SelectedItem = SpellsTraits.FlameBall.Name;
+            kohSpellsList.Clear();
+            kohSpellsList.Add(new BallSpell(SpellsTraits.FireBall, minCharges: 5, maxCharges: 5));
             familiarSpecialTraitComboBox.SelectedIndex = 0;
             familiarTypeComboBox.SelectedItem = UnitsTraits.Kewne.Name;
             familiarFrogCheckBox.Checked = false;
             familiarLevelNumericUpDown.Value = 1;
-            familiarSpellLevelModifierNumericUpDown.Value = 0;
-            familiarSpellComboBox.SelectedItem = UnitsTraits.Kewne.NativeSpell.Name;
+            familiarSpell1ComboBox.SelectedItem = UnitsTraits.Kewne.NativeSpell.Name;
+            familiarSpell1LevelNumericUpDown.Value = 1;
+            familiarSpell2ComboBox.SelectedItem = 
             familiarAttackModifierNumericUpDown.Value = 0;
             familiarDefenseModifierNumericUpDown.Value = 0;
             floorNumericUpDown.Value = 1;
@@ -179,8 +178,10 @@ namespace AzureDreamsDamageCalculator
             this.familiarGenusComboBox.SelectedIndexChanged += new System.EventHandler(this.familiarGenusComboBox_SelectedIndexChanged);
             this.familiarFrogCheckBox.CheckedChanged += new System.EventHandler(this.familiarFrogCheckBox_CheckedChanged);
             this.familiarLevelNumericUpDown.ValueChanged += new System.EventHandler(this.familiarLevelNumericUpDown_ValueChanged);
-            this.familiarSpellLevelModifierNumericUpDown.ValueChanged += new System.EventHandler(this.familiarSpellLevelModifierNumericUpDown_ValueChanged);
-            this.familiarSpellComboBox.SelectedIndexChanged += new System.EventHandler(this.familiarSpellComboBox_SelectedIndexChanged);
+            this.familiarSpell1ComboBox.SelectedIndexChanged += new System.EventHandler(this.familiarSpell1ComboBox_SelectedIndexChanged);
+            this.familiarSpell1LevelNumericUpDown.ValueChanged += new System.EventHandler(this.familiarSpell1LevelNumericUpDown_ValueChanged);
+            this.familiarSpell2ComboBox.SelectedIndexChanged += new System.EventHandler(this.familiarSpell2ComboBox_SelectedIndexChanged);
+            this.familiarSpell2LevelNumericUpDown.ValueChanged += new System.EventHandler(this.familiarSpell2LevelNumericUpDown_ValueChanged);
             this.familiarSpecialTraitComboBox.SelectedIndexChanged += new System.EventHandler(this.familiarTraitComboBox_SelectedIndexChanged);
             this.familiarAttackModifierNumericUpDown.ValueChanged += new System.EventHandler(this.familiarAttackModifierNumericUpDown_ValueChanged);
             this.familiarDefenseModifierNumericUpDown.ValueChanged += new System.EventHandler(this.familiarDefenseModifierNumericUpDown_ValueChanged);
@@ -205,7 +206,6 @@ namespace AzureDreamsDamageCalculator
             koh.Level = (uint)kohLevelNumericUpDown.Value;
             CalculateUnitBaseStats(koh);
             ModifyKohStats();
-            SetKohSpellLevel();
         }
         private void ModifyKohStats()
         {
@@ -232,12 +232,22 @@ namespace AzureDreamsDamageCalculator
         { koh.Shield.Quality = (int)kohShieldQualityNumericUpDown.Value; }
         private void SetKohSpell()
         {
-            string kohSpellName = kohSpellComboBox.SelectedItem.ToString();
-            koh.Spell = new Spell(KohSpells[kohSpellName]);
+            bool isSpellSelected = kohSpellComboBox.SelectedIndex != -1;
+            if (isSpellSelected)
+            { kohSpell = (BallSpell)kohSpellComboBox.SelectedItem; }
+            else
+            { kohSpell = BallSpell.NO_BALL_SPELL; }
             SetKohSpellLevel();
+            removeKohSpellButton.Enabled = isSpellSelected;
+            removeChargeButton.Enabled = isSpellSelected;
+            addChargeButton.Enabled = isSpellSelected;
+            identifyKohSpellButton.Enabled = isSpellSelected && !kohSpell.IsIdentified();
         }
         private void SetKohSpellLevel()
-        { koh.Spell.BaseLevel = koh.Level * 4; }
+        {
+            if (kohSpell.IsDamagingDirectSpellType())
+            { kohSpell.Level = koh.Level * 4; }
+        }
         private void UpdateFamiliar()
         { SetFamiliarType(); }
         private void SetFamiliarType()
@@ -245,23 +255,23 @@ namespace AzureDreamsDamageCalculator
             string familiarType = familiarTypeComboBox.SelectedItem.ToString();
             CreateFamiliar(FamiliarsTraits[familiarType]);
             familiarGenusComboBox.SelectedItem = familiar.Stats.Genus.ToString();
-            familiarSpellComboBox.SelectedItem = familiar.Spell.Name;
+            familiarSpell1ComboBox.SelectedItem = familiar.Spell.Name;
+            familiarSpell2ComboBox.SelectedItem = "";
+            familiarSpell2LockedCheckBox.Checked = true;
         }
         private void CreateFamiliar(UnitTraits traits)
         {
-            familiar = new Unit(traits, traits.NativeSpell);
-            familiar.Stats.Genus = traits.NativeGenus;
+            familiar = new Familiar(traits);
             SetFamiliarFrogStatus();
             SetFamiliarLevel(initialize: true);
-            ModifyFamiliarSpellLevel();
             CalculateFamiliarStats();
         }
         private void SetFamiliarGenus()
         {
             Genus genus = GenusNames[familiarGenusComboBox.SelectedItem.ToString()];
-            familiar.Stats.Genus = genus;
-            familiar.Spell.Genus = genus;
-            familiarSpellLockedCheckBox.Checked = !familiar.IsNativeGenus;
+            familiar.Genus = genus;
+            familiarSpell1LockedCheckBox.Checked = !familiar.Spell.HasNativeGenus();
+            familiarSpell2LockedCheckBox.Checked = !familiar.Spell2.HasNativeGenus();
         }
         private void SetFamiliarFrogStatus()
         { familiar.IsFrog = kohFrogCheckBox.Checked; }
@@ -270,31 +280,49 @@ namespace AzureDreamsDamageCalculator
             uint newLevel = (uint)familiarLevelNumericUpDown.Value;
             int levelDifference = initialize ? 0 : (int)(newLevel - familiar.Level);
             familiar.Level = newLevel;
-            familiar.Spell.BaseLevel = familiar.Level;
-            if (familiarSpellLockedCheckBox.Checked)
-            {
-                int spellLevelModifier = (int)familiarSpellLevelModifierNumericUpDown.Value;
-                familiarSpellLevelModifierNumericUpDown.Value = spellLevelModifier - levelDifference;
-            }
-            else if (familiar.HasDoubleSpellGrowth())
-            {
-                int spellLevelModifier = (int)familiarSpellLevelModifierNumericUpDown.Value;
-                familiarSpellLevelModifierNumericUpDown.Value = spellLevelModifier + levelDifference;
-            }
-            ModifyFamiliarSpellLevel();
+            UpdateFamiliarSpell1Level(levelDifference);
+            UpdateFamiliarSpell2Level(levelDifference);
             CalculateFamiliarStats();
             ModifyFamiliarStats();
         }
-        private void SetFamiliarSpell()
+        private void SetFamiliarSpell1()
         {
-            string spellTraits = familiarSpellComboBox.SelectedItem.ToString();
-            familiar.Spell = new Spell(FamiliarSpells[spellTraits], familiar.Level);
-            ModifyFamiliarSpellLevel();
+            familiar.Spell = CreateFamiliarSpell(familiarSpell1ComboBox, familiarSpell1LevelNumericUpDown);
+            familiarSpell1LockedCheckBox.Checked = !familiar.Spell.HasNativeGenus();
         }
-        private void ModifyFamiliarSpellLevel()
+        private void UpdateFamiliarSpell1Level(int levelDifference)
+        { UpdateFamiliarSpellLevel(levelDifference, familiarSpell1LevelNumericUpDown, familiarSpell1LockedCheckBox); }
+        private void SetFamiliarSpell2()
         {
-            familiar.Spell.LevelModifier = (int)familiarSpellLevelModifierNumericUpDown.Value;
-            familiarSpellLevelTextBox.Text = familiar.Spell.Level.ToString();
+            familiar.Spell2 = CreateFamiliarSpell(familiarSpell2ComboBox, familiarSpell2LevelNumericUpDown);
+            familiarSpell2LockedCheckBox.Checked = !familiar.Spell2.HasNativeGenus();
+        }
+        private void UpdateFamiliarSpell2Level(int levelDifference)
+        { UpdateFamiliarSpellLevel(levelDifference, familiarSpell2LevelNumericUpDown, familiarSpell2LockedCheckBox); }
+        private Spell CreateFamiliarSpell(ComboBox spellComboBox, NumericUpDown spellLevelNumericUpDown)
+        {
+            string spellTraits = spellComboBox.SelectedItem.ToString();
+            Spell spell = new Spell(FamiliarSpells[spellTraits], (uint)spellLevelNumericUpDown.Value);
+            spell.Genus = familiar.Genus;
+            return spell;
+        }
+        private void UpdateFamiliarSpellLevel(int levelDifference, NumericUpDown spellLevelNumericUpDown, CheckBox spellLockedCheckBox)
+        {
+            if (spellLockedCheckBox.Checked)
+            { return; }
+            int spellLevel = (int)spellLevelNumericUpDown.Value;
+            spellLevel += levelDifference;
+            if (familiar.HasDoubleSpellGrowth())
+            { spellLevel += levelDifference; }
+            SetFamiliarSpellLevelNumericUpDown(spellLevel, spellLevelNumericUpDown);
+        }
+        private void SetFamiliarSpellLevelNumericUpDown(int spellLevel, NumericUpDown spellLevelNumericUpDown)
+        {
+            if (spellLevel < spellLevelNumericUpDown.Minimum)
+            { spellLevel = (int)spellLevelNumericUpDown.Minimum; }
+            else if (spellLevel > spellLevelNumericUpDown.Maximum)
+            { spellLevel = (int)spellLevelNumericUpDown.Maximum; }
+            spellLevelNumericUpDown.Value = spellLevel;
         }
         private void CalculateFamiliarStats()
         {
@@ -340,15 +368,16 @@ namespace AzureDreamsDamageCalculator
             uint floor = (uint)floorNumericUpDown.Value - 1;
             return Monsters.PerFloor[floor];
         }
-        private void UpdateMonsterControls()
+        private void UpdateMonsterControls(bool useNativeMonsterGenus = false)
         {
             Monster[] monstersOnSelectedFloor = MonstersOnSelectedFloor();
             for (int i = 0; i < monstersOnSelectedFloor.Length; ++i)
-            { monsterControls[i].Fill(koh, familiar, monstersOnSelectedFloor[i]); }
+            { monsterControls[i].Fill(koh, familiar, monstersOnSelectedFloor[i], kohSpell, useNativeMonsterGenus); }
         }
         private void kohLevelNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             CalculateKohStatistics();
+            SetKohSpellLevel();
             UpdateMonsterControls();
         }
         private void kohFrogCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -387,9 +416,59 @@ namespace AzureDreamsDamageCalculator
             UpdateMonsterControls();
         }
         private void kohSpellComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        { OnKohSpellChanged(); }
+        private void OnKohSpellChanged()
         {
             SetKohSpell();
             UpdateMonsterControls();
+        }
+        private void addKohSpellButton_Click(object sender, EventArgs e)
+        {
+            AddSpellDialog addSpellDialog = new AddSpellDialog();
+            SetDialogPosition(addSpellDialog);
+            if (addSpellDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                kohSpellsList.Add(addSpellDialog.Spell);
+                if (!kohSpell.IsDamagingDirectSpellType())
+                { OnKohSpellChanged(); }
+            }
+        }
+        private void removeKohSpellButton_Click(object sender, EventArgs e)
+        {
+            int previousSelectedIndex = kohSpellComboBox.SelectedIndex;
+            kohSpellsList.RemoveAt(previousSelectedIndex);
+            if (previousSelectedIndex != kohSpellComboBox.SelectedIndex)
+            { OnKohSpellChanged(); }
+        }
+        private void removeChargeButton_Click(object sender, EventArgs e)
+        {
+            kohSpell.RemoveCharge();
+            RefreshKohSpellComboBox();
+        }
+        private void addChargeButton_Click(object sender, EventArgs e)
+        {
+            kohSpell.AddCharge();
+            RefreshKohSpellComboBox();
+        }
+        private void RefreshKohSpellComboBox()
+        { kohSpellsList.ResetItem(kohSpellComboBox.SelectedIndex); }
+        private void identifyKohSpellButton_Click(object sender, EventArgs e)
+        {
+            IdentifySpellDialog identifySpellDialog = new IdentifySpellDialog();
+            identifySpellDialog.Charges = kohSpell.MinCharges;
+            SetDialogPosition(identifySpellDialog);
+            if (identifySpellDialog.ShowDialog() == DialogResult.OK)
+            {
+                kohSpell.Identify(identifySpellDialog.Charges);
+                RefreshKohSpellComboBox();
+            } 
+        }
+        private void SetDialogPosition(Form dialogWindow)
+        {
+            Size halfSize = dialogWindow.Size;
+            halfSize.Width /= 2;
+            halfSize.Height /= 2;
+            dialogWindow.Location = Cursor.Position - halfSize;
         }
         private void familiarTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -399,21 +478,6 @@ namespace AzureDreamsDamageCalculator
         private void familiarGenusComboBox_SelectedIndexChanged(object sender, System.EventArgs e)
         {
             SetFamiliarGenus();
-            UpdateMonsterControls();
-        }
-        private void familiarFrogCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            SetFamiliarFrogStatus();
-            UpdateMonsterControls();
-        }
-        private void familiarLevelNumericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-            SetFamiliarLevel();
-            UpdateMonsterControls();
-        }
-        private void familiarSpellLevelModifierNumericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-            ModifyFamiliarSpellLevel();
             UpdateMonsterControls();
         }
         private void familiarTraitComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -433,23 +497,35 @@ namespace AzureDreamsDamageCalculator
                     CalculateFamiliarStats();
                     break;
                 case SpecialTraits.DoubleSpellGrowth:
-                    familiarDoubleSpellGrowthTraitChanged();
+                    FamiliarDoubleSpellGrowthTraitChanged();
                     break;
             }
         }
-
-        private void familiarDoubleSpellGrowthTraitChanged()
+        private void FamiliarDoubleSpellGrowthTraitChanged()
         {
-            uint level = (uint)familiarLevelNumericUpDown.Value;
-            int spellLevelModifier = (int)familiarSpellLevelModifierNumericUpDown.Value;
+            uint spell1Level = familiar.Spell.Level;
+            uint spell2Level = familiar.Spell2.Level;
             if (familiar.HasDoubleSpellGrowth())
-            { familiarSpellLevelModifierNumericUpDown.Value = spellLevelModifier + level; }
+            {
+                spell1Level *= 2;
+                spell2Level *= 2;
+            }
             else
-            { familiarSpellLevelModifierNumericUpDown.Value = spellLevelModifier - level; }
+            {
+                spell1Level /= 2;
+                spell2Level /= 2;
+            }
+            SetFamiliarSpellLevelNumericUpDown((int)spell1Level, familiarSpell1LevelNumericUpDown);
+            SetFamiliarSpellLevelNumericUpDown((int)spell2Level, familiarSpell2LevelNumericUpDown);
         }
-        private void familiarSpellComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void familiarLevelNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            SetFamiliarSpell();
+            SetFamiliarLevel();
+            UpdateMonsterControls();
+        }
+        private void familiarFrogCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            SetFamiliarFrogStatus();
             UpdateMonsterControls();
         }
         private void familiarAttackModifierNumericUpDown_ValueChanged(object sender, EventArgs e)
@@ -462,11 +538,35 @@ namespace AzureDreamsDamageCalculator
             ModifyFamiliarStats();
             UpdateMonsterControls();
         }
+        private void familiarSpell1ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetFamiliarSpell1();
+            UpdateMonsterControls();
+        }
+        private void familiarSpell1LevelNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            familiar.Spell.Level = (uint)familiarSpell1LevelNumericUpDown.Value;
+            UpdateMonsterControls();
+        }
+        private void familiarSpell1LockedCheckBox_CheckedChanged(object sender, EventArgs e)
+        { familiarSpell1LevelNumericUpDown.Enabled = !familiarSpell1LockedCheckBox.Checked; }
+        private void familiarSpell2ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetFamiliarSpell2();
+            UpdateMonsterControls();
+        }
+        private void familiarSpell2LevelNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            familiar.Spell2.Level = (uint)familiarSpell2LevelNumericUpDown.Value;
+            UpdateMonsterControls();
+        }
+        private void familiarSpell2LockedCheckBox_CheckedChanged(object sender, EventArgs e)
+        { familiarSpell2LevelNumericUpDown.Enabled = !familiarSpell2LockedCheckBox.Checked; }
         private void floorNumericUpDown_ValueChanged(object sender, System.EventArgs e)
         {
             monsterControlsFlowLayoutPanel.SuspendLayout();
             CreateMonsterControls();
-            UpdateMonsterControls();
+            UpdateMonsterControls(useNativeMonsterGenus: true);
             monsterControlsFlowLayoutPanel.ResumeLayout();
         }
         private void levelUpKohFamiliarButton_Click(object sender, EventArgs e)

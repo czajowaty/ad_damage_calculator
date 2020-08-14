@@ -17,12 +17,11 @@ namespace AzureDreamsDamageCalculator
             float criticalHitMultiplier = calculateCriticalHitMultiplier(isCriticalHit);
             return (uint)Math.Max(damage * criticalHitMultiplier, 1);
         }
-        public static uint spellAttackDamage(Unit attacker, Unit defender)
+        public static uint spellAttackDamage(Unit attacker, Unit defender, Spell spell)
         {
-            Spell spell = attacker.Spell;
             uint baseDamage = (spell.RawDamage + spell.Level) * 2;
             uint baseDefense = calculateBaseDefense(attacker, defender);
-            int combatAdvantage = calculateSpellCombatAdvantage(attacker, defender);
+            int combatAdvantage = calculateSpellCombatAdvantage(spell, defender);
             int combatDamage = (int)(baseDamage * combatAdvantage);
             if (combatAdvantage < 0)
             { combatDamage = (int)Math.Floor((combatDamage + 3) / 4.0f); }
@@ -75,9 +74,9 @@ namespace AzureDreamsDamageCalculator
             else
             { return defender.Shield.Genus; }
         }
-        private static int calculateSpellCombatAdvantage(Unit attacker, Unit defender)
+        private static int calculateSpellCombatAdvantage(Spell spell, Unit defender)
         {
-            Genus[] attackerElements = { attacker.Spell.Genus };
+            Genus[] attackerElements = { spell.Genus };
             Genus defenderElement = findDefenderElement(defender);
             int elementalAdvantages = (int)calculateElementalAdvantages(attackerElements, defenderElement);
             int elementalDisadvantages = (int)calculateElementalDisadvantages(attackerElements, defenderElement);

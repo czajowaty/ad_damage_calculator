@@ -1036,16 +1036,53 @@
 
     public struct SpellsTraits
     {
-        public static readonly SpellTraits Breath = new SpellTraits(name: "Breath", rawDamage: 16, genus: Genus.Fire);
-        public static readonly SpellTraits Sled = new SpellTraits(name: "Sled", rawDamage: 8, genus: Genus.Fire);
-        public static readonly SpellTraits Brid = new SpellTraits(name: "Brid", rawDamage: 10, genus: Genus.Fire);
-        public static readonly SpellTraits Rise = new SpellTraits(name: "Rise", rawDamage: 19, genus: Genus.Fire);
-        public static readonly SpellTraits Grave = new SpellTraits(name: "Grave", rawDamage: 24, genus: Genus.Wind);
-        public static readonly SpellTraits FireBall = new SpellTraits(name: "Fire ball", rawDamage: 16, genus: Genus.Fire);
-        public static readonly SpellTraits BlazeBall = new SpellTraits(name: "Blaze ball", rawDamage: 8, genus: Genus.Fire);
-        public static readonly SpellTraits FlameBall = new SpellTraits(name: "Flame ball", rawDamage: 10, genus: Genus.Fire);
-        public static readonly SpellTraits PillarBall = new SpellTraits(name: "Pillar ball", rawDamage: 19, genus: Genus.Fire);
-        public static readonly SpellTraits AcidRainBall = new SpellTraits(name: "Acid rain ball", rawDamage: 32, genus: Genus.Water);
+        public static readonly SpellTraits Breath = new SpellTraits(
+            name: "Breath", 
+            genus: Genus.Fire, 
+            rawDamage: 16, 
+            mixtureMagicType: SpellMixtureMagicType.Sword, 
+            directMagicType: SpellDirectMagicType.Damage);
+        public static readonly SpellTraits Sled = new SpellTraits(
+            name: "Sled",
+            genus: Genus.Fire,
+            rawDamage: 8,
+            mixtureMagicType: SpellMixtureMagicType.Sword,
+            directMagicType: SpellDirectMagicType.Damage);
+        public static readonly SpellTraits Brid = new SpellTraits(
+            name: "Brid",
+            genus: Genus.Fire,
+            rawDamage: 10, 
+            mixtureMagicType: SpellMixtureMagicType.Sword,
+            directMagicType: SpellDirectMagicType.Damage);
+        public static readonly SpellTraits Rise = new SpellTraits(
+            name: "Rise",
+            rawDamage: 19,
+            genus: Genus.Fire,
+            mixtureMagicType: SpellMixtureMagicType.Sword,
+            directMagicType: SpellDirectMagicType.Damage);
+        /*
+        public static readonly SpellTraits Grave = new SpellTraits(
+            name: "Grave", 
+            rawDamage: 24, 
+            genus: Genus.Wind,
+            mixtureMagicType);
+        */
+        public static readonly SpellTraits Down = new SpellTraits(
+            name: "Down", 
+            rawDamage: 10, 
+            genus: Genus.Wind,
+            mixtureMagicType: SpellMixtureMagicType.Wave,
+            directMagicType: SpellDirectMagicType.None);
+        public static readonly SpellTraits FireBall = Breath.Copy("Fire ball");
+        public static readonly SpellTraits BlazeBall = Sled.Copy("Blaze ball");
+        public static readonly SpellTraits FlameBall = Brid.Copy("Flame ball");
+        public static readonly SpellTraits PillarBall = Rise.Copy("Pillar ball");
+        public static readonly SpellTraits AcidRainBall = new SpellTraits(
+            name: "Acid rain ball", 
+            rawDamage: 32, 
+            genus: Genus.Water,
+            mixtureMagicType: SpellMixtureMagicType.None,
+            directMagicType: SpellDirectMagicType.Damage);
     }
 
     public struct Monsters

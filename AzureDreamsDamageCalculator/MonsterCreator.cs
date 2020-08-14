@@ -26,8 +26,7 @@
                 monsterCreator.Traits,
                 monsterCreator.Level,
                 StatsCalculator.HP(monsterCreator.Traits, monsterCreator.Level, specialTraits == SpecialTraits.DoubleHP),
-                StatsCalculator.MP(monsterCreator.Traits, monsterCreator.Level),
-                monsterCreator.Traits.NativeSpell);
+                StatsCalculator.MP(monsterCreator.Traits, monsterCreator.Level));
             monster.Stats.Genus = monsterCreator.Traits.NativeGenus;
             monster.Stats.BaseAttack = StatsCalculator.Attack(monsterCreator.Traits, monsterCreator.Level, specialTraits == SpecialTraits.DoubleAttack);
             monster.Stats.BaseDefense = StatsCalculator.Defense(monsterCreator.Traits, monsterCreator.Level, specialTraits == SpecialTraits.DoubleDefense);
