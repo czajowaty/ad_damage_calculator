@@ -8,7 +8,12 @@ namespace AzureDreamsDamageCalculator
     public partial class AddSpellDialog : Form
     {
         public static readonly SortedDictionary<string, SpellTraits> Spells = Helpers.CreateNamedDictionary(
-            new[] { SpellsTraits.FireBall, SpellsTraits.BlazeBall, SpellsTraits.FlameBall, SpellsTraits.PillarBall, SpellsTraits.AcidRainBall });
+            new[]
+            {
+                SpellsTraits.FireBall, SpellsTraits.BlazeBall, SpellsTraits.FlameBall, SpellsTraits.PillarBall, SpellsTraits.AcidRainBall,
+                SpellsTraits.PoisonBall, SpellsTraits.WaterBall, SpellsTraits.RepelBall, SpellsTraits.IceRockBall, SpellsTraits.RecoveryBall,
+                SpellsTraits.BindingBall, SpellsTraits.SleepBall, SpellsTraits.BlinderBall, SpellsTraits.WeakBall
+            });
 
         public AddSpellDialog()
         {

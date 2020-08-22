@@ -9,7 +9,7 @@ namespace AzureDreamsDamageCalculator
 {
     public partial class MainForm : Form
     {
-        public static readonly string VERSION = "0.2.2";
+        public static readonly string VERSION = "0.2.3";
         public static readonly SortedDictionary<string, Weapon> KohWeaponsNames = Helpers.CreateNamedDictionary(
             new[]
             {
@@ -163,7 +163,6 @@ namespace AzureDreamsDamageCalculator
             UpdateKoh();
             UpdateFamiliar();
             UpdateEggs();
-
         }
         private void AddUIDelegatesHandlers()
         {

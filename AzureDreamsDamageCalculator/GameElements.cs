@@ -1083,6 +1083,60 @@
             genus: Genus.Water,
             mixtureMagicType: SpellMixtureMagicType.None,
             directMagicType: SpellDirectMagicType.Damage);
+        public static readonly SpellTraits PoisonBall = new SpellTraits(
+            name: "Poison ball",
+            rawDamage: 0,
+            genus: Genus.None,
+            mixtureMagicType: SpellMixtureMagicType.None,
+            directMagicType: SpellDirectMagicType.Status);
+        public static readonly SpellTraits WaterBall = new SpellTraits(
+            name: "Water ball",
+            rawDamage: 0,
+            genus: Genus.None,
+            mixtureMagicType: SpellMixtureMagicType.None,
+            directMagicType: SpellDirectMagicType.Status);
+        public static readonly SpellTraits RepelBall = new SpellTraits(
+            name: "Repel ball",
+            rawDamage: 0,
+            genus: Genus.None,
+            mixtureMagicType: SpellMixtureMagicType.None,
+            directMagicType: SpellDirectMagicType.Status);
+        public static readonly SpellTraits IceRockBall = new SpellTraits(
+            name: "Ice Rock ball",
+            rawDamage: 0,
+            genus: Genus.None,
+            mixtureMagicType: SpellMixtureMagicType.None,
+            directMagicType: SpellDirectMagicType.None);
+        public static readonly SpellTraits RecoveryBall = new SpellTraits(
+            name: "Recovery ball",
+            rawDamage: 0,
+            genus: Genus.Water,
+            mixtureMagicType: SpellMixtureMagicType.None,
+            directMagicType: SpellDirectMagicType.Status);
+        public static readonly SpellTraits BindingBall = new SpellTraits(
+            name: "Binding ball",
+            rawDamage: 0,
+            genus: Genus.None,
+            mixtureMagicType: SpellMixtureMagicType.None,
+            directMagicType: SpellDirectMagicType.Status);
+        public static readonly SpellTraits SleepBall = new SpellTraits(
+            name: "Sleep ball",
+            rawDamage: 0,
+            genus: Genus.None,
+            mixtureMagicType: SpellMixtureMagicType.None,
+            directMagicType: SpellDirectMagicType.Status);
+        public static readonly SpellTraits BlinderBall = new SpellTraits(
+            name: "Blinder ball",
+            rawDamage: 0,
+            genus: Genus.None,
+            mixtureMagicType: SpellMixtureMagicType.None,
+            directMagicType: SpellDirectMagicType.Status);
+        public static readonly SpellTraits WeakBall = new SpellTraits(
+            name: "Weak ball",
+            rawDamage: 0,
+            genus: Genus.Wind,
+            mixtureMagicType: SpellMixtureMagicType.None,
+            directMagicType: SpellDirectMagicType.Status);
     }
 
     public struct Monsters
