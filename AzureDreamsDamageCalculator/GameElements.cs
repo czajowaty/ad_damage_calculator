@@ -20,6 +20,7 @@
             BaseExpGiven = 0x10,
             ExpGivenGrowth = 0x10,
             NativeGenus = Genus.None,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = false,
             Pushable = false,
         };
@@ -41,6 +42,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x1E,
             NativeGenus = Genus.None,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = false,
             Pushable = false,
             Portrait = Properties.Resources.hikewne
@@ -227,6 +229,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x11,
             NativeGenus = Genus.Water,
+            NativeSpell = SpellTraits.EMPTY,
             IsEvolved = true,
             Liftable = false,
             Pushable = false,
@@ -250,6 +253,7 @@
             BaseExpGiven = 0x02,
             ExpGivenGrowth = 0x0F,
             NativeGenus = Genus.Water,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = false,
             Pushable = true,
             Portrait = Properties.Resources.snowman
@@ -272,6 +276,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x0F,
             NativeGenus = Genus.Water,
+            NativeSpell = SpellTraits.EMPTY,
             IsEvolved = true,
             Liftable = false,
             Pushable = false,
@@ -295,6 +300,7 @@
             BaseExpGiven = 0x02,
             ExpGivenGrowth = 0x0E,
             NativeGenus = Genus.Water,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = true,
             Pushable = true,
             Portrait = Properties.Resources.arachne
@@ -317,6 +323,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x12,
             NativeGenus = Genus.Water,
+            NativeSpell = SpellTraits.EMPTY,
             IsEvolved = true,
             Liftable = false,
             Pushable = false,
@@ -340,6 +347,7 @@
             BaseExpGiven = 0x02,
             ExpGivenGrowth = 0x0E,
             NativeGenus = Genus.Water,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = false,
             Pushable = true,
             Portrait = Properties.Resources.nyuel
@@ -363,6 +371,7 @@
             ExpGivenGrowth = 0x10,
             NativeGenus = Genus.Wind,
             SpecialTraits = SpecialTraits.DoubleSpellGrowth,
+            NativeSpell = SpellsTraits.Down,
             IsEvolved = true,
             Liftable = false,
             Pushable = true,
@@ -387,6 +396,7 @@
             ExpGivenGrowth = 0x12,
             NativeGenus = Genus.Wind,
             SpecialTraits = SpecialTraits.DoubleSpellGrowth,
+            NativeSpell = SpellsTraits.Down,
             Liftable = true,
             Pushable = true,
             Portrait = Properties.Resources.clown
@@ -409,6 +419,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x14,
             NativeGenus = Genus.Wind,
+            NativeSpell = SpellTraits.EMPTY,
             IsEvolved = true,
             Liftable = false,
             Pushable = false,
@@ -432,6 +443,7 @@
             BaseExpGiven = 0x02,
             ExpGivenGrowth = 0x0E,
             NativeGenus = Genus.Wind,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = true,
             Pushable = true,
             Portrait = Properties.Resources.unicorn
@@ -454,6 +466,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x12,
             NativeGenus = Genus.Wind,
+            NativeSpell = SpellTraits.EMPTY,
             IsEvolved = true,
             Liftable = false,
             Pushable = false,
@@ -477,6 +490,7 @@
             BaseExpGiven = 0x02,
             ExpGivenGrowth = 0x10,
             NativeGenus = Genus.Wind,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = false,
             Pushable = false,
             Portrait = Properties.Resources.block
@@ -499,6 +513,7 @@
             BaseExpGiven = 0x01,
             ExpGivenGrowth = 0x0B,
             NativeGenus = Genus.Water,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = true,
             Pushable = true,
             Portrait = Properties.Resources.pulunpa
@@ -521,6 +536,7 @@
             BaseExpGiven = 0x04,
             ExpGivenGrowth = 0x0F,
             NativeGenus = Genus.Fire,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = true,
             Pushable = true,
             Portrait = Properties.Resources.troll
@@ -543,6 +559,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x0C,
             NativeGenus = Genus.Wind,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = false,
             Pushable = true,
             Portrait = Properties.Resources.noise
@@ -565,6 +582,7 @@
             BaseExpGiven = 0x02,
             ExpGivenGrowth = 0x0F,
             NativeGenus = Genus.Water,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = true,
             Pushable = true,
             Portrait = Properties.Resources.uboat
@@ -587,6 +605,7 @@
             BaseExpGiven = 0x02,
             ExpGivenGrowth = 0x0C,
             NativeGenus = Genus.Fire,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = false,
             Pushable = true,
             Portrait = Properties.Resources.balloon
@@ -609,6 +628,7 @@
             BaseExpGiven = 0x02,
             ExpGivenGrowth = 0x0A,
             NativeGenus = Genus.Wind,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = true,
             Pushable = true,
             Portrait = Properties.Resources.dreamin
@@ -631,6 +651,7 @@
             BaseExpGiven = 0x02,
             ExpGivenGrowth = 0x0D,
             NativeGenus = Genus.Water,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = false,
             Pushable = true,
             Portrait = Properties.Resources.blume
@@ -653,6 +674,7 @@
             BaseExpGiven = 0x02,
             ExpGivenGrowth = 0x0C,
             NativeGenus = Genus.Fire,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = true,
             Pushable = true,
             Portrait = Properties.Resources.volcano
@@ -675,6 +697,7 @@
             BaseExpGiven = 0x02,
             ExpGivenGrowth = 0x11,
             NativeGenus = Genus.Wind,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = false,
             Pushable = true,
             Portrait = Properties.Resources.cyclone
@@ -697,6 +720,7 @@
             BaseExpGiven = 0x02,
             ExpGivenGrowth = 0x0F,
             NativeGenus = Genus.Water,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = false,
             Pushable = false,
             Portrait = Properties.Resources.manoeva
@@ -719,6 +743,7 @@
             BaseExpGiven = 0x04,
             ExpGivenGrowth = 0x0D,
             NativeGenus = Genus.Fire,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = true,
             Pushable = true,
             Portrait = Properties.Resources.barong
@@ -741,6 +766,7 @@
             BaseExpGiven = 0x02,
             ExpGivenGrowth = 0x0E,
             NativeGenus = Genus.Wind,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = true,
             Pushable = true,
             Portrait = Properties.Resources.picket
@@ -763,6 +789,7 @@
             BaseExpGiven = 0x01,
             ExpGivenGrowth = 0x10,
             NativeGenus = Genus.Water,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = false,
             Pushable = false,
             Portrait = Properties.Resources.kraken
@@ -785,6 +812,7 @@
             BaseExpGiven = 0x01,
             ExpGivenGrowth = 0x0E,
             NativeGenus = Genus.Fire,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = false,
             Pushable = false,
             Portrait = Properties.Resources.weadog
@@ -807,6 +835,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x0C,
             NativeGenus = Genus.Wind,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = true,
             Pushable = true,
             Portrait = Properties.Resources.stealth
@@ -829,6 +858,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x0F,
             NativeGenus = Genus.Water,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = true,
             Pushable = true,
             Portrait = Properties.Resources.viper
@@ -852,6 +882,7 @@
             ExpGivenGrowth = 0x0E,
             NativeGenus = Genus.Fire,
             SpecialTraits = SpecialTraits.DoubleHP,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = false,
             Pushable = true,
             Portrait = Properties.Resources.naplass
@@ -874,6 +905,7 @@
             BaseExpGiven = 0x02,
             ExpGivenGrowth = 0x0C,
             NativeGenus = Genus.Wind,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = true,
             Pushable = true,
             Portrait = Properties.Resources.zu
@@ -896,6 +928,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x10,
             NativeGenus = Genus.Water,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = false,
             Pushable = true,
             Portrait = Properties.Resources.mandara
@@ -918,6 +951,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x12,
             NativeGenus = Genus.Fire,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = false,
             Pushable = false,
             Portrait = Properties.Resources.killer
@@ -940,6 +974,7 @@
             BaseExpGiven = 0x02,
             ExpGivenGrowth = 0x0E,
             NativeGenus = Genus.Wind,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = true,
             Pushable = true,
             Portrait = Properties.Resources.garuda
@@ -962,6 +997,7 @@
             BaseExpGiven = 0x02,
             ExpGivenGrowth = 0x0F,
             NativeGenus = Genus.Water,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = false,
             Pushable = false,
             Portrait = Properties.Resources.glacier
@@ -984,6 +1020,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x0E,
             NativeGenus = Genus.Fire,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = true,
             Pushable = true,
             Portrait = Properties.Resources.tyrant
@@ -1006,6 +1043,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x11,
             NativeGenus = Genus.Wind,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = false,
             Pushable = false,
             Portrait = Properties.Resources.golem
@@ -1028,6 +1066,7 @@
             BaseExpGiven = 0x04,
             ExpGivenGrowth = 0x15,
             NativeGenus = Genus.Fire,
+            NativeSpell = SpellTraits.EMPTY,
             Liftable = false,
             Pushable = false,
             Portrait = Properties.Resources.maximum

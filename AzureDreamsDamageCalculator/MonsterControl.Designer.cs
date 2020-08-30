@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainGroupBox = new System.Windows.Forms.GroupBox();
             this.mainLayout = new System.Windows.Forms.TableLayoutPanel();
             this.label49 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
+            this.monsterVsFamiliarSpellDamageLabel = new System.Windows.Forms.Label();
+            this.monsterVsKohSpellDamageLabel = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
@@ -105,8 +107,6 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kohSpellDamageLabel = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
-            this.monsterVsFamiliarSpellDamageLabel = new System.Windows.Forms.Label();
-            this.monsterVsKohSpellDamageLabel = new System.Windows.Forms.Label();
             this.mainGroupBox.SuspendLayout();
             this.mainLayout.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -263,6 +263,32 @@
             this.label47.TabIndex = 60;
             this.label47.Text = "Mixture magic 2";
             this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // monsterVsFamiliarSpellDamageLabel
+            // 
+            this.monsterVsFamiliarSpellDamageLabel.AutoSize = true;
+            this.monsterVsFamiliarSpellDamageLabel.BackColor = System.Drawing.Color.White;
+            this.mainLayout.SetColumnSpan(this.monsterVsFamiliarSpellDamageLabel, 4);
+            this.monsterVsFamiliarSpellDamageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.monsterVsFamiliarSpellDamageLabel.Location = new System.Drawing.Point(305, 396);
+            this.monsterVsFamiliarSpellDamageLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.monsterVsFamiliarSpellDamageLabel.Name = "monsterVsFamiliarSpellDamageLabel";
+            this.monsterVsFamiliarSpellDamageLabel.Size = new System.Drawing.Size(127, 14);
+            this.monsterVsFamiliarSpellDamageLabel.TabIndex = 59;
+            this.monsterVsFamiliarSpellDamageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // monsterVsKohSpellDamageLabel
+            // 
+            this.monsterVsKohSpellDamageLabel.AutoSize = true;
+            this.monsterVsKohSpellDamageLabel.BackColor = System.Drawing.Color.White;
+            this.mainLayout.SetColumnSpan(this.monsterVsKohSpellDamageLabel, 4);
+            this.monsterVsKohSpellDamageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.monsterVsKohSpellDamageLabel.Location = new System.Drawing.Point(155, 396);
+            this.monsterVsKohSpellDamageLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.monsterVsKohSpellDamageLabel.Name = "monsterVsKohSpellDamageLabel";
+            this.monsterVsKohSpellDamageLabel.Size = new System.Drawing.Size(120, 14);
+            this.monsterVsKohSpellDamageLabel.TabIndex = 58;
+            this.monsterVsKohSpellDamageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label44
             // 
@@ -1096,14 +1122,14 @@
             this.Column8,
             this.Column9});
             this.mainLayout.SetColumnSpan(this.damageGridView, 9);
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.damageGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.damageGridView.DefaultCellStyle = dataGridViewCellStyle1;
             this.damageGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.damageGridView.EnableHeadersVisualStyles = false;
             this.damageGridView.Location = new System.Drawing.Point(155, 159);
@@ -1201,32 +1227,6 @@
             this.label29.TabIndex = 50;
             this.label29.Text = "Familiar\'s 1";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // monsterVsFamiliarSpellDamageLabel
-            // 
-            this.monsterVsFamiliarSpellDamageLabel.AutoSize = true;
-            this.monsterVsFamiliarSpellDamageLabel.BackColor = System.Drawing.Color.White;
-            this.mainLayout.SetColumnSpan(this.monsterVsFamiliarSpellDamageLabel, 4);
-            this.monsterVsFamiliarSpellDamageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.monsterVsFamiliarSpellDamageLabel.Location = new System.Drawing.Point(305, 396);
-            this.monsterVsFamiliarSpellDamageLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.monsterVsFamiliarSpellDamageLabel.Name = "monsterVsFamiliarSpellDamageLabel";
-            this.monsterVsFamiliarSpellDamageLabel.Size = new System.Drawing.Size(127, 14);
-            this.monsterVsFamiliarSpellDamageLabel.TabIndex = 59;
-            this.monsterVsFamiliarSpellDamageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // monsterVsKohSpellDamageLabel
-            // 
-            this.monsterVsKohSpellDamageLabel.AutoSize = true;
-            this.monsterVsKohSpellDamageLabel.BackColor = System.Drawing.Color.White;
-            this.mainLayout.SetColumnSpan(this.monsterVsKohSpellDamageLabel, 4);
-            this.monsterVsKohSpellDamageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.monsterVsKohSpellDamageLabel.Location = new System.Drawing.Point(155, 396);
-            this.monsterVsKohSpellDamageLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.monsterVsKohSpellDamageLabel.Name = "monsterVsKohSpellDamageLabel";
-            this.monsterVsKohSpellDamageLabel.Size = new System.Drawing.Size(120, 14);
-            this.monsterVsKohSpellDamageLabel.TabIndex = 58;
-            this.monsterVsKohSpellDamageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MonsterControl
             // 
