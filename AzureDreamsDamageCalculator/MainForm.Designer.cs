@@ -491,10 +491,11 @@
             // 
             this.familiarTalentsListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.familiarTalentsListBox.FormattingEnabled = true;
-            this.familiarTalentsListBox.Location = new System.Drawing.Point(3, 16);
+            this.familiarTalentsListBox.Location = new System.Drawing.Point(3, 13);
+            this.familiarTalentsListBox.Margin = new System.Windows.Forms.Padding(0);
             this.familiarTalentsListBox.Name = "familiarTalentsListBox";
             this.familiarTalentsListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.familiarTalentsListBox.Size = new System.Drawing.Size(128, 81);
+            this.familiarTalentsListBox.Size = new System.Drawing.Size(128, 87);
             this.familiarTalentsListBox.TabIndex = 42;
             // 
             // familiarSpell2LockedCheckBox
@@ -939,6 +940,7 @@
             this.groupBox5.Controls.Add(this.familiarTalentsListBox);
             this.groupBox5.Location = new System.Drawing.Point(255, 19);
             this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.groupBox5.Size = new System.Drawing.Size(134, 100);
             this.groupBox5.TabIndex = 43;
             this.groupBox5.TabStop = false;

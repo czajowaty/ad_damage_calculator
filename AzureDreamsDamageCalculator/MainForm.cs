@@ -9,7 +9,7 @@ namespace AzureDreamsDamageCalculator
 {
     public partial class MainForm : Form
     {
-        public static readonly string VERSION = "0.3.2";
+        public static readonly string VERSION = "0.3.3";
         public static readonly SortedDictionary<string, Weapon> KohWeaponsNames = Helpers.CreateNamedDictionary(
             new[]
             {
@@ -244,7 +244,7 @@ namespace AzureDreamsDamageCalculator
         private void SetKohSpellLevel()
         {
             if (kohSpell.IsDamagingDirectSpellType())
-            { kohSpell.Level = koh.Level * 4; }
+            { kohSpell.Level = Math.Min(Spell.MAX_SPELL_LEVEL, koh.Level * 4); }
         }
         private void UpdateFamiliar()
         { SetFamiliarType(); }
