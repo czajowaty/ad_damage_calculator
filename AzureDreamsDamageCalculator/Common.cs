@@ -7,9 +7,6 @@ namespace AzureDreamsDamageCalculator
     public enum Genus
     { None, Fire, Wind, Water }
 
-    public enum SpecialTraits
-    { None, DoubleHP, DoubleAttack, DoubleDefense, DoubleSpellGrowth }
-
     public interface Named
     { string Name { get; } }
 
@@ -21,6 +18,43 @@ namespace AzureDreamsDamageCalculator
             foreach (T namedEntity in namedEntities)
             { namedDictionary[namedEntity.Name] = namedEntity; }
             return namedDictionary;
+        }
+    }
+
+    public struct Talent : Named
+    {
+        public Talent(string name, uint flag)
+        {
+            Name = name;
+            Flag = flag;
+        }
+        public string Name
+        { get; private set; }
+        public uint Flag
+        { get; private set; }
+    }
+
+    public struct Talents
+    {
+        public static readonly Talent None = new Talent("", 0x0);
+        public static readonly Talent HpIncreased = new Talent("HP increased", 0x2);
+        public static readonly Talent StrengthIncreased = new Talent("Strength increased", 0x8);
+        public static readonly Talent Hard = new Talent("Hard", 0x10);
+        public static readonly Talent MagicAttackIncreased = new Talent("Magic Attack increased", 0x80);
+
+        private uint talentFlags;
+
+        public bool Has(Talent talent)
+        { return (talentFlags & talent.Flag) == talent.Flag; }
+        public void Add(Talent talent)
+        { talentFlags |= talent.Flag; }
+        public void Remove(Talent talent)
+        { talentFlags &= ~talent.Flag; }
+        public static implicit operator Talents(Talent talent)
+        {
+            Talents talents = new Talents();
+            talents.talentFlags = talent.Flag;
+            return talents;
         }
     }
 
@@ -142,7 +176,7 @@ namespace AzureDreamsDamageCalculator
         public uint ExpGivenGrowth;
         public Genus NativeGenus;
         public SpellTraits NativeSpell;
-        public SpecialTraits SpecialTraits;
+        public Talents Talents;
         public bool IsEvolved;
         public bool Liftable;
         public bool Pushable;
@@ -358,10 +392,12 @@ namespace AzureDreamsDamageCalculator
 
     public class Unit
     {
+        public Talents Talents;
+
         public Unit(UnitTraits traits, uint level = 1)
         {
             this.Traits = traits;
-            this.SpecialTraits = SpecialTraits.None;
+            this.Talents = new Talents();
             this.Level = level;
             this.Stats = new UnitStatistics(traits.NativeGenus);
             this.Weapon = Weapon.NO_WEAPON;
@@ -370,16 +406,6 @@ namespace AzureDreamsDamageCalculator
         }
         public UnitTraits Traits
         { get; private set; }
-        public SpecialTraits SpecialTraits
-        { get; set; }
-        public bool HasDoubleHP()
-        { return SpecialTraits == SpecialTraits.DoubleHP; }
-        public bool HasDoubleAttack()
-        { return SpecialTraits == SpecialTraits.DoubleAttack; }
-        public bool HasDoubleDefense()
-        { return SpecialTraits == SpecialTraits.DoubleDefense; }
-        public bool HasDoubleSpellGrowth()
-        { return SpecialTraits == SpecialTraits.DoubleSpellGrowth; }
         public virtual uint Level
         { get; set; }
         public UnitStatistics Stats
@@ -435,7 +461,7 @@ namespace AzureDreamsDamageCalculator
         public Monster Copy()
         {
             Monster monster = new Monster(Traits, Level, HP, MP);
-            monster.SpecialTraits = SpecialTraits;
+            monster.Talents = Talents;
             monster.Stats = Stats.Copy();
             monster.Weapon = Weapon;
             monster.Portrait = Portrait;

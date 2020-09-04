@@ -9,7 +9,7 @@ namespace AzureDreamsDamageCalculator
 {
     public partial class MainForm : Form
     {
-        public static readonly string VERSION = "0.3.1";
+        public static readonly string VERSION = "0.3.2";
         public static readonly SortedDictionary<string, Weapon> KohWeaponsNames = Helpers.CreateNamedDictionary(
             new[]
             {
@@ -106,13 +106,8 @@ namespace AzureDreamsDamageCalculator
             { Genus.Water.ToString(), Genus.Water },
             { Genus.Wind.ToString(), Genus.Wind }
         };
-        public static readonly SortedDictionary<string, SpecialTraits> FamiliarSpecialTraits = new SortedDictionary<string, SpecialTraits>()
-        {
-            { "", SpecialTraits.None },
-            { "Double ATK", SpecialTraits.DoubleAttack },
-            { "Double DEF", SpecialTraits.DoubleDefense },
-            { "Double spell growth", SpecialTraits.DoubleSpellGrowth }
-        };
+        public static readonly SortedDictionary<string, Talent> FamiliarTalents = Helpers.CreateNamedDictionary(
+            new[] { Talents.HpIncreased, Talents.StrengthIncreased, Talents.Hard, Talents.MagicAttackIncreased });
 
         private Unit koh = new Unit(UnitsTraits.Koh);
         private BindingList<BallSpell> kohSpellsList = new BindingList<BallSpell>();
@@ -132,7 +127,7 @@ namespace AzureDreamsDamageCalculator
             FillComboBox(familiarGenusComboBox, GenusNames.Keys);
             FillComboBox(familiarSpell1ComboBox, FamiliarSpells.Keys);
             FillComboBox(familiarSpell2ComboBox, FamiliarSpells.Keys);
-            FillComboBox(familiarSpecialTraitComboBox, FamiliarSpecialTraits.Keys);
+            FillListBox(familiarTalentsListBox, FamiliarTalents.Keys);
             ResetUI();
             OnKohSpellChanged();
             AddUIDelegatesHandlers();
@@ -150,7 +145,7 @@ namespace AzureDreamsDamageCalculator
             kohShieldQualityNumericUpDown.Value = 0;
             kohSpellsList.Clear();
             kohSpellsList.Add(new BallSpell(SpellsTraits.FireBall, minCharges: 5, maxCharges: 5));
-            familiarSpecialTraitComboBox.SelectedIndex = 0;
+            familiarTalentsListBox.ClearSelected();
             familiarTypeComboBox.SelectedItem = UnitsTraits.Kewne.Name;
             familiarFrogCheckBox.Checked = false;
             familiarLevelNumericUpDown.Value = 1;
@@ -183,7 +178,7 @@ namespace AzureDreamsDamageCalculator
             this.familiarSpell1LevelNumericUpDown.ValueChanged += new System.EventHandler(this.familiarSpell1LevelNumericUpDown_ValueChanged);
             this.familiarSpell2ComboBox.SelectedIndexChanged += new System.EventHandler(this.familiarSpell2ComboBox_SelectedIndexChanged);
             this.familiarSpell2LevelNumericUpDown.ValueChanged += new System.EventHandler(this.familiarSpell2LevelNumericUpDown_ValueChanged);
-            this.familiarSpecialTraitComboBox.SelectedIndexChanged += new System.EventHandler(this.familiarTraitComboBox_SelectedIndexChanged);
+            this.familiarTalentsListBox.SelectedIndexChanged += new System.EventHandler(this.familiarTalentsListBox_SelectedIndexChanged);
             this.familiarAttackModifierNumericUpDown.ValueChanged += new System.EventHandler(this.familiarAttackModifierNumericUpDown_ValueChanged);
             this.familiarDefenseModifierNumericUpDown.ValueChanged += new System.EventHandler(this.familiarDefenseModifierNumericUpDown_ValueChanged);
         }
@@ -192,6 +187,8 @@ namespace AzureDreamsDamageCalculator
             comboBox.Items.AddRange(items.ToArray<string>());
             comboBox.SelectedIndex = 0;
         }
+        private void FillListBox(ListBox listBox, IEnumerable<string> items)
+        { listBox.Items.AddRange(items.ToArray<string>()); }
         private void UpdateKoh()
         {
             SetKohFrogStatus();
@@ -256,6 +253,13 @@ namespace AzureDreamsDamageCalculator
             string familiarType = familiarTypeComboBox.SelectedItem.ToString();
             CreateFamiliar(FamiliarsTraits[familiarType]);
             familiarGenusComboBox.SelectedItem = familiar.Stats.Genus.ToString();
+            familiarTalentsListBox.ClearSelected();
+            for (int index = 0; index < familiarTalentsListBox.Items.Count; ++index)
+            {
+                Talent talent = FamiliarTalents[familiarTalentsListBox.Items[index].ToString()];
+                if (familiar.Traits.Talents.Has(talent))
+                { familiarTalentsListBox.SetSelected(index, true); }
+            }
             familiarSpell1ComboBox.SelectedItem = familiar.Spell.Name;
             familiarSpell2ComboBox.SelectedItem = "";
             familiarSpell2LockedCheckBox.Checked = true;
@@ -313,7 +317,7 @@ namespace AzureDreamsDamageCalculator
             { return; }
             int spellLevel = (int)spellLevelNumericUpDown.Value;
             spellLevel += levelDifference;
-            if (familiar.HasDoubleSpellGrowth())
+            if (familiar.Talents.Has(Talents.MagicAttackIncreased))
             { spellLevel += levelDifference; }
             SetFamiliarSpellLevelNumericUpDown(spellLevel, spellLevelNumericUpDown);
         }
@@ -339,8 +343,8 @@ namespace AzureDreamsDamageCalculator
         }
         private void CalculateUnitBaseStats(Unit unit)
         {
-            unit.Stats.BaseAttack = StatsCalculator.Attack(unit.Traits, unit.Level, unit.HasDoubleAttack());
-            unit.Stats.BaseDefense = StatsCalculator.Defense(unit.Traits, unit.Level, unit.HasDoubleDefense());
+            unit.Stats.BaseAttack = StatsCalculator.Attack(unit.Traits, unit.Level, unit.Talents.Has(Talents.StrengthIncreased));
+            unit.Stats.BaseDefense = StatsCalculator.Defense(unit.Traits, unit.Level, unit.Talents.Has(Talents.Hard));
         }
         private void CreateMonsterControls()
         {
@@ -516,32 +520,25 @@ namespace AzureDreamsDamageCalculator
             SetFamiliarGenus();
             UpdateMonsterControls();
         }
-        private void familiarTraitComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void familiarTalentsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SpecialTraits oldSpecialTraits = familiar.SpecialTraits;
-            string specialTraits = familiarSpecialTraitComboBox.SelectedItem.ToString();
-            familiar.SpecialTraits = FamiliarSpecialTraits[specialTraits];
-            OnFamiliarSpecialTraitChanged(oldSpecialTraits);
-            OnFamiliarSpecialTraitChanged(familiar.SpecialTraits);
-        }
-        private void OnFamiliarSpecialTraitChanged(SpecialTraits specialTraits)
-        {
-            switch (specialTraits)
+            Talents newTalents = new Talents();
+            foreach (object talentName in familiarTalentsListBox.SelectedItems)
             {
-                case SpecialTraits.DoubleAttack:
-                case SpecialTraits.DoubleDefense:
-                    CalculateFamiliarStats();
-                    break;
-                case SpecialTraits.DoubleSpellGrowth:
-                    FamiliarDoubleSpellGrowthTraitChanged();
-                    break;
+                Talent talent = FamiliarTalents[talentName.ToString()];
+                newTalents.Add(talent);
             }
+            bool hadMagicAttackIncreasedTalent = familiar.Talents.Has(Talents.MagicAttackIncreased);
+            familiar.Talents = newTalents;
+            CalculateFamiliarStats();
+            if (hadMagicAttackIncreasedTalent != newTalents.Has(Talents.MagicAttackIncreased))
+            { FamiliarMagicAttackIncreasedTalentChanged(); }
         }
-        private void FamiliarDoubleSpellGrowthTraitChanged()
+        private void FamiliarMagicAttackIncreasedTalentChanged()
         {
             uint spell1Level = familiar.Spell.Level;
             uint spell2Level = familiar.Spell2.Level;
-            if (familiar.HasDoubleSpellGrowth())
+            if (familiar.Talents.Has(Talents.MagicAttackIncreased))
             {
                 spell1Level *= 2;
                 spell2Level *= 2;

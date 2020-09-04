@@ -21,15 +21,15 @@
         }
         public static implicit operator Monster(MonsterCreator monsterCreator)
         {
-            SpecialTraits specialTraits = monsterCreator.Traits.SpecialTraits;
+            Talents talents = monsterCreator.Traits.Talents;
             Monster monster = new Monster(
                 monsterCreator.Traits,
                 monsterCreator.Level,
-                StatsCalculator.HP(monsterCreator.Traits, monsterCreator.Level, specialTraits == SpecialTraits.DoubleHP),
+                StatsCalculator.HP(monsterCreator.Traits, monsterCreator.Level, talents.Has(Talents.HpIncreased)),
                 StatsCalculator.MP(monsterCreator.Traits, monsterCreator.Level));
             monster.Stats.Genus = monsterCreator.Traits.NativeGenus;
-            monster.Stats.BaseAttack = StatsCalculator.Attack(monsterCreator.Traits, monsterCreator.Level, specialTraits == SpecialTraits.DoubleAttack);
-            monster.Stats.BaseDefense = StatsCalculator.Defense(monsterCreator.Traits, monsterCreator.Level, specialTraits == SpecialTraits.DoubleDefense);
+            monster.Stats.BaseAttack = StatsCalculator.Attack(monsterCreator.Traits, monsterCreator.Level, talents.Has(Talents.StrengthIncreased));
+            monster.Stats.BaseDefense = StatsCalculator.Defense(monsterCreator.Traits, monsterCreator.Level, talents.Has(Talents.Hard));
             monster.Weapon = monsterCreator.Weapon;
             return monster;
         }

@@ -57,13 +57,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.kohAttackModifierNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.familiarTalentsListBox = new System.Windows.Forms.ListBox();
             this.familiarSpell2LockedCheckBox = new System.Windows.Forms.CheckBox();
             this.label25 = new System.Windows.Forms.Label();
             this.familiarSpell2LevelNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.familiarSpell2ComboBox = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.familiarSpecialTraitComboBox = new System.Windows.Forms.ComboBox();
-            this.label22 = new System.Windows.Forms.Label();
             this.familiarSpell1LockedCheckBox = new System.Windows.Forms.CheckBox();
             this.familiarSpell1ComboBox = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -91,10 +90,11 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.resetButton = new System.Windows.Forms.Button();
             this.levelUpKohFamiliarButton = new System.Windows.Forms.Button();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.monsterControlsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.eggsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.monsterControlsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.kohGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kohDefenseModifierNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kohLevelNumericUpDown)).BeginInit();
@@ -111,8 +111,9 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.floorNumericUpDown)).BeginInit();
             this.groupBox3.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // kohGroupBox
@@ -452,13 +453,12 @@
             // 
             this.groupBox1.AutoSize = true;
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox1.Controls.Add(this.groupBox5);
             this.groupBox1.Controls.Add(this.familiarSpell2LockedCheckBox);
             this.groupBox1.Controls.Add(this.label25);
             this.groupBox1.Controls.Add(this.familiarSpell2LevelNumericUpDown);
             this.groupBox1.Controls.Add(this.familiarSpell2ComboBox);
             this.groupBox1.Controls.Add(this.label23);
-            this.groupBox1.Controls.Add(this.familiarSpecialTraitComboBox);
-            this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.familiarSpell1LockedCheckBox);
             this.groupBox1.Controls.Add(this.familiarSpell1ComboBox);
             this.groupBox1.Controls.Add(this.label21);
@@ -487,10 +487,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Familiar";
             // 
+            // familiarTalentsListBox
+            // 
+            this.familiarTalentsListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.familiarTalentsListBox.FormattingEnabled = true;
+            this.familiarTalentsListBox.Location = new System.Drawing.Point(3, 16);
+            this.familiarTalentsListBox.Name = "familiarTalentsListBox";
+            this.familiarTalentsListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.familiarTalentsListBox.Size = new System.Drawing.Size(128, 81);
+            this.familiarTalentsListBox.TabIndex = 42;
+            // 
             // familiarSpell2LockedCheckBox
             // 
             this.familiarSpell2LockedCheckBox.AutoSize = true;
-            this.familiarSpell2LockedCheckBox.Location = new System.Drawing.Point(249, 128);
+            this.familiarSpell2LockedCheckBox.Location = new System.Drawing.Point(249, 155);
             this.familiarSpell2LockedCheckBox.Name = "familiarSpell2LockedCheckBox";
             this.familiarSpell2LockedCheckBox.Size = new System.Drawing.Size(62, 17);
             this.familiarSpell2LockedCheckBox.TabIndex = 41;
@@ -501,7 +511,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(141, 129);
+            this.label25.Location = new System.Drawing.Point(141, 156);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(58, 13);
             this.label25.TabIndex = 38;
@@ -509,7 +519,7 @@
             // 
             // familiarSpell2LevelNumericUpDown
             // 
-            this.familiarSpell2LevelNumericUpDown.Location = new System.Drawing.Point(205, 126);
+            this.familiarSpell2LevelNumericUpDown.Location = new System.Drawing.Point(205, 153);
             this.familiarSpell2LevelNumericUpDown.Maximum = new decimal(new int[] {
             99,
             0,
@@ -533,7 +543,7 @@
             // 
             this.familiarSpell2ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.familiarSpell2ComboBox.FormattingEnabled = true;
-            this.familiarSpell2ComboBox.Location = new System.Drawing.Point(48, 126);
+            this.familiarSpell2ComboBox.Location = new System.Drawing.Point(48, 153);
             this.familiarSpell2ComboBox.Name = "familiarSpell2ComboBox";
             this.familiarSpell2ComboBox.Size = new System.Drawing.Size(87, 21);
             this.familiarSpell2ComboBox.TabIndex = 36;
@@ -541,34 +551,16 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(6, 129);
+            this.label23.Location = new System.Drawing.Point(6, 156);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(42, 13);
             this.label23.TabIndex = 35;
             this.label23.Text = "Spell 2:";
             // 
-            // familiarSpecialTraitComboBox
-            // 
-            this.familiarSpecialTraitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.familiarSpecialTraitComboBox.FormattingEnabled = true;
-            this.familiarSpecialTraitComboBox.Location = new System.Drawing.Point(292, 18);
-            this.familiarSpecialTraitComboBox.Name = "familiarSpecialTraitComboBox";
-            this.familiarSpecialTraitComboBox.Size = new System.Drawing.Size(97, 21);
-            this.familiarSpecialTraitComboBox.TabIndex = 34;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(255, 22);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(31, 13);
-            this.label22.TabIndex = 33;
-            this.label22.Text = "Trait:";
-            // 
             // familiarSpell1LockedCheckBox
             // 
             this.familiarSpell1LockedCheckBox.AutoSize = true;
-            this.familiarSpell1LockedCheckBox.Location = new System.Drawing.Point(249, 101);
+            this.familiarSpell1LockedCheckBox.Location = new System.Drawing.Point(249, 128);
             this.familiarSpell1LockedCheckBox.Name = "familiarSpell1LockedCheckBox";
             this.familiarSpell1LockedCheckBox.Size = new System.Drawing.Size(62, 17);
             this.familiarSpell1LockedCheckBox.TabIndex = 32;
@@ -580,7 +572,7 @@
             // 
             this.familiarSpell1ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.familiarSpell1ComboBox.FormattingEnabled = true;
-            this.familiarSpell1ComboBox.Location = new System.Drawing.Point(48, 99);
+            this.familiarSpell1ComboBox.Location = new System.Drawing.Point(48, 126);
             this.familiarSpell1ComboBox.Name = "familiarSpell1ComboBox";
             this.familiarSpell1ComboBox.Size = new System.Drawing.Size(87, 21);
             this.familiarSpell1ComboBox.TabIndex = 31;
@@ -588,7 +580,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(6, 102);
+            this.label21.Location = new System.Drawing.Point(6, 129);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(42, 13);
             this.label21.TabIndex = 30;
@@ -627,7 +619,7 @@
             // 
             // familiarDefenseModifierNumericUpDown
             // 
-            this.familiarDefenseModifierNumericUpDown.Location = new System.Drawing.Point(226, 73);
+            this.familiarDefenseModifierNumericUpDown.Location = new System.Drawing.Point(60, 100);
             this.familiarDefenseModifierNumericUpDown.Maximum = new decimal(new int[] {
             99,
             0,
@@ -654,7 +646,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(172, 76);
+            this.label11.Location = new System.Drawing.Point(6, 103);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(48, 13);
             this.label11.TabIndex = 26;
@@ -671,7 +663,7 @@
             // 
             // familiarDefenseTextBox
             // 
-            this.familiarDefenseTextBox.Location = new System.Drawing.Point(307, 73);
+            this.familiarDefenseTextBox.Location = new System.Drawing.Point(141, 100);
             this.familiarDefenseTextBox.Name = "familiarDefenseTextBox";
             this.familiarDefenseTextBox.ReadOnly = true;
             this.familiarDefenseTextBox.Size = new System.Drawing.Size(25, 20);
@@ -709,7 +701,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(141, 102);
+            this.label8.Location = new System.Drawing.Point(141, 129);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(58, 13);
             this.label8.TabIndex = 11;
@@ -718,7 +710,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(270, 76);
+            this.label16.Location = new System.Drawing.Point(104, 103);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(31, 13);
             this.label16.TabIndex = 22;
@@ -726,7 +718,7 @@
             // 
             // familiarSpell1LevelNumericUpDown
             // 
-            this.familiarSpell1LevelNumericUpDown.Location = new System.Drawing.Point(205, 99);
+            this.familiarSpell1LevelNumericUpDown.Location = new System.Drawing.Point(205, 126);
             this.familiarSpell1LevelNumericUpDown.Maximum = new decimal(new int[] {
             99,
             0,
@@ -895,6 +887,28 @@
             this.levelUpKohFamiliarButton.UseVisualStyleBackColor = true;
             this.levelUpKohFamiliarButton.Click += new System.EventHandler(this.levelUpKohFamiliarButton_Click);
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.eggsFlowLayoutPanel);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Location = new System.Drawing.Point(1008, 3);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(567, 193);
+            this.groupBox4.TabIndex = 15;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Eggs";
+            // 
+            // eggsFlowLayoutPanel
+            // 
+            this.eggsFlowLayoutPanel.AutoScroll = true;
+            this.eggsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.eggsFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.eggsFlowLayoutPanel.Location = new System.Drawing.Point(3, 16);
+            this.eggsFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.eggsFlowLayoutPanel.Name = "eggsFlowLayoutPanel";
+            this.eggsFlowLayoutPanel.Size = new System.Drawing.Size(561, 174);
+            this.eggsFlowLayoutPanel.TabIndex = 0;
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
@@ -920,27 +934,15 @@
             this.monsterControlsFlowLayoutPanel.Size = new System.Drawing.Size(1578, 650);
             this.monsterControlsFlowLayoutPanel.TabIndex = 14;
             // 
-            // groupBox4
+            // groupBox5
             // 
-            this.groupBox4.Controls.Add(this.eggsFlowLayoutPanel);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(1008, 3);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(567, 193);
-            this.groupBox4.TabIndex = 15;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Eggs";
-            // 
-            // eggsFlowLayoutPanel
-            // 
-            this.eggsFlowLayoutPanel.AutoScroll = true;
-            this.eggsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.eggsFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.eggsFlowLayoutPanel.Location = new System.Drawing.Point(3, 16);
-            this.eggsFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.eggsFlowLayoutPanel.Name = "eggsFlowLayoutPanel";
-            this.eggsFlowLayoutPanel.Size = new System.Drawing.Size(561, 174);
-            this.eggsFlowLayoutPanel.TabIndex = 0;
+            this.groupBox5.Controls.Add(this.familiarTalentsListBox);
+            this.groupBox5.Location = new System.Drawing.Point(255, 19);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(134, 100);
+            this.groupBox5.TabIndex = 43;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Talents";
             // 
             // MainForm
             // 
@@ -972,9 +974,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.floorNumericUpDown)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1030,8 +1033,6 @@
         private System.Windows.Forms.ComboBox familiarSpell1ComboBox;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.CheckBox familiarSpell1LockedCheckBox;
-        private System.Windows.Forms.ComboBox familiarSpecialTraitComboBox;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.ComboBox familiarSpell2ComboBox;
         private System.Windows.Forms.Label label23;
@@ -1047,6 +1048,8 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.FlowLayoutPanel eggsFlowLayoutPanel;
+        private System.Windows.Forms.ListBox familiarTalentsListBox;
+        private System.Windows.Forms.GroupBox groupBox5;
     }
 }
 
