@@ -11,7 +11,7 @@ namespace AzureDreamsDamageCalculator
         static readonly int[] GROUND_MODIFIERS = { 0, 1, -1 };
         static readonly bool[] CRITICAL_HIT_OPTIONS = { false, true };
         static readonly CalculateDamageRecipe[] CALCULATE_DAMAGE_RECIPES = {
-            KohNormalAttackDamage,
+            KohAttackDamage,
             Mixture1AttackDamage,
             Mixture2AttackDamage,
             FamiliarAttackDamage,
@@ -203,42 +203,32 @@ namespace AzureDreamsDamageCalculator
         private static uint SpellAttackDamage(Unit attacker, Unit defender, Spell spell)
         {
             if (spell.IsDamagingDirectSpellType())
-            { return DamageCalculator.spellAttackDamage(attacker, defender, spell); }
+            { return DamageCalculator.SpellAttackDamage(spell, defender); }
             else
             { return INVALID_DAMAGE; }
         }
-        private static uint KohNormalAttackDamage(Unit koh, Familiar familiar, Monster monster, Descriptor descriptor)
-        { return NonSpellAttackDamage(koh, monster, descriptor); }
+        private static uint KohAttackDamage(Unit koh, Familiar familiar, Monster monster, Descriptor descriptor)
+        { return DirectAttackDamage(koh, monster, descriptor); }
         private static uint Mixture1AttackDamage(Unit koh, Familiar familiar, Monster monster, Descriptor descriptor)
-        { return MixtureAttackDamage(koh, familiar, familiar.Spell, monster, descriptor); }
+        { return MixtureAttackDamage(koh, familiar.Spell, monster, descriptor); }
         private static uint Mixture2AttackDamage(Unit koh, Familiar familiar, Monster monster, Descriptor descriptor)
-        { return MixtureAttackDamage(koh, familiar, familiar.Spell2, monster, descriptor); }
-        private static uint MixtureAttackDamage(Unit koh, Familiar familiar, Spell familiarSpell, Monster monster, Descriptor descriptor)
+        { return MixtureAttackDamage(koh, familiar.Spell2, monster, descriptor); }
+        private static uint MixtureAttackDamage(Unit koh, Spell familiarSpell, Monster monster, Descriptor descriptor)
         {
-            if (familiarSpell.IsSwordTypeMixtureMagic())
-            {
-                return DamageCalculator.mixtureAttackDamage(
-                    koh,
-                    monster,
-                    descriptor.damageRoll,
-                    descriptor.groundModifier,
-                    descriptor.criticalHit,
-                    familiarSpell);
-            }
-            else if (familiarSpell.IsWaveTypeMixtureMagic())
-            { return DamageCalculator.spellAttackDamage(familiar, monster, familiarSpell); }
+            if (familiarSpell.MixtureMagicType != SpellMixtureMagicType.None)
+            { return DamageCalculator.MixtureAttackDamage(koh, monster, descriptor.damageRoll, descriptor.groundModifier, descriptor.criticalHit, familiarSpell); }
             else
             { return INVALID_DAMAGE; }
         }
         private static uint FamiliarAttackDamage(Unit koh, Familiar familiar, Monster monster, Descriptor descriptor)
-        { return NonSpellAttackDamage(familiar, monster, descriptor); }
+        { return DirectAttackDamage(familiar, monster, descriptor); }
         private static uint VsKohAttackDamage(Unit koh, Familiar familiar, Monster monster, Descriptor descriptor)
-        { return NonSpellAttackDamage(monster, koh, descriptor); }
+        { return DirectAttackDamage(monster, koh, descriptor); }
         private static uint VsFamiliarAttackDamage(Unit koh, Familiar familiar, Monster monster, Descriptor descriptor)
-        { return NonSpellAttackDamage(monster, familiar, descriptor); }
-        private static uint NonSpellAttackDamage(Unit attacker, Unit defender, Descriptor descriptor)
+        { return DirectAttackDamage(monster, familiar, descriptor); }
+        private static uint DirectAttackDamage(Unit attacker, Unit defender, Descriptor descriptor)
         {
-            return DamageCalculator.standardAttackDamage(
+            return DamageCalculator.DirectAttackDamage(
                 attacker, 
                 defender, 
                 descriptor.damageRoll, 

@@ -270,37 +270,42 @@ namespace AzureDreamsDamageCalculator
         public static readonly SpellTraits EMPTY = new SpellTraits(
             name: "", 
             genus: Genus.None, 
-            rawDamage: 0, 
+            directRawDamage: 0, 
             directMagicType: SpellDirectMagicType.None, 
+            mixtureRawDamage: 0,
             mixtureMagicType: SpellMixtureMagicType.None);
 
         public SpellTraits(
-            string name, 
-            Genus genus, 
-            uint rawDamage, 
-            SpellMixtureMagicType mixtureMagicType, 
-            SpellDirectMagicType directMagicType = SpellDirectMagicType.Damage)
+            string name,
+            Genus genus,
+            uint directRawDamage = 0,
+            SpellDirectMagicType directMagicType = SpellDirectMagicType.None,
+            uint mixtureRawDamage = 0,
+            SpellMixtureMagicType mixtureMagicType = SpellMixtureMagicType.None)
         {
             this.Name = name;
             this.Genus = genus;
-            this.RawDamage = rawDamage;
-            this.DirectMagicType = directMagicType;
+            this.DirectRawDamage = directRawDamage;
+            this.DirectMagicType = directRawDamage > 0 ? SpellDirectMagicType.Damage : directMagicType;
+            this.MixtureRawDamage = mixtureMagicType != SpellMixtureMagicType.None && mixtureRawDamage == 0 ? directRawDamage : mixtureRawDamage;
             this.MixtureMagicType = mixtureMagicType;
         }
         public string Name
         { get; private set; }
         public Genus Genus
         { get; set; }
-        public uint RawDamage
+        public uint DirectRawDamage
         { get; private set; }
         public SpellDirectMagicType DirectMagicType
+        { get; private set; }
+        public uint MixtureRawDamage
         { get; private set; }
         public SpellMixtureMagicType MixtureMagicType
         { get; private set; }
         public SpellTraits Copy()
-        { return new SpellTraits(Name, Genus, RawDamage, MixtureMagicType, DirectMagicType); }
+        { return Copy(Name); }
         public SpellTraits Copy(string newName)
-        { return new SpellTraits(newName, Genus, RawDamage, MixtureMagicType, DirectMagicType); }
+        { return new SpellTraits(newName, Genus, DirectRawDamage, DirectMagicType, MixtureRawDamage, MixtureMagicType); }
     }
 
     public class Spell
@@ -327,20 +332,24 @@ namespace AzureDreamsDamageCalculator
         { get; set; }
         public bool HasNativeGenus()
         { return Genus == traits.Genus; }
-        public uint RawDamage
-        { get { return traits.RawDamage; } }
+        public uint DirectRawDamage
+        { get { return traits.DirectRawDamage; } }
+        public uint MixtureRawDamage
+        { get { return traits.MixtureRawDamage; } }
+        public SpellMixtureMagicType MixtureMagicType
+        { get { return traits.MixtureMagicType; } }
         public bool IsDamagingDirectSpellType()
         { return traits.DirectMagicType == SpellDirectMagicType.Damage; }
         public bool IsDamagingMixtureMagic()
-        { return traits.MixtureMagicType != SpellMixtureMagicType.None; }
+        { return MixtureMagicType != SpellMixtureMagicType.None; }
         public bool IsSwordTypeMixtureMagic()
-        { return traits.MixtureMagicType == SpellMixtureMagicType.Sword; }
+        { return MixtureMagicType == SpellMixtureMagicType.Sword; }
         public bool IsWaveTypeMixtureMagic()
-        { return traits.MixtureMagicType == SpellMixtureMagicType.Wave; }
+        { return MixtureMagicType == SpellMixtureMagicType.Wave; }
         public Spell Copy()
         { return new Spell(traits, Level) { Genus = Genus }; }
         public override string ToString()
-        { return traits.Name + "(" + traits.RawDamage + ")"; }
+        { return traits.Name + "(" + traits.DirectRawDamage + ")"; }
     }
 
     public class BallSpell : Spell

@@ -1082,103 +1082,76 @@
         public static readonly SpellTraits Breath = new SpellTraits(
             name: "Breath", 
             genus: Genus.Fire, 
-            rawDamage: 16, 
-            mixtureMagicType: SpellMixtureMagicType.Sword, 
-            directMagicType: SpellDirectMagicType.Damage);
+            directRawDamage: 16, 
+            mixtureMagicType: SpellMixtureMagicType.Sword);
         public static readonly SpellTraits Sled = new SpellTraits(
             name: "Sled",
             genus: Genus.Fire,
-            rawDamage: 8,
-            mixtureMagicType: SpellMixtureMagicType.Sword,
-            directMagicType: SpellDirectMagicType.Damage);
+            directRawDamage: 8,
+            mixtureMagicType: SpellMixtureMagicType.Sword);
         public static readonly SpellTraits Brid = new SpellTraits(
             name: "Brid",
             genus: Genus.Fire,
-            rawDamage: 10, 
-            mixtureMagicType: SpellMixtureMagicType.Sword,
-            directMagicType: SpellDirectMagicType.Damage);
+            directRawDamage: 10, 
+            mixtureMagicType: SpellMixtureMagicType.Sword);
         public static readonly SpellTraits Rise = new SpellTraits(
             name: "Rise",
-            rawDamage: 19,
+            directRawDamage: 19,
             genus: Genus.Fire,
-            mixtureMagicType: SpellMixtureMagicType.Sword,
-            directMagicType: SpellDirectMagicType.Damage);
-        /*
+            mixtureMagicType: SpellMixtureMagicType.Sword);
         public static readonly SpellTraits Grave = new SpellTraits(
-            name: "Grave", 
-            rawDamage: 24, 
+            name: "Grave",
             genus: Genus.Wind,
-            mixtureMagicType);
-        */
+            directRawDamage: 24,
+            mixtureRawDamage: 10,
+            mixtureMagicType: SpellMixtureMagicType.Wave);
         public static readonly SpellTraits Down = new SpellTraits(
-            name: "Down", 
-            rawDamage: 10, 
+            name: "Down",
             genus: Genus.Wind,
-            mixtureMagicType: SpellMixtureMagicType.Wave,
-            directMagicType: SpellDirectMagicType.None);
+            mixtureRawDamage: 10,
+            mixtureMagicType: SpellMixtureMagicType.Wave);
         public static readonly SpellTraits FireBall = Breath.Copy("Fire ball");
         public static readonly SpellTraits BlazeBall = Sled.Copy("Blaze ball");
         public static readonly SpellTraits FlameBall = Brid.Copy("Flame ball");
         public static readonly SpellTraits PillarBall = Rise.Copy("Pillar ball");
         public static readonly SpellTraits AcidRainBall = new SpellTraits(
-            name: "Acid rain ball", 
-            rawDamage: 32, 
+            name: "Acid rain ball",
             genus: Genus.Water,
-            mixtureMagicType: SpellMixtureMagicType.None,
-            directMagicType: SpellDirectMagicType.Damage);
+            directRawDamage: 32);
         public static readonly SpellTraits PoisonBall = new SpellTraits(
             name: "Poison ball",
-            rawDamage: 0,
-            genus: Genus.None,
-            mixtureMagicType: SpellMixtureMagicType.None,
+            genus: Genus.Fire,
             directMagicType: SpellDirectMagicType.Status);
         public static readonly SpellTraits WaterBall = new SpellTraits(
             name: "Water ball",
-            rawDamage: 0,
-            genus: Genus.None,
-            mixtureMagicType: SpellMixtureMagicType.None,
+            genus: Genus.Water,
             directMagicType: SpellDirectMagicType.Status);
         public static readonly SpellTraits RepelBall = new SpellTraits(
             name: "Repel ball",
-            rawDamage: 0,
             genus: Genus.None,
-            mixtureMagicType: SpellMixtureMagicType.None,
             directMagicType: SpellDirectMagicType.Status);
         public static readonly SpellTraits IceRockBall = new SpellTraits(
             name: "Ice Rock ball",
-            rawDamage: 0,
-            genus: Genus.None,
-            mixtureMagicType: SpellMixtureMagicType.None,
-            directMagicType: SpellDirectMagicType.None);
+            genus: Genus.Water);
         public static readonly SpellTraits RecoveryBall = new SpellTraits(
             name: "Recovery ball",
-            rawDamage: 0,
-            genus: Genus.Water,
-            mixtureMagicType: SpellMixtureMagicType.None,
-            directMagicType: SpellDirectMagicType.Status);
+            directRawDamage: 0,
+            genus: Genus.Water);
         public static readonly SpellTraits BindingBall = new SpellTraits(
             name: "Binding ball",
-            rawDamage: 0,
             genus: Genus.None,
-            mixtureMagicType: SpellMixtureMagicType.None,
             directMagicType: SpellDirectMagicType.Status);
         public static readonly SpellTraits SleepBall = new SpellTraits(
             name: "Sleep ball",
-            rawDamage: 0,
             genus: Genus.None,
-            mixtureMagicType: SpellMixtureMagicType.None,
             directMagicType: SpellDirectMagicType.Status);
         public static readonly SpellTraits BlinderBall = new SpellTraits(
             name: "Blinder ball",
-            rawDamage: 0,
             genus: Genus.None,
-            mixtureMagicType: SpellMixtureMagicType.None,
             directMagicType: SpellDirectMagicType.Status);
         public static readonly SpellTraits WeakBall = new SpellTraits(
             name: "Weak ball",
-            rawDamage: 0,
             genus: Genus.Wind,
-            mixtureMagicType: SpellMixtureMagicType.None,
             directMagicType: SpellDirectMagicType.Status);
     }
 
