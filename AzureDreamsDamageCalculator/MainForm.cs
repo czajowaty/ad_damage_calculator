@@ -9,7 +9,7 @@ namespace AzureDreamsDamageCalculator
 {
     public partial class MainForm : Form
     {
-        public static readonly string VERSION = "0.4";
+        public static readonly string VERSION = "0.4.1";
         public static readonly SortedDictionary<string, Weapon> KohWeaponsNames = Helpers.CreateNamedDictionary(
             new[]
             {
@@ -164,7 +164,7 @@ namespace AzureDreamsDamageCalculator
             familiarLevelNumericUpDown.Value = 1;
             familiarSpell1ComboBox.SelectedItem = UnitsTraits.Kewne.NativeSpell.Name;
             familiarSpell1LevelNumericUpDown.Value = 1;
-            familiarSpell2ComboBox.SelectedItem = 
+            familiarSpell2ComboBox.SelectedItem = SpellTraits.EMPTY;
             familiarAttackModifierNumericUpDown.Value = 0;
             familiarDefenseModifierNumericUpDown.Value = 0;
             floorNumericUpDown.Value = 1;
