@@ -31,6 +31,7 @@ namespace AzureDreamsDamageCalculator
                 Wands.Stream,
                 Wands.Money,
                 Wands.Paralyze,
+                Wands.Seal,
                 Wands.Life,
                 Wands.Trained
             });

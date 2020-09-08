@@ -1428,6 +1428,7 @@
         public static readonly Wand Stream = new Wand(name: "Stream wand", genus: Genus.Water);
         public static readonly Wand Money = new Wand(name: "Money wand");
         public static readonly Wand Paralyze = new Wand(name: "Paralyze wand");
+        public static readonly Wand Seal = new Wand(name: "Seal wand");
         public static readonly Wand Life = new Wand(name: "Life wand");
         public static readonly Wand Trained = new Wand(name: "Trained wand");
     }
