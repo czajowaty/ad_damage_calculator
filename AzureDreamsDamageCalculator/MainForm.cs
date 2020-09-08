@@ -9,7 +9,7 @@ namespace AzureDreamsDamageCalculator
 {
     public partial class MainForm : Form
     {
-        public static readonly string VERSION = "0.3.4";
+        public static readonly string VERSION = "0.3.5";
         public static readonly SortedDictionary<string, Weapon> KohWeaponsNames = Helpers.CreateNamedDictionary(
             new[]
             {
@@ -100,7 +100,19 @@ namespace AzureDreamsDamageCalculator
                 UnitsTraits.Maximum
             });
         public static readonly SortedDictionary<string, SpellTraits> FamiliarSpells = Helpers.CreateNamedDictionary(
-            new[] { SpellTraits.EMPTY, SpellsTraits.Breath, SpellsTraits.Sled, SpellsTraits.Brid, SpellsTraits.Rise, SpellsTraits.Down });
+            new[] 
+            {
+                SpellTraits.EMPTY,
+                SpellsTraits.Breath,
+                SpellsTraits.Sled,
+                SpellsTraits.Brid,
+                SpellsTraits.Rise,
+                SpellsTraits.Forth,
+                SpellsTraits.Heal,
+                SpellsTraits.Grave,
+                SpellsTraits.Down,
+                SpellsTraits.Poison
+            });
         public static readonly SortedDictionary<string, Genus> GenusNames = new SortedDictionary<string, Genus>()
         {
             { Genus.Fire.ToString(), Genus.Fire },

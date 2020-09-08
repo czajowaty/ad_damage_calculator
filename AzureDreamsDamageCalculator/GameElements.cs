@@ -349,7 +349,7 @@
             BaseExpGiven = 0x02,
             ExpGivenGrowth = 0x0E,
             NativeGenus = Genus.Water,
-            NativeSpell = SpellTraits.EMPTY,
+            NativeSpell = SpellsTraits.Heal,
             Liftable = false,
             Pushable = true,
             Portrait = Properties.Resources.nyuel
@@ -1096,8 +1096,16 @@
             mixtureMagicType: SpellMixtureMagicType.Sword);
         public static readonly SpellTraits Rise = new SpellTraits(
             name: "Rise",
-            directRawDamage: 19,
             genus: Genus.Fire,
+            directRawDamage: 19,
+            mixtureMagicType: SpellMixtureMagicType.Sword);
+        public static readonly SpellTraits Forth = new SpellTraits(
+            name: "Forth",
+            genus: Genus.Water,
+            mixtureMagicType: SpellMixtureMagicType.Sword);
+        public static readonly SpellTraits Heal = new SpellTraits(
+            name: "Heal",
+            genus: Genus.Water,
             mixtureMagicType: SpellMixtureMagicType.Sword);
         public static readonly SpellTraits Grave = new SpellTraits(
             name: "Grave",
@@ -1108,6 +1116,11 @@
         public static readonly SpellTraits Down = new SpellTraits(
             name: "Down",
             genus: Genus.Wind,
+            mixtureRawDamage: 10,
+            mixtureMagicType: SpellMixtureMagicType.Wave);
+        public static readonly SpellTraits Poison = new SpellTraits(
+            name: "Poison",
+            genus: Genus.Fire,
             mixtureRawDamage: 10,
             mixtureMagicType: SpellMixtureMagicType.Wave);
         public static readonly SpellTraits FireBall = Breath.Copy("Fire ball");
