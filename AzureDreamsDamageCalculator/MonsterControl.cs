@@ -215,7 +215,7 @@ namespace AzureDreamsDamageCalculator
         { return MixtureAttackDamage(koh, familiar.Spell2, monster, descriptor); }
         private static uint MixtureAttackDamage(Unit koh, Spell familiarSpell, Monster monster, Descriptor descriptor)
         {
-            if (familiarSpell.MixtureMagicType != SpellMixtureMagicType.None)
+            if (familiarSpell.IsDamagingMixtureMagic())
             { return DamageCalculator.MixtureAttackDamage(koh, monster, descriptor.damageRoll, descriptor.groundModifier, descriptor.criticalHit, familiarSpell); }
             else
             { return INVALID_DAMAGE; }

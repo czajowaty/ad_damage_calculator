@@ -1107,6 +1107,31 @@
             name: "Heal",
             genus: Genus.Water,
             mixtureMagicType: SpellMixtureMagicType.Sword);
+        public static readonly SpellTraits Mirror = new SpellTraits(
+            name: "Mirror",
+            genus: Genus.Water,
+            mixtureRawDamage: 8,
+            mixtureMagicType: SpellMixtureMagicType.Blade);
+        public static readonly SpellTraits Rock = new SpellTraits(
+            name: "Rock",
+            genus: Genus.Water,
+            mixtureRawDamage: 12,
+            mixtureMagicType: SpellMixtureMagicType.Shoot);
+        public static readonly SpellTraits Wall = new SpellTraits(
+            name: "Wall",
+            genus: Genus.Water,
+            mixtureRawDamage: 8,
+            mixtureMagicType: SpellMixtureMagicType.Blade);
+        public static readonly SpellTraits Bind = new SpellTraits(
+            name: "Bind",
+            genus: Genus.Wind,
+            mixtureRawDamage: 16,
+            mixtureMagicType: SpellMixtureMagicType.AOE);
+        public static readonly SpellTraits Blind = new SpellTraits(
+            name: "Blind",
+            genus: Genus.Wind,
+            mixtureRawDamage: 16,
+            mixtureMagicType: SpellMixtureMagicType.AOE);
         public static readonly SpellTraits Grave = new SpellTraits(
             name: "Grave",
             genus: Genus.Wind,
@@ -1118,6 +1143,11 @@
             genus: Genus.Wind,
             mixtureRawDamage: 10,
             mixtureMagicType: SpellMixtureMagicType.Wave);
+        public static readonly SpellTraits Sleep = new SpellTraits(
+            name: "Sleep",
+            genus: Genus.Wind,
+            mixtureRawDamage: 16,
+            mixtureMagicType: SpellMixtureMagicType.AOE);
         public static readonly SpellTraits Poison = new SpellTraits(
             name: "Poison",
             genus: Genus.Fire,
@@ -1194,12 +1224,12 @@
         public static readonly Monster BarongLv20 = new MonsterCreator(UnitsTraits.Barong, level: 20);
         public static readonly Monster ManoevaLv15 = new MonsterCreator(UnitsTraits.Manoeva, level: 15);
         public static readonly Monster PicketLv17 = new MonsterCreator(UnitsTraits.Picket, level: 17);
-        public static readonly Monster ArachneLv18 = new MonsterCreator(UnitsTraits.Arachne, level: 18);
+        public static readonly Monster ArachneLv18 = new MonsterCreator(UnitsTraits.Arachne.WithTalents(Talents.None), level: 18);
         public static readonly Monster WeadogLv19 = new MonsterCreator(UnitsTraits.Weadog, level: 19);
         public static readonly Monster UnicornLv20 = new MonsterCreator(UnitsTraits.Unicorn, level: 20);
         public static readonly Monster ViperLv21 = new MonsterCreator(UnitsTraits.Viper, level: 21);
         public static readonly Monster PulunpaCollarJackLv16 = new MonsterCreator(UnitsTraits.Pulunpa, level: 16);
-        public static readonly Monster BlockLv22 = new MonsterCreator(UnitsTraits.Block, level: 22);
+        public static readonly Monster BlockLv22 = new MonsterCreator(UnitsTraits.Block.WithTalents(Talents.None), level: 22);
         public static readonly Monster StealthLv23 = new MonsterCreator(UnitsTraits.Stealth, level: 23);
         public static readonly Monster ZuLv24 = new MonsterCreator(UnitsTraits.Zu, level: 24);
         public static readonly Monster MandaraLv26 = new MonsterCreator(UnitsTraits.Mandara, level: 26);

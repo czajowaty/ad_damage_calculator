@@ -11,8 +11,8 @@ namespace AzureDreamsDamageCalculator
         {
             if (spell.IsSwordTypeMixtureMagic())
             { return SwordMixtureDamage(attacker, defender, damageRoll, highGround, isCriticalHit, spell); }
-            else if (spell.IsWaveTypeMixtureMagic())
-            { return WaveMixtureDamage(spell, defender); }
+            else if (spell.IsDamagingMixtureMagic())
+            { return NonSwordMixtureDamage(spell, defender); }
             else
             { throw new ArgumentException(string.Format("Unsupported mixture type '{0}'!", spell.MixtureMagicType)); }
         }
@@ -109,7 +109,7 @@ namespace AzureDreamsDamageCalculator
         }
         private static float CalculateCriticalHitMultiplier(bool isCriticalHit)
         { return isCriticalHit ? 1.5f : 1.0f; }
-        private static uint WaveMixtureDamage(Spell spell, Unit defender)
+        private static uint NonSwordMixtureDamage(Spell spell, Unit defender)
         { return SpellAttackDamage(spell, spell.MixtureRawDamage, defender); }
         private static uint SpellAttackDamage(Spell spell, uint spellRawDamage, Unit defender)
         {

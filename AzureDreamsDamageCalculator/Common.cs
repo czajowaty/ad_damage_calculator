@@ -181,6 +181,33 @@ namespace AzureDreamsDamageCalculator
         public bool Liftable;
         public bool Pushable;
         public Bitmap Portrait;
+
+        public UnitTraits WithTalents(Talents newTalents)
+        {
+            UnitTraits newUnitTraits = new UnitTraits();
+            newUnitTraits.BaseHp = this.BaseHp;
+            newUnitTraits.HpGrowth = this.HpGrowth;
+            newUnitTraits.BaseMp = this.BaseMp;
+            newUnitTraits.MpGrowth = this.MpGrowth;
+            newUnitTraits.BaseAttack = this.BaseAttack;
+            newUnitTraits.AttackGrowth = this.AttackGrowth;
+            newUnitTraits.BaseDefense = this.BaseDefense;
+            newUnitTraits.DefenseGrowth = this.DefenseGrowth;
+            newUnitTraits.BaseAgility = this.BaseAgility;
+            newUnitTraits.AgilityGrowth = this.AgilityGrowth;
+            newUnitTraits.BaseLuck = this.BaseLuck;
+            newUnitTraits.LuckGrowth = this.LuckGrowth;
+            newUnitTraits.BaseExpGiven = this.BaseExpGiven;
+            newUnitTraits.ExpGivenGrowth = this.ExpGivenGrowth;
+            newUnitTraits.NativeGenus = this.NativeGenus;
+            newUnitTraits.NativeSpell = this.NativeSpell;
+            newUnitTraits.Talents = newTalents;
+            newUnitTraits.IsEvolved = this.IsEvolved;
+            newUnitTraits.Liftable = this.Liftable;
+            newUnitTraits.Pushable = this.Pushable;
+            newUnitTraits.Portrait = this.Portrait;
+            return newUnitTraits;
+        }
     }
 
     public class UnitStatistics
@@ -263,7 +290,7 @@ namespace AzureDreamsDamageCalculator
     { None, Status, Damage }
 
     public enum SpellMixtureMagicType
-    { None, Sword, Wave }
+    { None, Sword, Wave, Blade, Shoot, AOE }
 
     public struct SpellTraits : Named
     {
@@ -344,8 +371,6 @@ namespace AzureDreamsDamageCalculator
         { return MixtureMagicType != SpellMixtureMagicType.None; }
         public bool IsSwordTypeMixtureMagic()
         { return MixtureMagicType == SpellMixtureMagicType.Sword; }
-        public bool IsWaveTypeMixtureMagic()
-        { return MixtureMagicType == SpellMixtureMagicType.Wave; }
         public Spell Copy()
         { return new Spell(traits, Level) { Genus = Genus }; }
         public override string ToString()
