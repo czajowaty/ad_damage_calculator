@@ -57,6 +57,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.kohAttackModifierNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.familiarTalentsListBox = new System.Windows.Forms.ListBox();
             this.familiarSpell2LockedCheckBox = new System.Windows.Forms.CheckBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -94,7 +95,8 @@
             this.eggsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.monsterControlsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.spell1MixtureTypeLabel = new System.Windows.Forms.Label();
+            this.spell2MixtureTypeLabel = new System.Windows.Forms.Label();
             this.kohGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kohDefenseModifierNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kohLevelNumericUpDown)).BeginInit();
@@ -102,6 +104,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.kohWeaponQualityNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kohAttackModifierNumericUpDown)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.familiarSpell2LevelNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.familiarLevelNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.familiarDefenseModifierNumericUpDown)).BeginInit();
@@ -113,7 +116,6 @@
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // kohGroupBox
@@ -453,6 +455,8 @@
             // 
             this.groupBox1.AutoSize = true;
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox1.Controls.Add(this.spell2MixtureTypeLabel);
+            this.groupBox1.Controls.Add(this.spell1MixtureTypeLabel);
             this.groupBox1.Controls.Add(this.groupBox5);
             this.groupBox1.Controls.Add(this.familiarSpell2LockedCheckBox);
             this.groupBox1.Controls.Add(this.label25);
@@ -487,6 +491,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Familiar";
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.familiarTalentsListBox);
+            this.groupBox5.Location = new System.Drawing.Point(255, 19);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.groupBox5.Size = new System.Drawing.Size(134, 100);
+            this.groupBox5.TabIndex = 43;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Talents";
+            // 
             // familiarTalentsListBox
             // 
             this.familiarTalentsListBox.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -501,7 +516,7 @@
             // familiarSpell2LockedCheckBox
             // 
             this.familiarSpell2LockedCheckBox.AutoSize = true;
-            this.familiarSpell2LockedCheckBox.Location = new System.Drawing.Point(249, 155);
+            this.familiarSpell2LockedCheckBox.Location = new System.Drawing.Point(317, 155);
             this.familiarSpell2LockedCheckBox.Name = "familiarSpell2LockedCheckBox";
             this.familiarSpell2LockedCheckBox.Size = new System.Drawing.Size(62, 17);
             this.familiarSpell2LockedCheckBox.TabIndex = 41;
@@ -512,7 +527,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(141, 156);
+            this.label25.Location = new System.Drawing.Point(209, 156);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(58, 13);
             this.label25.TabIndex = 38;
@@ -520,7 +535,7 @@
             // 
             // familiarSpell2LevelNumericUpDown
             // 
-            this.familiarSpell2LevelNumericUpDown.Location = new System.Drawing.Point(205, 153);
+            this.familiarSpell2LevelNumericUpDown.Location = new System.Drawing.Point(273, 153);
             this.familiarSpell2LevelNumericUpDown.Maximum = new decimal(new int[] {
             99,
             0,
@@ -561,7 +576,7 @@
             // familiarSpell1LockedCheckBox
             // 
             this.familiarSpell1LockedCheckBox.AutoSize = true;
-            this.familiarSpell1LockedCheckBox.Location = new System.Drawing.Point(249, 128);
+            this.familiarSpell1LockedCheckBox.Location = new System.Drawing.Point(317, 128);
             this.familiarSpell1LockedCheckBox.Name = "familiarSpell1LockedCheckBox";
             this.familiarSpell1LockedCheckBox.Size = new System.Drawing.Size(62, 17);
             this.familiarSpell1LockedCheckBox.TabIndex = 32;
@@ -702,7 +717,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(141, 129);
+            this.label8.Location = new System.Drawing.Point(209, 129);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(58, 13);
             this.label8.TabIndex = 11;
@@ -719,7 +734,7 @@
             // 
             // familiarSpell1LevelNumericUpDown
             // 
-            this.familiarSpell1LevelNumericUpDown.Location = new System.Drawing.Point(205, 126);
+            this.familiarSpell1LevelNumericUpDown.Location = new System.Drawing.Point(273, 126);
             this.familiarSpell1LevelNumericUpDown.Maximum = new decimal(new int[] {
             99,
             0,
@@ -935,16 +950,23 @@
             this.monsterControlsFlowLayoutPanel.Size = new System.Drawing.Size(1578, 650);
             this.monsterControlsFlowLayoutPanel.TabIndex = 14;
             // 
-            // groupBox5
+            // spell1MixtureTypeLabel
             // 
-            this.groupBox5.Controls.Add(this.familiarTalentsListBox);
-            this.groupBox5.Location = new System.Drawing.Point(255, 19);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.groupBox5.Size = new System.Drawing.Size(134, 100);
-            this.groupBox5.TabIndex = 43;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Talents";
+            this.spell1MixtureTypeLabel.AutoSize = true;
+            this.spell1MixtureTypeLabel.Location = new System.Drawing.Point(141, 129);
+            this.spell1MixtureTypeLabel.Name = "spell1MixtureTypeLabel";
+            this.spell1MixtureTypeLabel.Size = new System.Drawing.Size(46, 13);
+            this.spell1MixtureTypeLabel.TabIndex = 44;
+            this.spell1MixtureTypeLabel.Text = "Mix type";
+            // 
+            // spell2MixtureTypeLabel
+            // 
+            this.spell2MixtureTypeLabel.AutoSize = true;
+            this.spell2MixtureTypeLabel.Location = new System.Drawing.Point(141, 156);
+            this.spell2MixtureTypeLabel.Name = "spell2MixtureTypeLabel";
+            this.spell2MixtureTypeLabel.Size = new System.Drawing.Size(46, 13);
+            this.spell2MixtureTypeLabel.TabIndex = 45;
+            this.spell2MixtureTypeLabel.Text = "Mix type";
             // 
             // MainForm
             // 
@@ -964,6 +986,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.kohAttackModifierNumericUpDown)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.familiarSpell2LevelNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.familiarLevelNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.familiarDefenseModifierNumericUpDown)).EndInit();
@@ -979,7 +1002,6 @@
             this.groupBox4.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1052,6 +1074,8 @@
         private System.Windows.Forms.FlowLayoutPanel eggsFlowLayoutPanel;
         private System.Windows.Forms.ListBox familiarTalentsListBox;
         private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label spell1MixtureTypeLabel;
+        private System.Windows.Forms.Label spell2MixtureTypeLabel;
     }
 }
 

@@ -9,7 +9,7 @@ namespace AzureDreamsDamageCalculator
 {
     public partial class MainForm : Form
     {
-        public static readonly string VERSION = "0.4.2";
+        public static readonly string VERSION = "0.4.3";
         public static readonly SortedDictionary<string, Weapon> KohWeaponsNames = Helpers.CreateNamedDictionary(
             new[]
             {
@@ -168,8 +168,10 @@ namespace AzureDreamsDamageCalculator
             familiarTypeComboBox.SelectedItem = UnitsTraits.Kewne.Name;
             familiarFrogCheckBox.Checked = false;
             familiarLevelNumericUpDown.Value = 1;
+            spell1MixtureTypeLabel.Text = MixtureMagicTypeToString(UnitsTraits.Kewne.NativeSpell.MixtureMagicType);
             familiarSpell1ComboBox.SelectedItem = UnitsTraits.Kewne.NativeSpell.Name;
             familiarSpell1LevelNumericUpDown.Value = 1;
+            spell2MixtureTypeLabel.Text = "";
             familiarSpell2ComboBox.SelectedItem = SpellTraits.EMPTY;
             familiarAttackModifierNumericUpDown.Value = 0;
             familiarDefenseModifierNumericUpDown.Value = 0;
@@ -312,13 +314,33 @@ namespace AzureDreamsDamageCalculator
         private void SetFamiliarSpell1()
         {
             familiar.Spell = CreateFamiliarSpell(familiarSpell1ComboBox, familiarSpell1LevelNumericUpDown);
+            spell1MixtureTypeLabel.Text = MixtureMagicTypeToString(familiar.Spell.MixtureMagicType);
             familiarSpell1LockedCheckBox.Checked = !familiar.Spell.HasNativeGenus();
+        }
+        private string MixtureMagicTypeToString(SpellMixtureMagicType mixtureMagicType)
+        {
+            switch (mixtureMagicType)
+            {
+                case SpellMixtureMagicType.Sword:
+                    return "Sword";
+                case SpellMixtureMagicType.Wave:
+                    return "Wave";
+                case SpellMixtureMagicType.Blade:
+                    return "Blade";
+                case SpellMixtureMagicType.Shoot:
+                    return "Shoot";
+                case SpellMixtureMagicType.AOE:
+                    return "AOE";
+                default:
+                    return "";
+            }
         }
         private void UpdateFamiliarSpell1Level(int levelDifference)
         { UpdateFamiliarSpellLevel(levelDifference, familiarSpell1LevelNumericUpDown, familiarSpell1LockedCheckBox); }
         private void SetFamiliarSpell2()
         {
             familiar.Spell2 = CreateFamiliarSpell(familiarSpell2ComboBox, familiarSpell2LevelNumericUpDown);
+            spell2MixtureTypeLabel.Text = MixtureMagicTypeToString(familiar.Spell2.MixtureMagicType);
             familiarSpell2LockedCheckBox.Checked = !familiar.Spell2.HasNativeGenus();
         }
         private void UpdateFamiliarSpell2Level(int levelDifference)
