@@ -9,7 +9,7 @@ namespace AzureDreamsDamageCalculator
 {
     public partial class MainForm : Form
     {
-        public static readonly string VERSION = "0.5";
+        public static readonly string VERSION = "0.6";
         public static readonly SortedDictionary<string, Weapon> KohWeaponsNames = Helpers.CreateNamedDictionary(
             new[]
             {
@@ -133,6 +133,7 @@ namespace AzureDreamsDamageCalculator
         private BallSpell kohSpell = BallSpell.NO_BALL_SPELL;
         private Familiar familiar;
         private MonsterControl[] monsterControls = new MonsterControl[0];
+        private List<MonsterControl> freeModeMonsterControls = new List<MonsterControl>();
 
         public MainForm()
         {
@@ -147,6 +148,7 @@ namespace AzureDreamsDamageCalculator
             FillComboBox(familiarSpell1ComboBox, FamiliarSpells.Keys);
             FillComboBox(familiarSpell2ComboBox, FamiliarSpells.Keys);
             FillListBox(familiarTalentsListBox, FamiliarTalents.Keys);
+            FillFreeModeMonstersSelection();
             ResetUI();
             OnKohSpellChanged();
             AddUIDelegatesHandlers();
@@ -176,6 +178,7 @@ namespace AzureDreamsDamageCalculator
             familiarAttackModifierNumericUpDown.Value = 0;
             familiarDefenseModifierNumericUpDown.Value = 0;
             floorNumericUpDown.Value = 1;
+            ClearFreeModeMonsters();
             UpdateKoh();
             UpdateFamiliar();
             UpdateEggs();
@@ -210,6 +213,112 @@ namespace AzureDreamsDamageCalculator
         }
         private void FillListBox(ListBox listBox, IEnumerable<string> items)
         { listBox.Items.AddRange(items.ToArray<string>()); }
+        private void FillFreeModeMonstersSelection()
+        {
+            UnitTraits[] AllMonsters = {
+                UnitsTraits.Hikewne,
+                UnitsTraits.Kewne,
+                UnitsTraits.Dragon,
+                UnitsTraits.Kid,
+                UnitsTraits.Ifrit,
+                UnitsTraits.Flame,
+                UnitsTraits.Grineut,
+                UnitsTraits.Griffon,
+                UnitsTraits.Saber,
+                UnitsTraits.Snowman,
+                UnitsTraits.Ashra.WithTalents(Talents.None),
+                UnitsTraits.Arachne.WithTalents(Talents.None),
+                UnitsTraits.Battnel,
+                UnitsTraits.Nyuel,
+                UnitsTraits.Death.WithTalents(Talents.None),
+                UnitsTraits.Clown.WithTalents(Talents.None),
+                UnitsTraits.Univern,
+                UnitsTraits.Unicorn,
+                UnitsTraits.Metal.WithTalents(Talents.None),
+                UnitsTraits.Block.WithTalents(Talents.None),
+                UnitsTraits.Pulunpa,
+                UnitsTraits.Troll,
+                UnitsTraits.Noise,
+                UnitsTraits.UBoat,
+                UnitsTraits.Balloon,
+                UnitsTraits.Dreamin,
+                UnitsTraits.Blume,
+                UnitsTraits.Volcano,
+                UnitsTraits.Cyclone,
+                UnitsTraits.Manoeva,
+                UnitsTraits.Barong,
+                UnitsTraits.Picket,
+                UnitsTraits.Kraken,
+                UnitsTraits.Weadog,
+                UnitsTraits.Stealth,
+                UnitsTraits.Viper,
+                UnitsTraits.Naplass,
+                UnitsTraits.Zu,
+                UnitsTraits.Mandara,
+                UnitsTraits.Killer,
+                UnitsTraits.Garuda,
+                UnitsTraits.Glacier,
+                UnitsTraits.Tyrant,
+                UnitsTraits.Golem,
+                UnitsTraits.Maximum
+            };
+            foreach (var monsterTraits in AllMonsters)
+            {
+                AddFreeModeMonsterSelectionIcon(
+                    monsterTraits.Portrait,
+                    monsterTraits.Name,
+                    new EventHandler(delegate (Object o, EventArgs a) {
+                        OnFreeModeMonsterSelectionClicked(monsterTraits);
+                    }));
+            }
+            AddFreeModeMonsterSelectionIcon(
+                Properties.Resources.clear_icon,
+                "Clear",
+                new EventHandler(delegate (Object o, EventArgs a) { ClearFreeModeMonsters(); }));
+        }
+        private void ClearFreeModeMonsters()
+        {
+            freeModeMonsterControlsFlowLayoutPanel.Visible = false;
+            foreach(MonsterControl monsterControl in freeModeMonsterControls)
+            { monsterControl.Dispose(); }
+            freeModeMonsterControls.Clear();
+            freeModeMonsterControlsFlowLayoutPanel.Visible = true;
+        }
+        private void AddFreeModeMonsterSelectionIcon(Bitmap icon, String tooltipLabel, EventHandler iconClickHandler)
+        {
+            PictureBox pb = new PictureBox();
+            pb.Cursor = Cursors.Hand;
+            pb.Image = icon;
+            pb.Padding = new Padding(5);
+            pb.Size = new Size(64, 64);
+            pb.SizeMode = PictureBoxSizeMode.StretchImage;
+            pb.Click += iconClickHandler;
+            ToolTip tooltip = new ToolTip();
+            tooltip.ShowAlways = true;
+            tooltip.IsBalloon = true;
+            tooltip.InitialDelay = 100;
+            tooltip.SetToolTip(pb, tooltipLabel);
+            this.freeModeMonsterSelectionFlowLayoutPanel.Controls.Add(pb);
+        }
+        private void OnFreeModeMonsterSelectionClicked(UnitTraits monsterTraits)
+        {
+            uint level = (uint)floorNumericUpDown.Value;
+            AddFreeModeMonsterControl(monsterTraits, level);
+            AddFreeModeMonsterControl(monsterTraits, level + 1);
+        }
+        private void AddFreeModeMonsterControl(UnitTraits monsterTraits, uint level)
+        {
+            Monster monster = new MonsterCreator(monsterTraits, level);
+            MonsterControl monsterControl = new MonsterControl();
+            monsterControl.MakeClosable(OnFreeModeMonsterControlClosed);
+            monsterControl.Fill(koh, familiar, monster, kohSpell, true);
+            freeModeMonsterControlsFlowLayoutPanel.Controls.Add(monsterControl);
+            freeModeMonsterControls.Add(monsterControl);
+        }
+        private void OnFreeModeMonsterControlClosed(object sender, EventArgs args)
+        {
+            freeModeMonsterControls.Remove(sender as MonsterControl);
+        }
         private void UpdateKoh()
         {
             SetKohFrogStatus();
@@ -412,13 +521,17 @@ namespace AzureDreamsDamageCalculator
         private Monster[] MonstersOnSelectedFloor()
         {
             uint floor = (uint)floorNumericUpDown.Value - 1;
-            return Monsters.PerFloor[floor];
+            if (floor < Monsters.PerFloor.Length)
+            { return Monsters.PerFloor[floor]; }
+            return new Monster[0];
         }
         private void UpdateMonsterControls(bool useNativeMonsterGenus = false)
         {
             Monster[] monstersOnSelectedFloor = MonstersOnSelectedFloor();
             for (int i = 0; i < monstersOnSelectedFloor.Length; ++i)
             { monsterControls[i].Fill(koh, familiar, monstersOnSelectedFloor[i], kohSpell, useNativeMonsterGenus); }
+            foreach (MonsterControl monsterControl in freeModeMonsterControls)
+            { monsterControl.Fill(koh, familiar, kohSpell); }
         }
         private void kohLevelNumericUpDown_ValueChanged(object sender, EventArgs e)
         {

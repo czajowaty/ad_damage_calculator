@@ -57,6 +57,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.kohAttackModifierNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.spell2MixtureTypeLabel = new System.Windows.Forms.Label();
+            this.spell1MixtureTypeLabel = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.familiarTalentsListBox = new System.Windows.Forms.ListBox();
             this.familiarSpell2LockedCheckBox = new System.Windows.Forms.CheckBox();
@@ -94,9 +96,13 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.eggsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.monsterControlsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.spell1MixtureTypeLabel = new System.Windows.Forms.Label();
-            this.spell2MixtureTypeLabel = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.freeModeMonsterSelectionFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.freeModeMonsterControlsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.kohGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kohDefenseModifierNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kohLevelNumericUpDown)).BeginInit();
@@ -116,6 +122,10 @@
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // kohGroupBox
@@ -491,6 +501,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Familiar";
             // 
+            // spell2MixtureTypeLabel
+            // 
+            this.spell2MixtureTypeLabel.AutoSize = true;
+            this.spell2MixtureTypeLabel.Location = new System.Drawing.Point(141, 156);
+            this.spell2MixtureTypeLabel.Name = "spell2MixtureTypeLabel";
+            this.spell2MixtureTypeLabel.Size = new System.Drawing.Size(46, 13);
+            this.spell2MixtureTypeLabel.TabIndex = 45;
+            this.spell2MixtureTypeLabel.Text = "Mix type";
+            // 
+            // spell1MixtureTypeLabel
+            // 
+            this.spell1MixtureTypeLabel.AutoSize = true;
+            this.spell1MixtureTypeLabel.Location = new System.Drawing.Point(141, 129);
+            this.spell1MixtureTypeLabel.Name = "spell1MixtureTypeLabel";
+            this.spell1MixtureTypeLabel.Size = new System.Drawing.Size(46, 13);
+            this.spell1MixtureTypeLabel.TabIndex = 44;
+            this.spell1MixtureTypeLabel.Text = "Mix type";
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.familiarTalentsListBox);
@@ -839,7 +867,7 @@
             // 
             this.floorNumericUpDown.Location = new System.Drawing.Point(45, 19);
             this.floorNumericUpDown.Maximum = new decimal(new int[] {
-            39,
+            99,
             0,
             0,
             0});
@@ -930,7 +958,7 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.monsterControlsFlowLayoutPanel, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.tabControl1, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -940,33 +968,83 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1584, 861);
             this.tableLayoutPanel2.TabIndex = 15;
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(3, 208);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1578, 650);
+            this.tabControl1.TabIndex = 14;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.monsterControlsFlowLayoutPanel);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1570, 624);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Standard mode";
+            // 
             // monsterControlsFlowLayoutPanel
             // 
             this.monsterControlsFlowLayoutPanel.AutoScroll = true;
-            this.monsterControlsFlowLayoutPanel.AutoSize = true;
             this.monsterControlsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.monsterControlsFlowLayoutPanel.Location = new System.Drawing.Point(3, 208);
+            this.monsterControlsFlowLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.monsterControlsFlowLayoutPanel.Name = "monsterControlsFlowLayoutPanel";
-            this.monsterControlsFlowLayoutPanel.Size = new System.Drawing.Size(1578, 650);
-            this.monsterControlsFlowLayoutPanel.TabIndex = 14;
+            this.monsterControlsFlowLayoutPanel.Size = new System.Drawing.Size(1564, 618);
+            this.monsterControlsFlowLayoutPanel.TabIndex = 0;
             // 
-            // spell1MixtureTypeLabel
+            // tabPage2
             // 
-            this.spell1MixtureTypeLabel.AutoSize = true;
-            this.spell1MixtureTypeLabel.Location = new System.Drawing.Point(141, 129);
-            this.spell1MixtureTypeLabel.Name = "spell1MixtureTypeLabel";
-            this.spell1MixtureTypeLabel.Size = new System.Drawing.Size(46, 13);
-            this.spell1MixtureTypeLabel.TabIndex = 44;
-            this.spell1MixtureTypeLabel.Text = "Mix type";
+            this.tabPage2.Controls.Add(this.tableLayoutPanel3);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1570, 624);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "2nd tower mode";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // spell2MixtureTypeLabel
+            // tableLayoutPanel3
             // 
-            this.spell2MixtureTypeLabel.AutoSize = true;
-            this.spell2MixtureTypeLabel.Location = new System.Drawing.Point(141, 156);
-            this.spell2MixtureTypeLabel.Name = "spell2MixtureTypeLabel";
-            this.spell2MixtureTypeLabel.Size = new System.Drawing.Size(46, 13);
-            this.spell2MixtureTypeLabel.TabIndex = 45;
-            this.spell2MixtureTypeLabel.Text = "Mix type";
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.freeModeMonsterSelectionFlowLayoutPanel, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.freeModeMonsterControlsFlowLayoutPanel, 0, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1564, 618);
+            this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // freeModeMonsterSelectionFlowLayoutPanel
+            // 
+            this.freeModeMonsterSelectionFlowLayoutPanel.AutoSize = true;
+            this.freeModeMonsterSelectionFlowLayoutPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.freeModeMonsterSelectionFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.freeModeMonsterSelectionFlowLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.freeModeMonsterSelectionFlowLayoutPanel.MinimumSize = new System.Drawing.Size(0, 30);
+            this.freeModeMonsterSelectionFlowLayoutPanel.Name = "freeModeMonsterSelectionFlowLayoutPanel";
+            this.freeModeMonsterSelectionFlowLayoutPanel.Size = new System.Drawing.Size(1558, 30);
+            this.freeModeMonsterSelectionFlowLayoutPanel.TabIndex = 0;
+            // 
+            // freeModeMonsterControlsFlowLayoutPanel
+            // 
+            this.freeModeMonsterControlsFlowLayoutPanel.AutoScroll = true;
+            this.freeModeMonsterControlsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.freeModeMonsterControlsFlowLayoutPanel.Location = new System.Drawing.Point(3, 39);
+            this.freeModeMonsterControlsFlowLayoutPanel.Name = "freeModeMonsterControlsFlowLayoutPanel";
+            this.freeModeMonsterControlsFlowLayoutPanel.Size = new System.Drawing.Size(1558, 576);
+            this.freeModeMonsterControlsFlowLayoutPanel.TabIndex = 2;
             // 
             // MainForm
             // 
@@ -1002,6 +1080,11 @@
             this.groupBox4.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1031,7 +1114,6 @@
         private System.Windows.Forms.CheckBox kohFrogCheckBox;
         private System.Windows.Forms.CheckBox familiarFrogCheckBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.FlowLayoutPanel monsterControlsFlowLayoutPanel;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.NumericUpDown kohLevelNumericUpDown;
         private System.Windows.Forms.NumericUpDown kohDefenseModifierNumericUpDown;
@@ -1076,6 +1158,13 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label spell1MixtureTypeLabel;
         private System.Windows.Forms.Label spell2MixtureTypeLabel;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.FlowLayoutPanel monsterControlsFlowLayoutPanel;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.FlowLayoutPanel freeModeMonsterSelectionFlowLayoutPanel;
+        private System.Windows.Forms.FlowLayoutPanel freeModeMonsterControlsFlowLayoutPanel;
     }
 }
 

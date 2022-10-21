@@ -174,6 +174,8 @@ namespace AzureDreamsDamageCalculator
         public uint LuckGrowth;
         public uint BaseExpGiven;
         public uint ExpGivenGrowth;
+        public delegate Weapon WeaponSelector(uint level);
+        public WeaponSelector SelectNativeWeapon;
         public Genus NativeGenus;
         public SpellTraits NativeSpell;
         public Talents Talents;
@@ -185,6 +187,7 @@ namespace AzureDreamsDamageCalculator
         public UnitTraits WithTalents(Talents newTalents)
         {
             UnitTraits newUnitTraits = new UnitTraits();
+            newUnitTraits.Name = this.Name;
             newUnitTraits.BaseHp = this.BaseHp;
             newUnitTraits.HpGrowth = this.HpGrowth;
             newUnitTraits.BaseMp = this.BaseMp;
@@ -202,6 +205,7 @@ namespace AzureDreamsDamageCalculator
             newUnitTraits.NativeGenus = this.NativeGenus;
             newUnitTraits.NativeSpell = this.NativeSpell;
             newUnitTraits.Talents = newTalents;
+            newUnitTraits.SelectNativeWeapon = this.SelectNativeWeapon;
             newUnitTraits.IsEvolved = this.IsEvolved;
             newUnitTraits.Liftable = this.Liftable;
             newUnitTraits.Pushable = this.Pushable;
@@ -267,6 +271,8 @@ namespace AzureDreamsDamageCalculator
         { get; private set; }
         public uint Defense
         { get; private set; }
+        public uint Exp
+        { get; set; }
         private void CalculateAttack()
         { Attack = ModifiedStat(BaseAttack, AttackModifier); }
         private void CalculateDefense()
@@ -282,6 +288,7 @@ namespace AzureDreamsDamageCalculator
             stats.DefenseModifier = DefenseModifier;
             stats.Attack = Attack;
             stats.Defense = Defense;
+            stats.Exp = Exp;
             return stats;
         }
     }

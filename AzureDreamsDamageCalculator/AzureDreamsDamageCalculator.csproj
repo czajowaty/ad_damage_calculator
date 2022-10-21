@@ -264,5 +264,8 @@
   <ItemGroup>
     <None Include="Monsters\genus_wind_gray.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\clean_32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

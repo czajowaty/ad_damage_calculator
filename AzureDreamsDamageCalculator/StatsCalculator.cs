@@ -39,6 +39,11 @@ namespace AzureDreamsDamageCalculator
         }
         public static uint MP(UnitTraits traits, uint level)
         { return CalculateStat(ref traits, level, traits.BaseMp, traits.MpGrowth, MP_LUCK_DIVISOR, false); }
+        public static uint Exp(UnitTraits traits, uint level)
+        {
+            uint prevLevel = level - 1;
+            return Math.Min(traits.BaseExpGiven * level + (uint)Math.Floor(prevLevel * prevLevel * (traits.BaseExpGiven + traits.ExpGivenGrowth * prevLevel) / 512.0f), 65535);
+        }
         private static uint CalculateStat(ref UnitTraits traits, uint level, uint baseStat, uint statGrowth, uint statDivisor, bool doubleStat)
         {
             uint stat = traits.IsEvolved ?

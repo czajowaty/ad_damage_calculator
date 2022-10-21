@@ -2,6 +2,10 @@
 {
     public struct UnitsTraits
     {
+        private static UnitTraits.WeaponSelector StaticWeaponSelector(Weapon weapon)
+        {
+            return level => weapon;
+        }
         public static readonly UnitTraits Koh = new UnitTraits()
         {
             Name = "Koh",
@@ -372,6 +376,7 @@
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x10,
             NativeGenus = Genus.Wind,
+            SelectNativeWeapon = StaticWeaponSelector(new ConstantDamageWeapon("Scythe", damage: 6)),
             Talents = Talents.MagicAttackIncreased,
             NativeSpell = SpellsTraits.Down,
             IsEvolved = true,
@@ -522,6 +527,15 @@
             Pushable = true,
             Portrait = Properties.Resources.pulunpa
         };
+        private static Weapon SelectTrollWeapon(uint level)
+        {
+            if (level < 10)
+            { return new ConstantDamageWeapon("Hammer", damage: 2); }
+            else if (level < 13)
+            { return new ConstantDamageWeapon("Bow", damage: 1); }
+            else
+            { return new ConstantDamageWeapon("Sword", damage: 8, ignoresShield: true); }
+        }
         public static readonly UnitTraits Troll = new UnitTraits()
         {
             Name = "Troll",
@@ -539,6 +553,7 @@
             LuckGrowth = 0x00,
             BaseExpGiven = 0x04,
             ExpGivenGrowth = 0x0F,
+            SelectNativeWeapon = SelectTrollWeapon,
             NativeGenus = Genus.Fire,
             NativeSpell = SpellsTraits.Brid,
             Liftable = true,
@@ -954,6 +969,7 @@
             LuckGrowth = 0x00,
             BaseExpGiven = 0x03,
             ExpGivenGrowth = 0x12,
+            SelectNativeWeapon = StaticWeaponSelector(new ConstantDamageWeapon("Axes", damage: 8)),
             NativeGenus = Genus.Fire,
             NativeSpell = SpellsTraits.Sled,
             Liftable = false,
@@ -1048,6 +1064,7 @@
             ExpGivenGrowth = 0x11,
             NativeGenus = Genus.Wind,
             NativeSpell = SpellsTraits.Bind,
+            SelectNativeWeapon = StaticWeaponSelector(new ConstantDamageWeapon("Hammer", damage: 4)),
             Liftable = false,
             Pushable = false,
             Portrait = Properties.Resources.golem
@@ -1202,8 +1219,7 @@
     {
         public static readonly Monster NoiseLv1 = new MonsterCreator(UnitsTraits.Noise, level: 1);
         public static readonly Monster PulunpaLv1 = new MonsterCreator(UnitsTraits.Pulunpa, level: 1);
-        public static readonly Monster TrollHammerLv2 = new MonsterCreator(UnitsTraits.Troll, level: 2)
-            .GiveWeapon(new ConstantDamageWeapon(name: "Hammer", damage: 2));
+        public static readonly Monster TrollHammerLv2 = new MonsterCreator(UnitsTraits.Troll, level: 2);
         public static readonly Monster FlameLv3 = new MonsterCreator(UnitsTraits.Flame, level: 3);
         public static readonly Monster CycloneLv4 = new MonsterCreator(UnitsTraits.Cyclone, level: 4);
         public static readonly Monster BalloonLv5 = new MonsterCreator(UnitsTraits.Balloon, level: 5);
@@ -1212,15 +1228,13 @@
         public static readonly Monster UBoatLv7 = new MonsterCreator(UnitsTraits.UBoat, level: 7);
         public static readonly Monster ClownLv8 = new MonsterCreator(UnitsTraits.Clown, level: 8);
         public static readonly Monster DreaminLv9 = new MonsterCreator(UnitsTraits.Dreamin, level: 9);
-        public static readonly Monster TrollBowLv10 = new MonsterCreator(UnitsTraits.Troll, level: 10)
-            .GiveWeapon(new ConstantDamageWeapon(name: "Bow", damage: 1));
+        public static readonly Monster TrollBowLv10 = new MonsterCreator(UnitsTraits.Troll, level: 10);
         public static readonly Monster VolcanoLv11 = new MonsterCreator(UnitsTraits.Volcano, level: 11);
         public static readonly Monster GriffonLv12 = new MonsterCreator(UnitsTraits.Griffon, level: 12);
         public static readonly Monster KrakenLv13 = new MonsterCreator(UnitsTraits.Kraken, level: 13);
         public static readonly Monster NyuelLv14 = new MonsterCreator(UnitsTraits.Nyuel, level: 14);
         public static readonly Monster GarudaLv16 = new MonsterCreator(UnitsTraits.Garuda, level: 16);
-        public static readonly Monster TrollSwordLv15 = new MonsterCreator(UnitsTraits.Troll, level: 15)
-            .GiveWeapon(new ConstantDamageWeapon(name: "Sword", damage: 8, ignoresShield: true));
+        public static readonly Monster TrollSwordLv15 = new MonsterCreator(UnitsTraits.Troll, level: 15);
         public static readonly Monster BarongLv20 = new MonsterCreator(UnitsTraits.Barong, level: 20);
         public static readonly Monster ManoevaLv15 = new MonsterCreator(UnitsTraits.Manoeva, level: 15);
         public static readonly Monster PicketLv17 = new MonsterCreator(UnitsTraits.Picket, level: 17);
@@ -1236,13 +1250,11 @@
         public static readonly Monster SnowmanLv25 = new MonsterCreator(UnitsTraits.Snowman, level: 25);
         public static readonly Monster ManoevaLv25 = new MonsterCreator(UnitsTraits.Manoeva, level: 25);
         public static readonly Monster NaplassLv27 = new MonsterCreator(UnitsTraits.Naplass, level: 27);
-        public static readonly Monster KillerLv28 = new MonsterCreator(UnitsTraits.Killer, level: 28)
-            .GiveWeapon(new ConstantDamageWeapon(name: "", damage: 8));
+        public static readonly Monster KillerLv28 = new MonsterCreator(UnitsTraits.Killer, level: 28);
         public static readonly Monster TyrantLv29 = new MonsterCreator(UnitsTraits.Tyrant, level: 29);
         public static readonly Monster DragonLv29 = new MonsterCreator(UnitsTraits.Dragon, level: 29);
         public static readonly Monster GlacierLv30 = new MonsterCreator(UnitsTraits.Glacier, level: 30);
-        public static readonly Monster GolemLv30 = new MonsterCreator(UnitsTraits.Golem, level: 30)
-            .GiveWeapon(new ConstantDamageWeapon(name: "", damage: 4));
+        public static readonly Monster GolemLv30 = new MonsterCreator(UnitsTraits.Golem, level: 30);
         public static readonly Monster MaximumLv30 = new MonsterCreator(UnitsTraits.Maximum, level: 30);
 
         public static readonly Monster[][] PerFloor = {

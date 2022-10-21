@@ -60,13 +60,28 @@ namespace AzureDreamsDamageCalculator
         private Familiar familiar;
         private Monster monster;
         private Spell kohSpell;
+        private event EventHandler AboutToBeClosed;
 
         public MonsterControl()
         {
             InitializeComponent();
             PrepareGenusDescriptors();
             CreateDamageTextBoxes();
+            closeButton.Visible = false;
+            closeButton.Click += CloseButton_Click;
         }
+        public void MakeClosable(EventHandler closeEventHandler)
+        {
+            closeButton.Visible = true;
+            AboutToBeClosed += closeEventHandler;
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            AboutToBeClosed(this, EventArgs.Empty);
+            Dispose();
+        }
+
         private void PrepareGenusDescriptors()
         {
             fireGenusDescriptor = new GenusDescriptor()
@@ -147,11 +162,15 @@ namespace AzureDreamsDamageCalculator
         { damageGridView.ClearSelection(); }
         public void Fill(Unit koh, Familiar familiar, Monster monster, Spell kohSpell, bool useNativeGenus)
         {
-            this.koh = koh;
-            this.familiar = familiar;
             Genus genus = (useNativeGenus | this.monster == null) ? monster.Genus : this.monster.Genus;
             this.monster = monster.Copy();
             this.monster.Genus = genus;
+            Fill(koh, familiar, kohSpell);
+        }
+        public void Fill(Unit koh, Familiar familiar, Spell kohSpell)
+        {
+            this.koh = koh;
+            this.familiar = familiar;
             this.kohSpell = kohSpell;
             Fill();
         }
@@ -165,7 +184,16 @@ namespace AzureDreamsDamageCalculator
             mpTextBox.Text = monster.MP.ToString();
             attackTextBox.Text = monster.Stats.Attack.ToString();
             defenseTextBox.Text = monster.Stats.Defense.ToString();
+            uint exp = monster.Stats.Exp;
+            if (koh.Level < monster.Level)
+            { exp *= 2; }
+            expTextBox.Text = exp.ToString();
             weaponTextBox.Text = monster.Weapon.Name;
+            uint weaponDamage = monster.Weapon.WeaponDamage();
+            if (weaponDamage > 0)
+            { weaponAtkTextBox.Text = weaponDamage.ToString(); }
+            else
+            { weaponAtkTextBox.Text = ""; }
             liftableCheckBox.Checked = monster.Traits.Liftable;
             pushableCheckBox.Checked = monster.Traits.Pushable;
             foreach (Descriptor descriptor in descriptors)
